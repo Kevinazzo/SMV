@@ -18,7 +18,6 @@ namespace WinForms
 		{
 			InitializeComponent();
 		}
-
 		#region Variables
 
 		public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -38,26 +37,46 @@ namespace WinForms
 			if (txtbox_tab2_nombreUsuario.Text.Length == (0) || txtbox_tab2_nombreUsuario.Text.Length < 0x4)
 			{
 				lbl_tab2_nombreUsuario.ForeColor = Color.Red;
+				lbl_tab2_contraseña.ForeColor = Color.White;
+				lbl_tab2_confirmarcontra.ForeColor = Color.White;
+				lbl_tab2_nombres.ForeColor = Color.White;
+				lbl_tab2_apellidos.ForeColor = Color.White;
 				return false;
 			}//Name TextBox is empty
 			else if (txtbox_tab2_nombres.Text.Length == 0 || txtbox_tab2_nombres.Text.Length < 0x2)
 			{
 				lbl_tab2_nombres.ForeColor = Color.Red;
+				lbl_tab2_nombreUsuario.ForeColor = Color.White;
+				lbl_tab2_contraseña.ForeColor = Color.White;
+				lbl_tab2_confirmarcontra.ForeColor = Color.White;
+				lbl_tab2_apellidos.ForeColor = Color.White;
 				return false;
 			}// Last Name textbox is empty
 			else if (txtbox_tab2_apellidos.Text.Length == 0 || txtbox_tab2_apellidos.Text.Length < 0x4)
 			{
 				lbl_tab2_apellidos.ForeColor = Color.Red;
+				lbl_tab2_nombreUsuario.ForeColor = Color.White;
+				lbl_tab2_contraseña.ForeColor = Color.White;
+				lbl_tab2_confirmarcontra.ForeColor = Color.White;
+				lbl_tab2_nombres.ForeColor = Color.White;
 				return false;
 			}//Password textbox is empty
-			else if (txtbox_tab2_contraseña.Text.Length == 0 || txtbox_tab2_contraseña.Text.Length < 0x6)
+			else if (txtbox_tab2_contraseña.Text.Length == 0 || txtbox_tab2_contraseña.Text.Length < 0x4)
 			{
 				lbl_tab2_contraseña.ForeColor = Color.Red;
+				lbl_tab2_nombreUsuario.ForeColor = Color.White;
+				lbl_tab2_confirmarcontra.ForeColor = Color.White;
+				lbl_tab2_nombres.ForeColor = Color.White;
+				lbl_tab2_apellidos.ForeColor = Color.White;
 				return false;
 			}//confirm password textbox is empty
 			else if (txtbox_tab2_conficontraseña.Text != txtbox_tab2_contraseña.Text)
 			{
 				lbl_tab2_confirmarcontra.ForeColor = Color.Red;
+				lbl_tab2_nombreUsuario.ForeColor = Color.White;
+				lbl_tab2_contraseña.ForeColor = Color.White;
+				lbl_tab2_nombres.ForeColor = Color.White;
+				lbl_tab2_apellidos.ForeColor = Color.White;
 				return false;
 			}
 			else
@@ -71,6 +90,25 @@ namespace WinForms
 			}
 		}
 		#endregion
+		#region pswMatch
+		private void tmr_psw_Tick(object sender, EventArgs e)
+		{
+			if ((txtbox_tab2_contraseña.Text.Length == 0 && txtbox_tab2_conficontraseña.Text.Length == 0))
+			{
+				lbl_tab2_pswMatch.Text = "";
+			}
+			else if ((txtbox_tab2_contraseña.Text == txtbox_tab2_conficontraseña.Text))
+			{
+				lbl_tab2_pswMatch.Text = "Las contraselas coinciden:)";
+				lbl_tab2_pswMatch.ForeColor = Color.Green;
+			}
+			else
+			{
+				lbl_tab2_pswMatch.Text = "Las contraseñas no coinciden:(";
+				lbl_tab2_pswMatch.ForeColor = Color.Red;
+			}
+		}
+		#endregion
 
 		public void cleanTab2Txtbox()
 		{
@@ -81,7 +119,6 @@ namespace WinForms
 			txtbox_tab2_nombres.Text = "";
 			txtbox_tab2_nombreUsuario.Text = "";
 		}
-
 		public void changeColorTab2Labels()
 		{
 			lbl_tab2_apellidos.ForeColor = Color.White;
@@ -90,6 +127,7 @@ namespace WinForms
 			lbl_tab2_nombres.ForeColor = Color.White;
 			lbl_tab2_nombreUsuario.ForeColor = Color.White;
 		}
+
 		#endregion
 
 		#region Events
@@ -129,31 +167,19 @@ namespace WinForms
 		{
 			tabControl.SelectedTab = tab1_login;
 			txtbox_contraseña.Text = "";
+			changeColorTab2Labels();
+			tmr_psw.Enabled = false;
 		}
 		private void flatClose1_Click(object sender, EventArgs e)
 		{
 			this.Close();
 		}
-		private void tmr_psw_Tick(object sender, EventArgs e)
-		{
-			if ((txtbox_tab2_contraseña.Text.Length == 0 && txtbox_tab2_conficontraseña.Text.Length == 0))
-			{
-				lbl_tab2_pswMatch.Text = "";
-			}
-			else if ((txtbox_tab2_contraseña.Text == txtbox_tab2_conficontraseña.Text))
-			{
-				lbl_tab2_pswMatch.Text = "Las contraselas coinciden:)";
-				lbl_tab2_pswMatch.ForeColor = Color.Green;
-			}
-			else
-			{
-				lbl_tab2_pswMatch.Text = "Las contraseñas no coinciden:(";
-				lbl_tab2_pswMatch.ForeColor = Color.Red;
-			}
-		}
 		private void btn_tab2_aceptar_Click(object sender, EventArgs e)
 		{
-
+			if (signInFormEmptyField())
+			{
+				MessageBox.Show("correcto");
+			}
 		}
 
 

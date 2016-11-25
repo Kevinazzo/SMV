@@ -152,6 +152,7 @@
 			this.flatMini1.Name = "flatMini1";
 			this.flatMini1.Size = new System.Drawing.Size(18, 18);
 			this.flatMini1.TabIndex = 2;
+			this.flatMini1.TabStop = false;
 			this.flatMini1.Text = "flatMini1";
 			this.flatMini1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
 			// 
@@ -165,6 +166,7 @@
 			this.flatClose1.Name = "flatClose1";
 			this.flatClose1.Size = new System.Drawing.Size(18, 18);
 			this.flatClose1.TabIndex = 1;
+			this.flatClose1.TabStop = false;
 			this.flatClose1.Text = "flatClose1";
 			this.flatClose1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
 			this.flatClose1.Click += new System.EventHandler(this.flatClose1_Click);
@@ -363,7 +365,7 @@
 			this.txtbox_tab2_email.Name = "txtbox_tab2_email";
 			this.txtbox_tab2_email.ReadOnly = false;
 			this.txtbox_tab2_email.Size = new System.Drawing.Size(219, 29);
-			this.txtbox_tab2_email.TabIndex = 17;
+			this.txtbox_tab2_email.TabIndex = 6;
 			this.txtbox_tab2_email.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.txtbox_tab2_email.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
 			this.txtbox_tab2_email.UseSystemPasswordChar = false;
@@ -377,7 +379,7 @@
 			this.lbl_tab2_email.Location = new System.Drawing.Point(39, 325);
 			this.lbl_tab2_email.Name = "lbl_tab2_email";
 			this.lbl_tab2_email.Size = new System.Drawing.Size(167, 13);
-			this.lbl_tab2_email.TabIndex = 16;
+			this.lbl_tab2_email.TabIndex = 0;
 			this.lbl_tab2_email.Text = "Direccion de correo electronico";
 			// 
 			// lbl_tab2_dejeseBlanco
@@ -389,7 +391,7 @@
 			this.lbl_tab2_dejeseBlanco.Location = new System.Drawing.Point(215, 193);
 			this.lbl_tab2_dejeseBlanco.Name = "lbl_tab2_dejeseBlanco";
 			this.lbl_tab2_dejeseBlanco.Size = new System.Drawing.Size(212, 13);
-			this.lbl_tab2_dejeseBlanco.TabIndex = 15;
+			this.lbl_tab2_dejeseBlanco.TabIndex = 0;
 			this.lbl_tab2_dejeseBlanco.Text = "*Dejese en blanco sino cuenta con uno ";
 			// 
 			// btn_tab2_cancelar
@@ -402,7 +404,7 @@
 			this.btn_tab2_cancelar.Name = "btn_tab2_cancelar";
 			this.btn_tab2_cancelar.Rounded = false;
 			this.btn_tab2_cancelar.Size = new System.Drawing.Size(106, 32);
-			this.btn_tab2_cancelar.TabIndex = 14;
+			this.btn_tab2_cancelar.TabIndex = 9;
 			this.btn_tab2_cancelar.Text = "Cancelar ";
 			this.btn_tab2_cancelar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
 			this.btn_tab2_cancelar.Click += new System.EventHandler(this.btn_tab2_cancelar_Click);
@@ -417,7 +419,7 @@
 			this.btn_tab2_aceptar.Name = "btn_tab2_aceptar";
 			this.btn_tab2_aceptar.Rounded = false;
 			this.btn_tab2_aceptar.Size = new System.Drawing.Size(106, 32);
-			this.btn_tab2_aceptar.TabIndex = 13;
+			this.btn_tab2_aceptar.TabIndex = 8;
 			this.btn_tab2_aceptar.Text = "Aceptar ";
 			this.btn_tab2_aceptar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
 			this.btn_tab2_aceptar.Click += new System.EventHandler(this.btn_tab2_aceptar_Click);
@@ -432,7 +434,7 @@
 			this.txtbox_tab2_conficontraseña.Name = "txtbox_tab2_conficontraseña";
 			this.txtbox_tab2_conficontraseña.ReadOnly = false;
 			this.txtbox_tab2_conficontraseña.Size = new System.Drawing.Size(219, 29);
-			this.txtbox_tab2_conficontraseña.TabIndex = 12;
+			this.txtbox_tab2_conficontraseña.TabIndex = 5;
 			this.txtbox_tab2_conficontraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.txtbox_tab2_conficontraseña.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
 			this.txtbox_tab2_conficontraseña.UseSystemPasswordChar = false;
@@ -446,7 +448,7 @@
 			this.lbl_tab2_confirmarcontra.Location = new System.Drawing.Point(39, 273);
 			this.lbl_tab2_confirmarcontra.Name = "lbl_tab2_confirmarcontra";
 			this.lbl_tab2_confirmarcontra.Size = new System.Drawing.Size(121, 13);
-			this.lbl_tab2_confirmarcontra.TabIndex = 11;
+			this.lbl_tab2_confirmarcontra.TabIndex = 0;
 			this.lbl_tab2_confirmarcontra.Text = "Confirmar contraseña ";
 			// 
 			// txtbox_tab2_contraseña
@@ -459,7 +461,7 @@
 			this.txtbox_tab2_contraseña.Name = "txtbox_tab2_contraseña";
 			this.txtbox_tab2_contraseña.ReadOnly = false;
 			this.txtbox_tab2_contraseña.Size = new System.Drawing.Size(219, 29);
-			this.txtbox_tab2_contraseña.TabIndex = 10;
+			this.txtbox_tab2_contraseña.TabIndex = 4;
 			this.txtbox_tab2_contraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.txtbox_tab2_contraseña.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
 			this.txtbox_tab2_contraseña.UseSystemPasswordChar = false;
@@ -473,7 +475,7 @@
 			this.lbl_tab2_contraseña.Location = new System.Drawing.Point(39, 225);
 			this.lbl_tab2_contraseña.Name = "lbl_tab2_contraseña";
 			this.lbl_tab2_contraseña.Size = new System.Drawing.Size(64, 13);
-			this.lbl_tab2_contraseña.TabIndex = 9;
+			this.lbl_tab2_contraseña.TabIndex = 0;
 			this.lbl_tab2_contraseña.Text = "Contraeña ";
 			// 
 			// txtbox_tab2_codigo
@@ -486,7 +488,7 @@
 			this.txtbox_tab2_codigo.Name = "txtbox_tab2_codigo";
 			this.txtbox_tab2_codigo.ReadOnly = false;
 			this.txtbox_tab2_codigo.Size = new System.Drawing.Size(173, 29);
-			this.txtbox_tab2_codigo.TabIndex = 8;
+			this.txtbox_tab2_codigo.TabIndex = 3;
 			this.txtbox_tab2_codigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.txtbox_tab2_codigo.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
 			this.txtbox_tab2_codigo.UseSystemPasswordChar = false;
@@ -500,7 +502,7 @@
 			this.lbl_tab2_codigoDocente.Location = new System.Drawing.Point(39, 177);
 			this.lbl_tab2_codigoDocente.Name = "lbl_tab2_codigoDocente";
 			this.lbl_tab2_codigoDocente.Size = new System.Drawing.Size(109, 13);
-			this.lbl_tab2_codigoDocente.TabIndex = 7;
+			this.lbl_tab2_codigoDocente.TabIndex = 0;
 			this.lbl_tab2_codigoDocente.Text = "Codigo de docente ";
 			// 
 			// txtbox_tab2_apellidos
@@ -513,7 +515,7 @@
 			this.txtbox_tab2_apellidos.Name = "txtbox_tab2_apellidos";
 			this.txtbox_tab2_apellidos.ReadOnly = false;
 			this.txtbox_tab2_apellidos.Size = new System.Drawing.Size(235, 29);
-			this.txtbox_tab2_apellidos.TabIndex = 6;
+			this.txtbox_tab2_apellidos.TabIndex = 7;
 			this.txtbox_tab2_apellidos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.txtbox_tab2_apellidos.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
 			this.txtbox_tab2_apellidos.UseSystemPasswordChar = false;
@@ -527,7 +529,7 @@
 			this.lbl_tab2_apellidos.Location = new System.Drawing.Point(212, 129);
 			this.lbl_tab2_apellidos.Name = "lbl_tab2_apellidos";
 			this.lbl_tab2_apellidos.Size = new System.Drawing.Size(55, 13);
-			this.lbl_tab2_apellidos.TabIndex = 5;
+			this.lbl_tab2_apellidos.TabIndex = 0;
 			this.lbl_tab2_apellidos.Text = "Apellidos";
 			// 
 			// lbl_tab2_nombres
@@ -539,7 +541,7 @@
 			this.lbl_tab2_nombres.Location = new System.Drawing.Point(36, 129);
 			this.lbl_tab2_nombres.Name = "lbl_tab2_nombres";
 			this.lbl_tab2_nombres.Size = new System.Drawing.Size(56, 13);
-			this.lbl_tab2_nombres.TabIndex = 4;
+			this.lbl_tab2_nombres.TabIndex = 0;
 			this.lbl_tab2_nombres.Text = "Nombres ";
 			// 
 			// txtbox_tab2_nombres
@@ -552,7 +554,7 @@
 			this.txtbox_tab2_nombres.Name = "txtbox_tab2_nombres";
 			this.txtbox_tab2_nombres.ReadOnly = false;
 			this.txtbox_tab2_nombres.Size = new System.Drawing.Size(162, 29);
-			this.txtbox_tab2_nombres.TabIndex = 3;
+			this.txtbox_tab2_nombres.TabIndex = 2;
 			this.txtbox_tab2_nombres.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.txtbox_tab2_nombres.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
 			this.txtbox_tab2_nombres.UseSystemPasswordChar = false;
@@ -566,7 +568,7 @@
 			this.lbl_tab2_registro.Location = new System.Drawing.Point(36, 24);
 			this.lbl_tab2_registro.Name = "lbl_tab2_registro";
 			this.lbl_tab2_registro.Size = new System.Drawing.Size(115, 37);
-			this.lbl_tab2_registro.TabIndex = 2;
+			this.lbl_tab2_registro.TabIndex = 0;
 			this.lbl_tab2_registro.Text = "Registro";
 			// 
 			// txtbox_tab2_nombreUsuario
@@ -1255,7 +1257,7 @@
 			this.iTalk_Label1.Location = new System.Drawing.Point(212, 81);
 			this.iTalk_Label1.Name = "iTalk_Label1";
 			this.iTalk_Label1.Size = new System.Drawing.Size(111, 13);
-			this.iTalk_Label1.TabIndex = 18;
+			this.iTalk_Label1.TabIndex = 0;
 			this.iTalk_Label1.Text = "25 carateres Maximo";
 			// 
 			// lbl_tab2_pswMatch
@@ -1275,7 +1277,7 @@
 			this.iTalk_Label2.Location = new System.Drawing.Point(266, 241);
 			this.iTalk_Label2.Name = "iTalk_Label2";
 			this.iTalk_Label2.Size = new System.Drawing.Size(116, 13);
-			this.iTalk_Label2.TabIndex = 20;
+			this.iTalk_Label2.TabIndex = 0;
 			this.iTalk_Label2.Text = "32 caracteres Maximo";
 			// 
 			// tmr_psw
