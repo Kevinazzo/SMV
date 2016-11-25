@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace BusinessLogic
 {
@@ -18,8 +19,26 @@ namespace BusinessLogic
 
 		#region toDataAccessLayer
 
+		#region connectToDB
+		public static void connectToDB()
+		{
+			DataAccessLayer.Context.connection.Open();
+		}
 		#endregion
-		
+
+		public static bool DALVerifyNewUser(string userName)
+		{
+			if (DataAccessLayer.Context.verifyuserToIns(userName))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		#endregion
+
 		#region frameNav
 
 
@@ -42,10 +61,6 @@ namespace BusinessLogic
 		}
 
 		#endregion
-		public static void connectToDB()
-		{
-			DataAccessLayer.Context.connection.Open();
-		}
 
 
 		#endregion

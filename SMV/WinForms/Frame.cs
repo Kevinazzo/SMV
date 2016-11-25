@@ -178,11 +178,14 @@ namespace WinForms
 		{
 			if (signInFormEmptyField())
 			{
-				MessageBox.Show("correcto");
+				if (true)
+				{
+					tabControl.SelectedTab = tab1_login;
+					cleanTab2Txtbox();
+					MessageBox.Show("correcto");
+				}
 			}
 		}
-
-
 		#endregion
 
 
