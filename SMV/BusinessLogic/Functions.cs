@@ -62,7 +62,10 @@ namespace BusinessLogic
 
 		#endregion
 
-
+		public static string metodoPrueba2(string a)
+		{
+			return "a";
+		}
 		#endregion
 	}
 }
