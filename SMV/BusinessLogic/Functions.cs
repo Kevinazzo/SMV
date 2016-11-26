@@ -61,7 +61,10 @@ namespace BusinessLogic
 		}
 
 		#endregion
+		 public static void metodoPrueba1()
+		{
 
+		}
 
 		#endregion
 	}
