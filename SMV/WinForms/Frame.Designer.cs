@@ -43,6 +43,9 @@
 			this.txtbox_contraseña = new FlatUI.FlatTextBox();
 			this.txtbox_usuario = new FlatUI.FlatTextBox();
 			this.tab2_registro = new System.Windows.Forms.TabPage();
+			this.iTalk_Label2 = new iTalk.iTalk_Label();
+			this.lbl_tab2_pswMatch = new System.Windows.Forms.Label();
+			this.iTalk_Label1 = new iTalk.iTalk_Label();
 			this.txtbox_tab2_email = new FlatUI.FlatTextBox();
 			this.lbl_tab2_email = new FlatUI.FlatLabel();
 			this.lbl_tab2_dejeseBlanco = new FlatUI.FlatLabel();
@@ -110,9 +113,6 @@
 			this.btn_tab6_regresar = new FlatUI.FlatButton();
 			this.lbl_tab6_listagrupos = new FlatUI.FlatLabel();
 			this.tab7_Docente_OpcionesDeCurso = new System.Windows.Forms.TabPage();
-			this.iTalk_Label1 = new iTalk.iTalk_Label();
-			this.lbl_tab2_pswMatch = new System.Windows.Forms.Label();
-			this.iTalk_Label2 = new iTalk.iTalk_Label();
 			this.tmr_psw = new System.Windows.Forms.Timer(this.components);
 			this.pnl_header.SuspendLayout();
 			this.pnl_body.SuspendLayout();
@@ -231,6 +231,7 @@
 			this.tab1_login.Size = new System.Drawing.Size(532, 440);
 			this.tab1_login.TabIndex = 0;
 			this.tab1_login.Text = "tabPage3";
+			this.tab1_login.Click += new System.EventHandler(this.tab1_login_Click);
 			// 
 			// llb_CrearCuenta
 			// 
@@ -354,6 +355,38 @@
 			this.tab2_registro.Size = new System.Drawing.Size(532, 440);
 			this.tab2_registro.TabIndex = 1;
 			this.tab2_registro.Text = "tabPage1";
+			// 
+			// iTalk_Label2
+			// 
+			this.iTalk_Label2.AutoSize = true;
+			this.iTalk_Label2.BackColor = System.Drawing.Color.Transparent;
+			this.iTalk_Label2.Font = new System.Drawing.Font("Segoe UI", 8F);
+			this.iTalk_Label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+			this.iTalk_Label2.Location = new System.Drawing.Point(266, 241);
+			this.iTalk_Label2.Name = "iTalk_Label2";
+			this.iTalk_Label2.Size = new System.Drawing.Size(116, 13);
+			this.iTalk_Label2.TabIndex = 0;
+			this.iTalk_Label2.Text = "32 caracteres Maximo";
+			// 
+			// lbl_tab2_pswMatch
+			// 
+			this.lbl_tab2_pswMatch.AutoSize = true;
+			this.lbl_tab2_pswMatch.Location = new System.Drawing.Point(265, 289);
+			this.lbl_tab2_pswMatch.Name = "lbl_tab2_pswMatch";
+			this.lbl_tab2_pswMatch.Size = new System.Drawing.Size(0, 19);
+			this.lbl_tab2_pswMatch.TabIndex = 19;
+			// 
+			// iTalk_Label1
+			// 
+			this.iTalk_Label1.AutoSize = true;
+			this.iTalk_Label1.BackColor = System.Drawing.Color.Transparent;
+			this.iTalk_Label1.Font = new System.Drawing.Font("Segoe UI", 8F);
+			this.iTalk_Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+			this.iTalk_Label1.Location = new System.Drawing.Point(212, 81);
+			this.iTalk_Label1.Name = "iTalk_Label1";
+			this.iTalk_Label1.Size = new System.Drawing.Size(111, 13);
+			this.iTalk_Label1.TabIndex = 0;
+			this.iTalk_Label1.Text = "25 carateres Maximo";
 			// 
 			// txtbox_tab2_email
 			// 
@@ -567,7 +600,7 @@
 			this.lbl_tab2_registro.ForeColor = System.Drawing.Color.White;
 			this.lbl_tab2_registro.Location = new System.Drawing.Point(36, 24);
 			this.lbl_tab2_registro.Name = "lbl_tab2_registro";
-			this.lbl_tab2_registro.Size = new System.Drawing.Size(115, 37);
+			this.lbl_tab2_registro.Size = new System.Drawing.Size(114, 37);
 			this.lbl_tab2_registro.TabIndex = 0;
 			this.lbl_tab2_registro.Text = "Registro";
 			// 
@@ -686,7 +719,7 @@
 			this.lbl_tab3_Studenname.ForeColor = System.Drawing.SystemColors.ButtonFace;
 			this.lbl_tab3_Studenname.Location = new System.Drawing.Point(30, 32);
 			this.lbl_tab3_Studenname.Name = "lbl_tab3_Studenname";
-			this.lbl_tab3_Studenname.Size = new System.Drawing.Size(200, 32);
+			this.lbl_tab3_Studenname.Size = new System.Drawing.Size(199, 32);
 			this.lbl_tab3_Studenname.TabIndex = 8;
 			this.lbl_tab3_Studenname.Text = "Student Name---";
 			// 
@@ -979,7 +1012,7 @@
 			this.lbl_tab4_AlumnosVuln.ForeColor = System.Drawing.Color.Red;
 			this.lbl_tab4_AlumnosVuln.Location = new System.Drawing.Point(194, 183);
 			this.lbl_tab4_AlumnosVuln.Name = "lbl_tab4_AlumnosVuln";
-			this.lbl_tab4_AlumnosVuln.Size = new System.Drawing.Size(215, 30);
+			this.lbl_tab4_AlumnosVuln.Size = new System.Drawing.Size(214, 30);
 			this.lbl_tab4_AlumnosVuln.TabIndex = 2;
 			this.lbl_tab4_AlumnosVuln.Text = "Alumnos Vulnerables ";
 			// 
@@ -1247,38 +1280,6 @@
 			this.tab7_Docente_OpcionesDeCurso.Size = new System.Drawing.Size(532, 440);
 			this.tab7_Docente_OpcionesDeCurso.TabIndex = 9;
 			this.tab7_Docente_OpcionesDeCurso.Text = "tabPage1";
-			// 
-			// iTalk_Label1
-			// 
-			this.iTalk_Label1.AutoSize = true;
-			this.iTalk_Label1.BackColor = System.Drawing.Color.Transparent;
-			this.iTalk_Label1.Font = new System.Drawing.Font("Segoe UI", 8F);
-			this.iTalk_Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-			this.iTalk_Label1.Location = new System.Drawing.Point(212, 81);
-			this.iTalk_Label1.Name = "iTalk_Label1";
-			this.iTalk_Label1.Size = new System.Drawing.Size(111, 13);
-			this.iTalk_Label1.TabIndex = 0;
-			this.iTalk_Label1.Text = "25 carateres Maximo";
-			// 
-			// lbl_tab2_pswMatch
-			// 
-			this.lbl_tab2_pswMatch.AutoSize = true;
-			this.lbl_tab2_pswMatch.Location = new System.Drawing.Point(265, 289);
-			this.lbl_tab2_pswMatch.Name = "lbl_tab2_pswMatch";
-			this.lbl_tab2_pswMatch.Size = new System.Drawing.Size(0, 19);
-			this.lbl_tab2_pswMatch.TabIndex = 19;
-			// 
-			// iTalk_Label2
-			// 
-			this.iTalk_Label2.AutoSize = true;
-			this.iTalk_Label2.BackColor = System.Drawing.Color.Transparent;
-			this.iTalk_Label2.Font = new System.Drawing.Font("Segoe UI", 8F);
-			this.iTalk_Label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-			this.iTalk_Label2.Location = new System.Drawing.Point(266, 241);
-			this.iTalk_Label2.Name = "iTalk_Label2";
-			this.iTalk_Label2.Size = new System.Drawing.Size(116, 13);
-			this.iTalk_Label2.TabIndex = 0;
-			this.iTalk_Label2.Text = "32 caracteres Maximo";
 			// 
 			// tmr_psw
 			// 

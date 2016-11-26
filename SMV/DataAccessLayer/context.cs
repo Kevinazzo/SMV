@@ -10,13 +10,12 @@ namespace DataAccessLayer
 	public static class Context
 	{
 
-		#region connectionData
+		#region variablesAndObjects
 		public static MySqlCommand command;
 		public static string promptPassword;
 		public static MySqlDataReader reader;
 		private static string connectionString = "server=localhost; uid=root;" + "pwd="+promptPassword+"; database=smv;";
 		public static MySqlConnection connection = new MySqlConnection(connectionString);
-
 		public static BusinessEntities.user currentSession = new BusinessEntities.user();
 		
 		public static List<string> userList = new List<string>();
@@ -24,9 +23,11 @@ namespace DataAccessLayer
 		#endregion
 
 		#region Querys
-		public static void INSERTINTOuser()
+		public static void INSERTINTOuser(string userName,string name,string lastName,string pwd,string code)
 		{
-
+			string query = "INSERT INTO user values('"+userName+"','"+name+"','"+lastName+"','"+pwd+ "','"+code+"');";
+			command = new MySqlCommand(query, connection);
+			command.ExecuteNonQuery();
 		}
 		public static bool verifyuserToIns(string param1)
 		{

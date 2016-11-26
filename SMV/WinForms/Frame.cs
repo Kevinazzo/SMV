@@ -186,8 +186,12 @@ namespace WinForms
 				}
 			}
 		}
+
 		#endregion
 
+		private void tab1_login_Click(object sender, EventArgs e)
+		{
 
+		}
 	}
 }
