@@ -8,5 +8,10 @@ namespace BusinessEntities
 {
 	public class masterList
 	{
+		public masterList() { }
+		public List<string> userName = new List<string>();
+		public List<int> ID = new List<int>();
+		public List<float>[] cals = new List<float>[6];
+
 	}
 }

@@ -25,8 +25,9 @@ namespace BusinessLogic
 			DataAccessLayer.Context.connection.Open();
 		}
 		#endregion
-
-		public static bool DALVerifyNewUser(string userName)
+		#region DataValidation
+		#region registerUser
+		public static bool VerifyExistingUserToIns(string userName)
 		{
 			if (DataAccessLayer.Context.verifyuserToIns(userName))
 			{
@@ -37,18 +38,16 @@ namespace BusinessLogic
 				return false;
 			}
 		}
+		public static bool verifyCode(string code)
+		{
+			if (true)
+			{
+				return true;
+			}
+		}
 		#endregion
-
-		#region frameNav
-
-
-
-		#endregion
-
-		#region logic
-
-		#region emptyTextfields
-		public static bool loginEmptyFields(string param1, string param2)
+		#region logIn
+		public static bool verifyUserDataTologIn(string paramUsr, string paramPsw)
 		{
 			if (true)
 			{
@@ -56,17 +55,41 @@ namespace BusinessLogic
 			}
 			else
 			{
-				return false;
+
 			}
 		}
+		#endregion
 
 		#endregion
-		 public static void metodoPrueba1()
-		{
 
-		public static string metodoPrueba2(string a)
+		#endregion
+
+		#region logic
+
+		#region emptyTextfields
+		public static bool logInEmptyFields(string param1, string param2)
 		{
-			return "a";
+			if ((param1.Length == 0x0) || (param2.Length == 0x0))
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		#endregion
+
+		private static void createAccount(string Usr, string name, string LName, string pwd, string code)
+		{
+			DataAccessLayer.Context.INSERTINTOuser(Usr, name, LName, pwd, code);
+		}
+		private static void logIn(string usr, string psw)
+		{
+			if (DataAccessLayer.Context.VerifyUserToLogIn(usr))
+			{
+
+			}
 		}
 		#endregion
 	}

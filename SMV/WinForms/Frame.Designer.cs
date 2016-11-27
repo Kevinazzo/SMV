@@ -34,11 +34,12 @@
 			this.flatLabel3 = new FlatUI.FlatLabel();
 			this.pnl_body = new System.Windows.Forms.Panel();
 			this.tabControl = new FlatUI.FlatTabControl();
+			this.tab0_Startup = new System.Windows.Forms.TabPage();
 			this.tab1_login = new System.Windows.Forms.TabPage();
 			this.llb_CrearCuenta = new System.Windows.Forms.LinkLabel();
 			this.flatLabel4 = new FlatUI.FlatLabel();
 			this.trash_lblContraseña = new FlatUI.FlatLabel();
-			this.txtbox_lblUsuario = new FlatUI.FlatLabel();
+			this.lbl_Usuario = new FlatUI.FlatLabel();
 			this.btn_ingresar = new FlatUI.FlatButton();
 			this.txtbox_contraseña = new FlatUI.FlatTextBox();
 			this.txtbox_usuario = new FlatUI.FlatTextBox();
@@ -114,6 +115,7 @@
 			this.lbl_tab6_listagrupos = new FlatUI.FlatLabel();
 			this.tab7_Docente_OpcionesDeCurso = new System.Windows.Forms.TabPage();
 			this.tmr_psw = new System.Windows.Forms.Timer(this.components);
+			this.flatButton1 = new FlatUI.FlatButton();
 			this.pnl_header.SuspendLayout();
 			this.pnl_body.SuspendLayout();
 			this.tabControl.SuspendLayout();
@@ -207,6 +209,7 @@
 			this.tabControl.Controls.Add(this.tab5_Docente_CrearCurso);
 			this.tabControl.Controls.Add(this.tab6_Docente_CursoLista);
 			this.tabControl.Controls.Add(this.tab7_Docente_OpcionesDeCurso);
+			this.tabControl.Controls.Add(this.tab0_Startup);
 			this.tabControl.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.tabControl.ItemSize = new System.Drawing.Size(120, 40);
 			this.tabControl.Location = new System.Drawing.Point(0, -44);
@@ -216,13 +219,23 @@
 			this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
 			this.tabControl.TabIndex = 0;
 			// 
+			// tab0_Startup
+			// 
+			this.tab0_Startup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+			this.tab0_Startup.Location = new System.Drawing.Point(4, 44);
+			this.tab0_Startup.Name = "tab0_Startup";
+			this.tab0_Startup.Size = new System.Drawing.Size(532, 440);
+			this.tab0_Startup.TabIndex = 10;
+			this.tab0_Startup.Text = "tabPage1";
+			// 
 			// tab1_login
 			// 
 			this.tab1_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+			this.tab1_login.Controls.Add(this.flatButton1);
 			this.tab1_login.Controls.Add(this.llb_CrearCuenta);
 			this.tab1_login.Controls.Add(this.flatLabel4);
 			this.tab1_login.Controls.Add(this.trash_lblContraseña);
-			this.tab1_login.Controls.Add(this.txtbox_lblUsuario);
+			this.tab1_login.Controls.Add(this.lbl_Usuario);
 			this.tab1_login.Controls.Add(this.btn_ingresar);
 			this.tab1_login.Controls.Add(this.txtbox_contraseña);
 			this.tab1_login.Controls.Add(this.txtbox_usuario);
@@ -231,7 +244,6 @@
 			this.tab1_login.Size = new System.Drawing.Size(532, 440);
 			this.tab1_login.TabIndex = 0;
 			this.tab1_login.Text = "tabPage3";
-			this.tab1_login.Click += new System.EventHandler(this.tab1_login_Click);
 			// 
 			// llb_CrearCuenta
 			// 
@@ -270,17 +282,17 @@
 			this.trash_lblContraseña.TabIndex = 5;
 			this.trash_lblContraseña.Text = "Contraseña";
 			// 
-			// txtbox_lblUsuario
+			// lbl_Usuario
 			// 
-			this.txtbox_lblUsuario.AutoSize = true;
-			this.txtbox_lblUsuario.BackColor = System.Drawing.Color.Transparent;
-			this.txtbox_lblUsuario.Font = new System.Drawing.Font("Segoe UI", 8F);
-			this.txtbox_lblUsuario.ForeColor = System.Drawing.Color.White;
-			this.txtbox_lblUsuario.Location = new System.Drawing.Point(131, 141);
-			this.txtbox_lblUsuario.Name = "txtbox_lblUsuario";
-			this.txtbox_lblUsuario.Size = new System.Drawing.Size(47, 13);
-			this.txtbox_lblUsuario.TabIndex = 4;
-			this.txtbox_lblUsuario.Text = "Usuario";
+			this.lbl_Usuario.AutoSize = true;
+			this.lbl_Usuario.BackColor = System.Drawing.Color.Transparent;
+			this.lbl_Usuario.Font = new System.Drawing.Font("Segoe UI", 8F);
+			this.lbl_Usuario.ForeColor = System.Drawing.Color.White;
+			this.lbl_Usuario.Location = new System.Drawing.Point(131, 141);
+			this.lbl_Usuario.Name = "lbl_Usuario";
+			this.lbl_Usuario.Size = new System.Drawing.Size(47, 13);
+			this.lbl_Usuario.TabIndex = 4;
+			this.lbl_Usuario.Text = "Usuario";
 			// 
 			// btn_ingresar
 			// 
@@ -295,6 +307,7 @@
 			this.btn_ingresar.TabIndex = 0;
 			this.btn_ingresar.Text = "Ingresar";
 			this.btn_ingresar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			this.btn_ingresar.Click += new System.EventHandler(this.btn_ingresar_Click);
 			// 
 			// txtbox_contraseña
 			// 
@@ -1286,6 +1299,21 @@
 			this.tmr_psw.Interval = 500;
 			this.tmr_psw.Tick += new System.EventHandler(this.tmr_psw_Tick);
 			// 
+			// flatButton1
+			// 
+			this.flatButton1.BackColor = System.Drawing.Color.Transparent;
+			this.flatButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+			this.flatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.flatButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.flatButton1.Location = new System.Drawing.Point(55, 265);
+			this.flatButton1.Name = "flatButton1";
+			this.flatButton1.Rounded = false;
+			this.flatButton1.Size = new System.Drawing.Size(106, 32);
+			this.flatButton1.TabIndex = 8;
+			this.flatButton1.Text = "flatButton1";
+			this.flatButton1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			this.flatButton1.Click += new System.EventHandler(this.flatButton1_Click);
+			// 
 			// Frame
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1331,7 +1359,7 @@
 		private System.Windows.Forms.TabPage tab1_login;
 		private FlatUI.FlatLabel flatLabel3;
 		private FlatUI.FlatLabel trash_lblContraseña;
-		private FlatUI.FlatLabel txtbox_lblUsuario;
+		private FlatUI.FlatLabel lbl_Usuario;
 		private FlatUI.FlatButton btn_ingresar;
 		private FlatUI.FlatTextBox txtbox_contraseña;
 		private FlatUI.FlatTextBox txtbox_usuario;
@@ -1411,6 +1439,8 @@
 		private System.Windows.Forms.Label lbl_tab2_pswMatch;
 		private iTalk.iTalk_Label iTalk_Label1;
 		private System.Windows.Forms.Timer tmr_psw;
+		private System.Windows.Forms.TabPage tab0_Startup;
+		private FlatUI.FlatButton flatButton1;
 	}
 }
 

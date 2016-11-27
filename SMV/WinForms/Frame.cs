@@ -31,8 +31,9 @@ namespace WinForms
 
 		#region methods
 
-		#region colorChangeOnEmptySignInFields
-		private bool signInFormEmptyField()
+		#region registerTabLabelColorChange
+
+		private bool registerTabColorOnEmptyField()
 		{//Username textbox is empty
 			if (txtbox_tab2_nombreUsuario.Text.Length == (0) || txtbox_tab2_nombreUsuario.Text.Length < 0x4)
 			{
@@ -176,22 +177,46 @@ namespace WinForms
 		}
 		private void btn_tab2_aceptar_Click(object sender, EventArgs e)
 		{
-			if (signInFormEmptyField())
+			if (registerTabColorOnEmptyField())
 			{
-				if (true)
+				if (BusinessLogic.Functions.VerifyExistingUserToIns(txtbox_tab2_nombreUsuario.Text))
 				{
-					tabControl.SelectedTab = tab1_login;
-					cleanTab2Txtbox();
-					MessageBox.Show("correcto");
+
 				}
 			}
+			else
+			{
+
+			}
 		}
-
-		#endregion
-
-		private void tab1_login_Click(object sender, EventArgs e)
+		private void btn_ingresar_Click(object sender, EventArgs e)
 		{
-
+			if (BusinessLogic.Functions.logInEmptyFields(txtbox_usuario.Text,txtbox_contraseña.Text))
+			{
+				BusinessLogic.Functions.verifyUserDataTologIn(txtbox_usuario.Text, txtbox_contraseña.Text);
+			}
+			else
+			{
+				MessageBox.Show("Rellene los campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+			if (true)//BusinessLogic.Functions.logOn.logged)
+			{
+				txtbox_usuario.Text = null;
+				txtbox_contraseña.Text = null;
+				tabControl.SelectedTab = tab3_Alumno_VistaGeneral;
+			}
+			else if (true) //BusinessLogic.Functions.logOn.loggedAsTeacher)
+			{
+				txtbox_usuario.Text = null;
+				txtbox_contraseña.Text = null;
+				tabControl.SelectedTab = tab3_Docente_VistaGeneral;
+			}
 		}
+		private void flatButton1_Click(object sender, EventArgs e)
+		{
+			CustomMessageBox.Show("Kevin", "KEKEKEKEKE",true);
+		}
+		#endregion
 	}
 }
+

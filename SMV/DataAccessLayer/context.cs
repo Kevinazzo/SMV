@@ -11,21 +11,24 @@ namespace DataAccessLayer
 	{
 
 		#region variablesAndObjects
-		public static MySqlCommand command;
 		public static string promptPassword;
-		public static MySqlDataReader reader;
-		private static string connectionString = "server=localhost; uid=root;" + "pwd="+promptPassword+"; database=smv;";
+		private static string connectionString = "server=localhost; uid=root;" + "pwd=" + promptPassword + "; database=smv;";
 		public static MySqlConnection connection = new MySqlConnection(connectionString);
-		public static BusinessEntities.user currentSession = new BusinessEntities.user();
+		public static MySqlCommand command;
+		public static MySqlDataReader reader;
 		
+		public static BusinessEntities.user currentSession;
+		public static BusinessEntities.course courseList = new BusinessEntities.course();
+		public static BusinessEntities.masterList masterList = new BusinessEntities.masterList(); 
+
 		public static List<string> userList = new List<string>();
-		public static List<string>[] courseList = new List<string>[4];
 		#endregion
 
 		#region Querys
-		public static void INSERTINTOuser(string userName,string name,string lastName,string pwd,string code)
+		#region InsertUser
+		public static void INSERTINTOuser(string userName, string name, string lastName, string pwd, string code)
 		{
-			string query = "INSERT INTO user values('"+userName+"','"+name+"','"+lastName+"','"+pwd+ "','"+code+"');";
+			string query = "INSERT INTO user values('" + userName + "','" + name + "','" + lastName + "','" + pwd + "','" + code + "');";
 			command = new MySqlCommand(query, connection);
 			command.ExecuteNonQuery();
 		}
@@ -39,7 +42,7 @@ namespace DataAccessLayer
 			{
 				userList.Add(param1);
 			}
-			if (userList.Count(a => a == param1)==0)
+			if (userList.Count(a => a == param1) == 0x0)
 			{
 				return true;
 			}
@@ -48,6 +51,29 @@ namespace DataAccessLayer
 				return false;
 			}
 		}
+		#endregion
+
+		#region selectUser
+		public static bool VerifyUserToLogIn(string param1)
+		{
+			string query = "SELECT * FROM user WHERE username='" + param1 + "';";
+			command = new MySqlCommand(query, connection);
+			reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				userList.Add(param1);
+			}
+			if (userList.Count(a => a == param1) == 0x0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		#endregion
 
 		#endregion
 
