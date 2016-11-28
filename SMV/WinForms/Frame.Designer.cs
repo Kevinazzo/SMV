@@ -29,12 +29,17 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			this.pnl_header = new System.Windows.Forms.Panel();
-			this.flatMini1 = new FlatUI.FlatMini();
 			this.flatClose1 = new FlatUI.FlatClose();
+			this.flatMini1 = new FlatUI.FlatMini();
 			this.flatLabel3 = new FlatUI.FlatLabel();
 			this.pnl_body = new System.Windows.Forms.Panel();
 			this.tabControl = new FlatUI.FlatTabControl();
 			this.tab0_Startup = new System.Windows.Forms.TabPage();
+			this.lbl_rootPsw = new FlatUI.FlatLabel();
+			this.txtbox_rootPsw = new FlatUI.FlatTextBox();
+			this.btn_connectToDB = new FlatUI.FlatButton();
+			this.BY_EPI = new iTalk.iTalk_Label();
+			this.SMV_LOGO = new System.Windows.Forms.Label();
 			this.tab1_login = new System.Windows.Forms.TabPage();
 			this.llb_CrearCuenta = new System.Windows.Forms.LinkLabel();
 			this.flatLabel4 = new FlatUI.FlatLabel();
@@ -115,10 +120,11 @@
 			this.lbl_tab6_listagrupos = new FlatUI.FlatLabel();
 			this.tab7_Docente_OpcionesDeCurso = new System.Windows.Forms.TabPage();
 			this.tmr_psw = new System.Windows.Forms.Timer(this.components);
-			this.flatButton1 = new FlatUI.FlatButton();
+			this.tmr_startup = new System.Windows.Forms.Timer(this.components);
 			this.pnl_header.SuspendLayout();
 			this.pnl_body.SuspendLayout();
 			this.tabControl.SuspendLayout();
+			this.tab0_Startup.SuspendLayout();
 			this.tab1_login.SuspendLayout();
 			this.tab2_registro.SuspendLayout();
 			this.tab3_Alumno_VistaGeneral.SuspendLayout();
@@ -134,8 +140,8 @@
 			// pnl_header
 			// 
 			this.pnl_header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-			this.pnl_header.Controls.Add(this.flatMini1);
 			this.pnl_header.Controls.Add(this.flatClose1);
+			this.pnl_header.Controls.Add(this.flatMini1);
 			this.pnl_header.Controls.Add(this.flatLabel3);
 			this.pnl_header.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pnl_header.Location = new System.Drawing.Point(0, 0);
@@ -143,6 +149,21 @@
 			this.pnl_header.Size = new System.Drawing.Size(540, 36);
 			this.pnl_header.TabIndex = 0;
 			this.pnl_header.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_header_MouseMove);
+			// 
+			// flatClose1
+			// 
+			this.flatClose1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.flatClose1.BackColor = System.Drawing.Color.White;
+			this.flatClose1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+			this.flatClose1.Font = new System.Drawing.Font("Marlett", 10F);
+			this.flatClose1.Location = new System.Drawing.Point(510, 10);
+			this.flatClose1.Name = "flatClose1";
+			this.flatClose1.Size = new System.Drawing.Size(18, 18);
+			this.flatClose1.TabIndex = 0;
+			this.flatClose1.TabStop = false;
+			this.flatClose1.Text = "flatClose1";
+			this.flatClose1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			this.flatClose1.Click += new System.EventHandler(this.flatClose1_Click_1);
 			// 
 			// flatMini1
 			// 
@@ -157,21 +178,6 @@
 			this.flatMini1.TabStop = false;
 			this.flatMini1.Text = "flatMini1";
 			this.flatMini1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-			// 
-			// flatClose1
-			// 
-			this.flatClose1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.flatClose1.BackColor = System.Drawing.Color.White;
-			this.flatClose1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-			this.flatClose1.Font = new System.Drawing.Font("Marlett", 10F);
-			this.flatClose1.Location = new System.Drawing.Point(510, 10);
-			this.flatClose1.Name = "flatClose1";
-			this.flatClose1.Size = new System.Drawing.Size(18, 18);
-			this.flatClose1.TabIndex = 1;
-			this.flatClose1.TabStop = false;
-			this.flatClose1.Text = "flatClose1";
-			this.flatClose1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-			this.flatClose1.Click += new System.EventHandler(this.flatClose1_Click);
 			// 
 			// flatLabel3
 			// 
@@ -199,6 +205,7 @@
 			// 
 			this.tabControl.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
 			this.tabControl.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
+			this.tabControl.Controls.Add(this.tab0_Startup);
 			this.tabControl.Controls.Add(this.tab1_login);
 			this.tabControl.Controls.Add(this.tab2_registro);
 			this.tabControl.Controls.Add(this.tab3_Alumno_VistaGeneral);
@@ -209,7 +216,6 @@
 			this.tabControl.Controls.Add(this.tab5_Docente_CrearCurso);
 			this.tabControl.Controls.Add(this.tab6_Docente_CursoLista);
 			this.tabControl.Controls.Add(this.tab7_Docente_OpcionesDeCurso);
-			this.tabControl.Controls.Add(this.tab0_Startup);
 			this.tabControl.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.tabControl.ItemSize = new System.Drawing.Size(120, 40);
 			this.tabControl.Location = new System.Drawing.Point(0, -44);
@@ -222,16 +228,86 @@
 			// tab0_Startup
 			// 
 			this.tab0_Startup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+			this.tab0_Startup.Controls.Add(this.lbl_rootPsw);
+			this.tab0_Startup.Controls.Add(this.txtbox_rootPsw);
+			this.tab0_Startup.Controls.Add(this.btn_connectToDB);
+			this.tab0_Startup.Controls.Add(this.BY_EPI);
+			this.tab0_Startup.Controls.Add(this.SMV_LOGO);
 			this.tab0_Startup.Location = new System.Drawing.Point(4, 44);
 			this.tab0_Startup.Name = "tab0_Startup";
 			this.tab0_Startup.Size = new System.Drawing.Size(532, 440);
 			this.tab0_Startup.TabIndex = 10;
 			this.tab0_Startup.Text = "tabPage1";
 			// 
+			// lbl_rootPsw
+			// 
+			this.lbl_rootPsw.AutoSize = true;
+			this.lbl_rootPsw.BackColor = System.Drawing.Color.Transparent;
+			this.lbl_rootPsw.Font = new System.Drawing.Font("Segoe UI", 8F);
+			this.lbl_rootPsw.ForeColor = System.Drawing.Color.White;
+			this.lbl_rootPsw.Location = new System.Drawing.Point(190, 154);
+			this.lbl_rootPsw.Name = "lbl_rootPsw";
+			this.lbl_rootPsw.Size = new System.Drawing.Size(84, 13);
+			this.lbl_rootPsw.TabIndex = 12;
+			this.lbl_rootPsw.Text = "Root Password";
+			// 
+			// txtbox_rootPsw
+			// 
+			this.txtbox_rootPsw.BackColor = System.Drawing.Color.Transparent;
+			this.txtbox_rootPsw.FocusOnHover = false;
+			this.txtbox_rootPsw.Location = new System.Drawing.Point(190, 173);
+			this.txtbox_rootPsw.MaxLength = 32767;
+			this.txtbox_rootPsw.Multiline = false;
+			this.txtbox_rootPsw.Name = "txtbox_rootPsw";
+			this.txtbox_rootPsw.ReadOnly = false;
+			this.txtbox_rootPsw.Size = new System.Drawing.Size(160, 29);
+			this.txtbox_rootPsw.TabIndex = 11;
+			this.txtbox_rootPsw.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.txtbox_rootPsw.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.txtbox_rootPsw.UseSystemPasswordChar = true;
+			// 
+			// btn_connectToDB
+			// 
+			this.btn_connectToDB.BackColor = System.Drawing.Color.Transparent;
+			this.btn_connectToDB.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+			this.btn_connectToDB.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_connectToDB.DialogResult = System.Windows.Forms.DialogResult.None;
+			this.btn_connectToDB.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.btn_connectToDB.Location = new System.Drawing.Point(210, 253);
+			this.btn_connectToDB.Name = "btn_connectToDB";
+			this.btn_connectToDB.Rounded = false;
+			this.btn_connectToDB.Size = new System.Drawing.Size(123, 59);
+			this.btn_connectToDB.TabIndex = 10;
+			this.btn_connectToDB.Text = "Connect To DataBase";
+			this.btn_connectToDB.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			this.btn_connectToDB.Click += new System.EventHandler(this.btn_connectToDataBase_Click);
+			// 
+			// BY_EPI
+			// 
+			this.BY_EPI.AutoSize = true;
+			this.BY_EPI.BackColor = System.Drawing.Color.Transparent;
+			this.BY_EPI.Font = new System.Drawing.Font("Segoe UI", 8F);
+			this.BY_EPI.ForeColor = System.Drawing.Color.Silver;
+			this.BY_EPI.Location = new System.Drawing.Point(313, 62);
+			this.BY_EPI.Name = "BY_EPI";
+			this.BY_EPI.Size = new System.Drawing.Size(37, 13);
+			this.BY_EPI.TabIndex = 9;
+			this.BY_EPI.Text = "By EPI";
+			// 
+			// SMV_LOGO
+			// 
+			this.SMV_LOGO.AutoSize = true;
+			this.SMV_LOGO.Font = new System.Drawing.Font("Courier New", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SMV_LOGO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			this.SMV_LOGO.Location = new System.Drawing.Point(187, 19);
+			this.SMV_LOGO.Name = "SMV_LOGO";
+			this.SMV_LOGO.Size = new System.Drawing.Size(146, 73);
+			this.SMV_LOGO.TabIndex = 0;
+			this.SMV_LOGO.Text = "SMV";
+			// 
 			// tab1_login
 			// 
 			this.tab1_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-			this.tab1_login.Controls.Add(this.flatButton1);
 			this.tab1_login.Controls.Add(this.llb_CrearCuenta);
 			this.tab1_login.Controls.Add(this.flatLabel4);
 			this.tab1_login.Controls.Add(this.trash_lblContraseña);
@@ -250,7 +326,7 @@
 			this.llb_CrearCuenta.ActiveLinkColor = System.Drawing.Color.Teal;
 			this.llb_CrearCuenta.AutoSize = true;
 			this.llb_CrearCuenta.LinkColor = System.Drawing.SystemColors.MenuHighlight;
-			this.llb_CrearCuenta.Location = new System.Drawing.Point(207, 301);
+			this.llb_CrearCuenta.Location = new System.Drawing.Point(209, 301);
 			this.llb_CrearCuenta.Name = "llb_CrearCuenta";
 			this.llb_CrearCuenta.Size = new System.Drawing.Size(117, 19);
 			this.llb_CrearCuenta.TabIndex = 7;
@@ -299,6 +375,7 @@
 			this.btn_ingresar.BackColor = System.Drawing.Color.Transparent;
 			this.btn_ingresar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
 			this.btn_ingresar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_ingresar.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_ingresar.Font = new System.Drawing.Font("Segoe UI", 12F);
 			this.btn_ingresar.Location = new System.Drawing.Point(191, 266);
 			this.btn_ingresar.Name = "btn_ingresar";
@@ -445,6 +522,7 @@
 			this.btn_tab2_cancelar.BackColor = System.Drawing.Color.Transparent;
 			this.btn_tab2_cancelar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
 			this.btn_tab2_cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab2_cancelar.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_tab2_cancelar.Font = new System.Drawing.Font("Segoe UI", 12F);
 			this.btn_tab2_cancelar.Location = new System.Drawing.Point(400, 384);
 			this.btn_tab2_cancelar.Name = "btn_tab2_cancelar";
@@ -460,6 +538,7 @@
 			this.btn_tab2_aceptar.BackColor = System.Drawing.Color.Transparent;
 			this.btn_tab2_aceptar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
 			this.btn_tab2_aceptar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab2_aceptar.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_tab2_aceptar.Font = new System.Drawing.Font("Segoe UI", 12F);
 			this.btn_tab2_aceptar.Location = new System.Drawing.Point(269, 384);
 			this.btn_tab2_aceptar.Name = "btn_tab2_aceptar";
@@ -958,6 +1037,7 @@
 			this.btn_tab3_CrearGrupoPrf.BackColor = System.Drawing.Color.Transparent;
 			this.btn_tab3_CrearGrupoPrf.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
 			this.btn_tab3_CrearGrupoPrf.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab3_CrearGrupoPrf.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_tab3_CrearGrupoPrf.Font = new System.Drawing.Font("Segoe UI", 12F);
 			this.btn_tab3_CrearGrupoPrf.Location = new System.Drawing.Point(377, 267);
 			this.btn_tab3_CrearGrupoPrf.Name = "btn_tab3_CrearGrupoPrf";
@@ -972,6 +1052,7 @@
 			this.btn_tab3_GrupolistaProf.BackColor = System.Drawing.Color.Transparent;
 			this.btn_tab3_GrupolistaProf.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
 			this.btn_tab3_GrupolistaProf.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab3_GrupolistaProf.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_tab3_GrupolistaProf.Font = new System.Drawing.Font("Segoe UI", 12F);
 			this.btn_tab3_GrupolistaProf.Location = new System.Drawing.Point(210, 267);
 			this.btn_tab3_GrupolistaProf.Name = "btn_tab3_GrupolistaProf";
@@ -986,6 +1067,7 @@
 			this.btn_tab3_CursoGeneralProfesor.BackColor = System.Drawing.Color.Transparent;
 			this.btn_tab3_CursoGeneralProfesor.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
 			this.btn_tab3_CursoGeneralProfesor.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab3_CursoGeneralProfesor.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_tab3_CursoGeneralProfesor.Font = new System.Drawing.Font("Segoe UI", 12F);
 			this.btn_tab3_CursoGeneralProfesor.Location = new System.Drawing.Point(36, 267);
 			this.btn_tab3_CursoGeneralProfesor.Name = "btn_tab3_CursoGeneralProfesor";
@@ -1086,6 +1168,7 @@
 			this.btn_tab5_cancelar.BackColor = System.Drawing.Color.Transparent;
 			this.btn_tab5_cancelar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
 			this.btn_tab5_cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab5_cancelar.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_tab5_cancelar.Font = new System.Drawing.Font("Segoe UI", 12F);
 			this.btn_tab5_cancelar.Location = new System.Drawing.Point(257, 384);
 			this.btn_tab5_cancelar.Name = "btn_tab5_cancelar";
@@ -1100,6 +1183,7 @@
 			this.btn_tab5_aceptar.BackColor = System.Drawing.Color.Transparent;
 			this.btn_tab5_aceptar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
 			this.btn_tab5_aceptar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab5_aceptar.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_tab5_aceptar.Font = new System.Drawing.Font("Segoe UI", 12F);
 			this.btn_tab5_aceptar.Location = new System.Drawing.Point(81, 384);
 			this.btn_tab5_aceptar.Name = "btn_tab5_aceptar";
@@ -1250,6 +1334,7 @@
 			this.btn_tab6_CrearGrupos.BackColor = System.Drawing.Color.Transparent;
 			this.btn_tab6_CrearGrupos.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
 			this.btn_tab6_CrearGrupos.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab6_CrearGrupos.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_tab6_CrearGrupos.Font = new System.Drawing.Font("Segoe UI", 12F);
 			this.btn_tab6_CrearGrupos.Location = new System.Drawing.Point(361, 165);
 			this.btn_tab6_CrearGrupos.Name = "btn_tab6_CrearGrupos";
@@ -1264,6 +1349,7 @@
 			this.btn_tab6_regresar.BackColor = System.Drawing.Color.Transparent;
 			this.btn_tab6_regresar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
 			this.btn_tab6_regresar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab6_regresar.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_tab6_regresar.Font = new System.Drawing.Font("Segoe UI", 12F);
 			this.btn_tab6_regresar.Location = new System.Drawing.Point(361, 127);
 			this.btn_tab6_regresar.Name = "btn_tab6_regresar";
@@ -1299,20 +1385,9 @@
 			this.tmr_psw.Interval = 500;
 			this.tmr_psw.Tick += new System.EventHandler(this.tmr_psw_Tick);
 			// 
-			// flatButton1
+			// tmr_startup
 			// 
-			this.flatButton1.BackColor = System.Drawing.Color.Transparent;
-			this.flatButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-			this.flatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.flatButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.flatButton1.Location = new System.Drawing.Point(55, 265);
-			this.flatButton1.Name = "flatButton1";
-			this.flatButton1.Rounded = false;
-			this.flatButton1.Size = new System.Drawing.Size(106, 32);
-			this.flatButton1.TabIndex = 8;
-			this.flatButton1.Text = "flatButton1";
-			this.flatButton1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-			this.flatButton1.Click += new System.EventHandler(this.flatButton1_Click);
+			this.tmr_startup.Interval = 1500;
 			// 
 			// Frame
 			// 
@@ -1323,12 +1398,15 @@
 			this.Controls.Add(this.pnl_header);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "Frame";
+			this.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.Text = "iTalk_ThemeContainer1";
 			this.TransparencyKey = System.Drawing.Color.Fuchsia;
 			this.pnl_header.ResumeLayout(false);
 			this.pnl_header.PerformLayout();
 			this.pnl_body.ResumeLayout(false);
 			this.tabControl.ResumeLayout(false);
+			this.tab0_Startup.ResumeLayout(false);
+			this.tab0_Startup.PerformLayout();
 			this.tab1_login.ResumeLayout(false);
 			this.tab1_login.PerformLayout();
 			this.tab2_registro.ResumeLayout(false);
@@ -1375,7 +1453,6 @@
 		private System.Windows.Forms.TabPage tab6_Docente_CursoLista;
 		private System.Windows.Forms.TabPage tab7_Docente_OpcionesDeCurso;
 		private FlatUI.FlatMini flatMini1;
-		private FlatUI.FlatClose flatClose1;
 		private FlatUI.FlatStickyButton btn_tab3_GrupoInscrito;
 		private iTalk.iTalk_ProgressBar radGrp_tab3_Progresototal5;
 		private iTalk.iTalk_ProgressBar radGrp_tab3_Progresototal3;
@@ -1440,7 +1517,13 @@
 		private iTalk.iTalk_Label iTalk_Label1;
 		private System.Windows.Forms.Timer tmr_psw;
 		private System.Windows.Forms.TabPage tab0_Startup;
-		private FlatUI.FlatButton flatButton1;
+		private System.Windows.Forms.Label SMV_LOGO;
+		private iTalk.iTalk_Label BY_EPI;
+		private System.Windows.Forms.Timer tmr_startup;
+		private FlatUI.FlatClose flatClose1;
+		private FlatUI.FlatButton btn_connectToDB;
+		private FlatUI.FlatLabel lbl_rootPsw;
+		private FlatUI.FlatTextBox txtbox_rootPsw;
 	}
 }
 

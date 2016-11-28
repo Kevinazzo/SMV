@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace WinForms
@@ -17,46 +18,92 @@ namespace WinForms
 			InitializeComponent();
 		}
 		#region Variables
-		static CustomMessageBox MsgBox;
-		static DialogResult result;
+		public enum CustomMessageBoxButtons { Ok, OkCancel }
+		public enum CustomMessageBoxTxtBoxState { VisibleChar, PasswordChar, VisibleCharReadOnly }
+		public const int WM_NCLBUTTONDOWN = 0xA1;
+		public const int HT_CAPTION = 0x2;
+		[DllImportAttribute("user32.dll")]
+		public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+		[DllImportAttribute("user32.dll")]
+		public static extern bool ReleaseCapture();
 		#endregion
-
-		public static DialogResult Show(string title, string text)
+		public DialogResult Show (string text, CustomMessageBoxButtons buttons)
 		{
-			MsgBox = new CustomMessageBox();
-			MsgBox.lbl_Title.Text = title;
-			MsgBox.txtbox_content.Text = text;
-			MsgBox.ShowDialog();
-			return result;
-		}
-		public static DialogResult Show(string title, string text, bool singleButton)
-		{
-			MsgBox = new CustomMessageBox();
-			MsgBox.lbl_Title.Text = title;
-			MsgBox.txtbox_content.Text = "Huele a"+Environment.NewLine+"KAKA";
-			if (singleButton)
+			txtbox_content2.Text = text;
+			lbl_Title.Text = "";
+			if (buttons == CustomMessageBoxButtons.Ok)
 			{
-				MsgBox.btn_aceptar.Location = new Point(86, 70);
-				MsgBox.btn_cancelar.Visible = false;
+				btn_aceptar.Location = new Point(86, 70);
+				btn_cancelar.Visible = false;
 			}
-			MsgBox.ShowDialog();
-
-			return result;
+			ShowDialog();
+			return DialogResult;
 		}
+		public DialogResult Show(string text, string title, CustomMessageBoxButtons buttons)
+		{
+			txtbox_content2.Text = text;
+			lbl_Title.Text = title;
+			if (buttons == CustomMessageBoxButtons.Ok)
+			{
+				btn_aceptar.Location = new Point(86, 70);
+				btn_cancelar.Visible = false;
+			}
+			ShowDialog();
+			return DialogResult;
+		}
+		public DialogResult Show(string text, string title, CustomMessageBoxButtons buttons,
+			CustomMessageBoxTxtBoxState txtBoxState)
+		{
+			txtbox_content2.Text = text;
+			lbl_Title.Text = title;
+			if (buttons == CustomMessageBoxButtons.Ok)
+			{
+				btn_aceptar.Location = new Point(86, 70);
+				btn_cancelar.Visible = false;
+			}
+			switch (txtBoxState)
+			{
+				case CustomMessageBoxTxtBoxState.VisibleChar:
+					txtbox_content2.UseSystemPasswordChar = false;
+					txtbox_content2.ReadOnly = false;
+					break;
+				case CustomMessageBoxTxtBoxState.PasswordChar:
+					txtbox_content2.UseSystemPasswordChar = true;
+					txtbox_content2.ReadOnly = false;
+					break;
+				case CustomMessageBoxTxtBoxState.VisibleCharReadOnly:
+					txtbox_content2.UseSystemPasswordChar = false;
+					txtbox_content2.ReadOnly = true;
+					break;
+				default:
+					break;
+			}
+			ShowDialog();
+			return DialogResult;
+		}
+
 		private void btn_aceptar_Click(object sender, EventArgs e)
 		{
-			result = DialogResult.Yes;
-			this.Close();
+			this.DialogResult = DialogResult.OK;
 		}
+
 		private void btn_cancelar_Click(object sender, EventArgs e)
 		{
-			result = DialogResult.Cancel;
-			this.Close();
+			this.DialogResult = DialogResult.Cancel;
 		}
+
 		private void btn_close_Click(object sender, EventArgs e)
 		{
-			result = DialogResult.Abort;
 			this.Close();
+		}
+
+		private void header_MouseMove(object sender, MouseEventArgs e)
+		{
+			if (e.Button == MouseButtons.Left)
+			{
+				ReleaseCapture();
+				SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+			}
 		}
 	}
 }
