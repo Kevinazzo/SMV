@@ -43,7 +43,8 @@ namespace DataAccessLayer
 				"DROP DATABASE IF EXISTS smv;" +
 				"CREATE DATABASE smv;use smv;" +
 
-			"CREATE TABLE IF NOT EXISTS user(ID INT AUTO_INCREMENT PRIMARY KEY," +
+			"CREATE TABLE IF NOT EXISTS user(" +
+				"ID INT AUTO_INCREMENT PRIMARY KEY," +
 				"userName VARCHAR(25) NOT NULL UNIQUE," +
 				"`name` VARCHAR(50) NOT NULL," +
 				"lastName VARCHAR(50) NOT NULL," +
@@ -51,19 +52,20 @@ namespace DataAccessLayer
 				"cCode VARCHAR(10)," +
 				"FOREIGN KEY (cCode) REFERENCES codes(cCode)ENGINE=INNODB);" + Environment.NewLine +
 
-			"CREATE TABLE IF NOT EXISTS course(`name` VARCHAR(50) NOT NULL," +
+			"CREATE TABLE IF NOT EXISTS course(" +
+				"`name` VARCHAR(50) NOT NULL," +
 				"admin_ID INT NOT NULL," +
 				"grade CHAR(1) NOT NULL," +
 				"`group` CHAR(1) NOT NULL," +
 				"ID INT AUTO_INCREMENT NOT NULL PRIMARY KEY," +
 				"FOREIGN KEY(admin_ID)REFERENCES user(ID))ENGINE = INNODB;" + Environment.NewLine +
 
-			"CREATE TABLE IF NOT EXISTS masterList(userName VARCHAR(25) NOT NULL," +
-				"ID INT NOT NULL," +
+			"CREATE TABLE IF NOT EXISTS masterList(" +
+				"userName VARCHAR(25) NOT NULL," +
+				"ID_course INT NOT NULL," +
 				"un1 FLOAT,un2 FLOAT,un3 FLOAT,un4 FLOAT,un5 FLOAT,un6 FLOAT," +
-				"FOREIGN KEY(userName)REFERENCES user(userName)," +
-				"FOREIGN KEY(ID)REFERENCES course(ID)," +
-				"UNIQUE keypair(userName, ID))ENGINE = INNODB;" +
+				"FOREIGN KEY(ID_course)REFERENCES course(ID)," +
+				"UNIQUE keypair(userName, ID_course))ENGINE = INNODB;" +
 
 			"CREATE TABLE IF NOT EXISTS codes(cCode VARCHAR(10) NOT NULL PRIMARY KEY);";
 			command = new MySqlCommand(querySMV, connection);
