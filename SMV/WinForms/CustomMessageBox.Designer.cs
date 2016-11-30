@@ -91,8 +91,8 @@
 			// 
 			this.txtbox_content2.BackColor = System.Drawing.Color.Transparent;
 			this.txtbox_content2.FocusOnHover = false;
-			this.txtbox_content2.Location = new System.Drawing.Point(0, 22);
-			this.txtbox_content2.MaxLength = 32767;
+			this.txtbox_content2.Location = new System.Drawing.Point(0, 20);
+			this.txtbox_content2.MaxLength = 32000;
 			this.txtbox_content2.Multiline = false;
 			this.txtbox_content2.Name = "txtbox_content2";
 			this.txtbox_content2.ReadOnly = false;

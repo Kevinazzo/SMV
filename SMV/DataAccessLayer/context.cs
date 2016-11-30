@@ -10,19 +10,28 @@ namespace DataAccessLayer
 	public static class Context
 	{
 		#region variablesAndObjects
+
+		#region MySqlConnection
 		public static string Password = "";
 		public static string connectionString;
 		public static MySqlConnection connection = new MySqlConnection();
 		public static MySqlCommand command;
 		public static MySqlDataReader reader;
-
-		public static BusinessEntities.user currentSession;
+		#endregion
+		#region AccountInfo
 		public static BusinessEntities.course courseList = new BusinessEntities.course();
 		public static BusinessEntities.masterList masterList = new BusinessEntities.masterList();
 
 		public static List<string> userList = new List<string>();
 		public static List<string>[] accountsList = { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>() };
 		public static string[] currentSesionInfo = new string[4];
+		#endregion
+		#region Notes(calificaciones)
+
+		public static List<float>[] calificaciones = new List<float>[6];
+
+		#endregion
+
 		#endregion
 
 		#region Querys
@@ -34,22 +43,29 @@ namespace DataAccessLayer
 				"DROP DATABASE IF EXISTS smv;" +
 				"CREATE DATABASE smv;use smv;" +
 
-			"CREATE TABLE IF NOT EXISTS user(userName VARCHAR(25) NOT NULL PRIMARY KEY," +
+			"CREATE TABLE IF NOT EXISTS user(ID INT AUTO_INCREMENT PRIMARY KEY," +
+				"userName VARCHAR(25) NOT NULL UNIQUE," +
 				"`name` VARCHAR(50) NOT NULL," +
 				"lastName VARCHAR(50) NOT NULL," +
 				"pwd VARCHAR(32) NOT NULL," +
-				"cCode VARCHAR(10));" + Environment.NewLine +
+				"cCode VARCHAR(10)," +
+				"FOREIGN KEY (cCode) REFERENCES codes(cCode)ENGINE=INNODB);" + Environment.NewLine +
 
-			"CREATE TABLE IF NOT EXISTS course(`name` VARCHAR(50) NOT NULL,admin VARCHAR(25) NOT NULL," +
+			"CREATE TABLE IF NOT EXISTS course(`name` VARCHAR(50) NOT NULL," +
+				"admin_ID INT NOT NULL," +
 				"grade CHAR(1) NOT NULL," +
 				"`group` CHAR(1) NOT NULL," +
 				"ID INT AUTO_INCREMENT NOT NULL PRIMARY KEY," +
-				"FOREIGN KEY(admin)REFERENCES user(userName))ENGINE = INNODB;" + Environment.NewLine +
+				"FOREIGN KEY(admin_ID)REFERENCES user(ID))ENGINE = INNODB;" + Environment.NewLine +
 
-			"CREATE TABLE IF NOT EXISTS masterList(userName VARCHAR(25) NOT NULL,ID INT NOT NULL," +
-				"un1 FLOAT,un2 FLOAT,un3 FLOAT,un4 FLOAT," +
-				"un5 FLOAT,un6 FLOAT,FOREIGN KEY(userName)REFERENCES user(userName),FOREIGN KEY(ID)REFERENCES course(ID)," +
-				"UNIQUE keypair(userName, ID))ENGINE = INNODB;";
+			"CREATE TABLE IF NOT EXISTS masterList(userName VARCHAR(25) NOT NULL," +
+				"ID INT NOT NULL," +
+				"un1 FLOAT,un2 FLOAT,un3 FLOAT,un4 FLOAT,un5 FLOAT,un6 FLOAT," +
+				"FOREIGN KEY(userName)REFERENCES user(userName)," +
+				"FOREIGN KEY(ID)REFERENCES course(ID)," +
+				"UNIQUE keypair(userName, ID))ENGINE = INNODB;" +
+
+			"CREATE TABLE IF NOT EXISTS codes(cCode VARCHAR(10) NOT NULL PRIMARY KEY);";
 			command = new MySqlCommand(querySMV, connection);
 			command.ExecuteNonQuery();
 		}
@@ -93,10 +109,10 @@ namespace DataAccessLayer
 		#region selectUser
 		public static bool VerifyUserToLogIn(string param1, string param2)
 		{
-			var user = accountsList[0].Select(a => a[0]);
-			var psw = accountsList[0].Select(a => a[0]);
+			var user = accountsList[0].Find(a => a == param1);
+			var psw = accountsList[1].Find(a => a == param2);
 
-			if (user == param1 && psw ==param2)
+			if ((user == param1) && (psw == param2))
 			{
 				return true;
 			}
@@ -105,7 +121,7 @@ namespace DataAccessLayer
 				return false;
 			}
 		}
-		public static List<string>[] Select(string param1,string param2)
+		public static List<string>[] getAccountCredentials(string param1, string param2)
 		{
 			string query = "SELECT userName,pwd,cCode FROM user WHERE username='" + param1 + "' AND pwd='" + param2 + "';";
 			command = new MySqlCommand(query, connection);
@@ -118,11 +134,12 @@ namespace DataAccessLayer
 				accountsList[2].Add(reader["cCode"] + "");
 			}
 			reader.Close();
-				return accountsList;
+			return accountsList;
 		}
 		public static void getCurrentSessionData()
 		{
-			string query = "SELECT * FROM user WHERE username='" + accountsList[0].Select(item => item[0]) + "';";
+			var userAA = accountsList[0].Find(item => item == accountsList[0].ElementAt(0).ToString());
+			string query = "SELECT * FROM user WHERE username='" + userAA + "';";
 			command = new MySqlCommand(query, connection);
 			reader = command.ExecuteReader();
 			while (reader.Read())
@@ -133,7 +150,6 @@ namespace DataAccessLayer
 				currentSesionInfo[3] = (reader["cCode"] + "");
 			}
 			reader.Close();
-			currentSession = new BusinessEntities.user(currentSesionInfo[0], currentSesionInfo[1], currentSesionInfo[2], currentSesionInfo[3]);
 		}
 		#endregion
 

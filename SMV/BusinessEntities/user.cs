@@ -12,17 +12,16 @@ namespace BusinessEntities
 		{
 
 		}
-		public user(string username, string name, string lastName, string code)
+		public user(string paramUsr, string paramName, string paramLastName, string paramCode)
 		{
-			username = this.username;
-			name = this.name;
-			lastName = this.lastName;
-			code = this.lastName;
-
+			username = paramUsr;
+			name = paramName;
+			lastName = paramName;
+			code = paramCode;
 		}
-		private string username { get; set; }
-		private string name { get; set; }
-		private string lastName { get; set; }
-		private string code { get; }
+		public string username { get; set; }
+		public string name { get; set; }
+		public string lastName { get; set; }
+		public string code { get; }
 	}
 }

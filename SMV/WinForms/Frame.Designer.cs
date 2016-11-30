@@ -52,8 +52,6 @@
 			this.iTalk_Label2 = new iTalk.iTalk_Label();
 			this.lbl_tab2_pswMatch = new System.Windows.Forms.Label();
 			this.iTalk_Label1 = new iTalk.iTalk_Label();
-			this.txtbox_tab2_email = new FlatUI.FlatTextBox();
-			this.lbl_tab2_email = new FlatUI.FlatLabel();
 			this.lbl_tab2_dejeseBlanco = new FlatUI.FlatLabel();
 			this.btn_tab2_cancelar = new FlatUI.FlatButton();
 			this.btn_tab2_aceptar = new FlatUI.FlatButton();
@@ -63,7 +61,7 @@
 			this.lbl_tab2_contraseña = new FlatUI.FlatLabel();
 			this.txtbox_tab2_codigo = new FlatUI.FlatTextBox();
 			this.lbl_tab2_codigoDocente = new FlatUI.FlatLabel();
-			this.txtbox_tab2_apellidos = new FlatUI.FlatTextBox();
+			this.txtbox_tab2_registro = new FlatUI.FlatTextBox();
 			this.lbl_tab2_apellidos = new FlatUI.FlatLabel();
 			this.lbl_tab2_nombres = new FlatUI.FlatLabel();
 			this.txtbox_tab2_nombres = new FlatUI.FlatTextBox();
@@ -76,7 +74,7 @@
 			this.llb_tab3_materia3 = new System.Windows.Forms.LinkLabel();
 			this.llb_tab3_materia2 = new System.Windows.Forms.LinkLabel();
 			this.llb_tab3_materia1 = new System.Windows.Forms.LinkLabel();
-			this.lbl_tab3_Studenname = new System.Windows.Forms.Label();
+			this.lbl_tab3_StudentName = new System.Windows.Forms.Label();
 			this.flatStickyButton3 = new FlatUI.FlatStickyButton();
 			this.btn_tab3_listagrupo = new FlatUI.FlatStickyButton();
 			this.btn_tab3_GrupoInscrito = new FlatUI.FlatStickyButton();
@@ -163,7 +161,7 @@
 			this.flatClose1.TabStop = false;
 			this.flatClose1.Text = "flatClose1";
 			this.flatClose1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-			this.flatClose1.Click += new System.EventHandler(this.flatClose1_Click_1);
+			this.flatClose1.Click += new System.EventHandler(this.Cerrar_Click_1);
 			// 
 			// flatMini1
 			// 
@@ -245,17 +243,17 @@
 			this.lbl_rootPsw.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_rootPsw.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.lbl_rootPsw.ForeColor = System.Drawing.Color.White;
-			this.lbl_rootPsw.Location = new System.Drawing.Point(190, 154);
+			this.lbl_rootPsw.Location = new System.Drawing.Point(190, 199);
 			this.lbl_rootPsw.Name = "lbl_rootPsw";
-			this.lbl_rootPsw.Size = new System.Drawing.Size(84, 13);
+			this.lbl_rootPsw.Size = new System.Drawing.Size(121, 13);
 			this.lbl_rootPsw.TabIndex = 12;
-			this.lbl_rootPsw.Text = "Root Password";
+			this.lbl_rootPsw.Text = "MySQL Root Password";
 			// 
 			// txtbox_rootPsw
 			// 
 			this.txtbox_rootPsw.BackColor = System.Drawing.Color.Transparent;
 			this.txtbox_rootPsw.FocusOnHover = false;
-			this.txtbox_rootPsw.Location = new System.Drawing.Point(190, 173);
+			this.txtbox_rootPsw.Location = new System.Drawing.Point(190, 218);
 			this.txtbox_rootPsw.MaxLength = 32767;
 			this.txtbox_rootPsw.Multiline = false;
 			this.txtbox_rootPsw.Name = "txtbox_rootPsw";
@@ -278,7 +276,7 @@
 			this.btn_connectToDB.Rounded = false;
 			this.btn_connectToDB.Size = new System.Drawing.Size(123, 59);
 			this.btn_connectToDB.TabIndex = 10;
-			this.btn_connectToDB.Text = "Connect To DataBase";
+			this.btn_connectToDB.Text = "Conectar al servidor";
 			this.btn_connectToDB.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
 			this.btn_connectToDB.Click += new System.EventHandler(this.btn_connectToDataBase_Click);
 			// 
@@ -422,8 +420,6 @@
 			this.tab2_registro.Controls.Add(this.iTalk_Label2);
 			this.tab2_registro.Controls.Add(this.lbl_tab2_pswMatch);
 			this.tab2_registro.Controls.Add(this.iTalk_Label1);
-			this.tab2_registro.Controls.Add(this.txtbox_tab2_email);
-			this.tab2_registro.Controls.Add(this.lbl_tab2_email);
 			this.tab2_registro.Controls.Add(this.lbl_tab2_dejeseBlanco);
 			this.tab2_registro.Controls.Add(this.btn_tab2_cancelar);
 			this.tab2_registro.Controls.Add(this.btn_tab2_aceptar);
@@ -433,7 +429,7 @@
 			this.tab2_registro.Controls.Add(this.lbl_tab2_contraseña);
 			this.tab2_registro.Controls.Add(this.txtbox_tab2_codigo);
 			this.tab2_registro.Controls.Add(this.lbl_tab2_codigoDocente);
-			this.tab2_registro.Controls.Add(this.txtbox_tab2_apellidos);
+			this.tab2_registro.Controls.Add(this.txtbox_tab2_registro);
 			this.tab2_registro.Controls.Add(this.lbl_tab2_apellidos);
 			this.tab2_registro.Controls.Add(this.lbl_tab2_nombres);
 			this.tab2_registro.Controls.Add(this.txtbox_tab2_nombres);
@@ -478,33 +474,6 @@
 			this.iTalk_Label1.TabIndex = 0;
 			this.iTalk_Label1.Text = "25 carateres Maximo";
 			// 
-			// txtbox_tab2_email
-			// 
-			this.txtbox_tab2_email.BackColor = System.Drawing.Color.Transparent;
-			this.txtbox_tab2_email.FocusOnHover = false;
-			this.txtbox_tab2_email.Location = new System.Drawing.Point(36, 341);
-			this.txtbox_tab2_email.MaxLength = 32767;
-			this.txtbox_tab2_email.Multiline = false;
-			this.txtbox_tab2_email.Name = "txtbox_tab2_email";
-			this.txtbox_tab2_email.ReadOnly = false;
-			this.txtbox_tab2_email.Size = new System.Drawing.Size(219, 29);
-			this.txtbox_tab2_email.TabIndex = 6;
-			this.txtbox_tab2_email.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-			this.txtbox_tab2_email.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-			this.txtbox_tab2_email.UseSystemPasswordChar = false;
-			// 
-			// lbl_tab2_email
-			// 
-			this.lbl_tab2_email.AutoSize = true;
-			this.lbl_tab2_email.BackColor = System.Drawing.Color.Transparent;
-			this.lbl_tab2_email.Font = new System.Drawing.Font("Segoe UI", 8F);
-			this.lbl_tab2_email.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab2_email.Location = new System.Drawing.Point(39, 325);
-			this.lbl_tab2_email.Name = "lbl_tab2_email";
-			this.lbl_tab2_email.Size = new System.Drawing.Size(167, 13);
-			this.lbl_tab2_email.TabIndex = 0;
-			this.lbl_tab2_email.Text = "Direccion de correo electronico";
-			// 
 			// lbl_tab2_dejeseBlanco
 			// 
 			this.lbl_tab2_dejeseBlanco.AutoSize = true;
@@ -528,7 +497,7 @@
 			this.btn_tab2_cancelar.Name = "btn_tab2_cancelar";
 			this.btn_tab2_cancelar.Rounded = false;
 			this.btn_tab2_cancelar.Size = new System.Drawing.Size(106, 32);
-			this.btn_tab2_cancelar.TabIndex = 9;
+			this.btn_tab2_cancelar.TabIndex = 7;
 			this.btn_tab2_cancelar.Text = "Cancelar ";
 			this.btn_tab2_cancelar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
 			this.btn_tab2_cancelar.Click += new System.EventHandler(this.btn_tab2_cancelar_Click);
@@ -544,8 +513,8 @@
 			this.btn_tab2_aceptar.Name = "btn_tab2_aceptar";
 			this.btn_tab2_aceptar.Rounded = false;
 			this.btn_tab2_aceptar.Size = new System.Drawing.Size(106, 32);
-			this.btn_tab2_aceptar.TabIndex = 8;
-			this.btn_tab2_aceptar.Text = "Aceptar ";
+			this.btn_tab2_aceptar.TabIndex = 6;
+			this.btn_tab2_aceptar.Text = "Registro";
 			this.btn_tab2_aceptar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
 			this.btn_tab2_aceptar.Click += new System.EventHandler(this.btn_tab2_aceptar_Click);
 			// 
@@ -562,7 +531,7 @@
 			this.txtbox_tab2_conficontraseña.TabIndex = 5;
 			this.txtbox_tab2_conficontraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.txtbox_tab2_conficontraseña.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-			this.txtbox_tab2_conficontraseña.UseSystemPasswordChar = false;
+			this.txtbox_tab2_conficontraseña.UseSystemPasswordChar = true;
 			// 
 			// lbl_tab2_confirmarcontra
 			// 
@@ -589,7 +558,7 @@
 			this.txtbox_tab2_contraseña.TabIndex = 4;
 			this.txtbox_tab2_contraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.txtbox_tab2_contraseña.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-			this.txtbox_tab2_contraseña.UseSystemPasswordChar = false;
+			this.txtbox_tab2_contraseña.UseSystemPasswordChar = true;
 			// 
 			// lbl_tab2_contraseña
 			// 
@@ -630,20 +599,20 @@
 			this.lbl_tab2_codigoDocente.TabIndex = 0;
 			this.lbl_tab2_codigoDocente.Text = "Codigo de docente ";
 			// 
-			// txtbox_tab2_apellidos
+			// txtbox_tab2_registro
 			// 
-			this.txtbox_tab2_apellidos.BackColor = System.Drawing.Color.Transparent;
-			this.txtbox_tab2_apellidos.FocusOnHover = false;
-			this.txtbox_tab2_apellidos.Location = new System.Drawing.Point(207, 145);
-			this.txtbox_tab2_apellidos.MaxLength = 32767;
-			this.txtbox_tab2_apellidos.Multiline = false;
-			this.txtbox_tab2_apellidos.Name = "txtbox_tab2_apellidos";
-			this.txtbox_tab2_apellidos.ReadOnly = false;
-			this.txtbox_tab2_apellidos.Size = new System.Drawing.Size(235, 29);
-			this.txtbox_tab2_apellidos.TabIndex = 7;
-			this.txtbox_tab2_apellidos.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-			this.txtbox_tab2_apellidos.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-			this.txtbox_tab2_apellidos.UseSystemPasswordChar = false;
+			this.txtbox_tab2_registro.BackColor = System.Drawing.Color.Transparent;
+			this.txtbox_tab2_registro.FocusOnHover = false;
+			this.txtbox_tab2_registro.Location = new System.Drawing.Point(207, 145);
+			this.txtbox_tab2_registro.MaxLength = 32767;
+			this.txtbox_tab2_registro.Multiline = false;
+			this.txtbox_tab2_registro.Name = "txtbox_tab2_registro";
+			this.txtbox_tab2_registro.ReadOnly = false;
+			this.txtbox_tab2_registro.Size = new System.Drawing.Size(235, 29);
+			this.txtbox_tab2_registro.TabIndex = 2;
+			this.txtbox_tab2_registro.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.txtbox_tab2_registro.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.txtbox_tab2_registro.UseSystemPasswordChar = false;
 			// 
 			// lbl_tab2_apellidos
 			// 
@@ -679,7 +648,7 @@
 			this.txtbox_tab2_nombres.Name = "txtbox_tab2_nombres";
 			this.txtbox_tab2_nombres.ReadOnly = false;
 			this.txtbox_tab2_nombres.Size = new System.Drawing.Size(162, 29);
-			this.txtbox_tab2_nombres.TabIndex = 2;
+			this.txtbox_tab2_nombres.TabIndex = 1;
 			this.txtbox_tab2_nombres.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.txtbox_tab2_nombres.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
 			this.txtbox_tab2_nombres.UseSystemPasswordChar = false;
@@ -706,7 +675,7 @@
 			this.txtbox_tab2_nombreUsuario.Name = "txtbox_tab2_nombreUsuario";
 			this.txtbox_tab2_nombreUsuario.ReadOnly = false;
 			this.txtbox_tab2_nombreUsuario.Size = new System.Drawing.Size(239, 29);
-			this.txtbox_tab2_nombreUsuario.TabIndex = 1;
+			this.txtbox_tab2_nombreUsuario.TabIndex = 0;
 			this.txtbox_tab2_nombreUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.txtbox_tab2_nombreUsuario.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
 			this.txtbox_tab2_nombreUsuario.UseSystemPasswordChar = false;
@@ -731,7 +700,7 @@
 			this.tab3_Alumno_VistaGeneral.Controls.Add(this.llb_tab3_materia3);
 			this.tab3_Alumno_VistaGeneral.Controls.Add(this.llb_tab3_materia2);
 			this.tab3_Alumno_VistaGeneral.Controls.Add(this.llb_tab3_materia1);
-			this.tab3_Alumno_VistaGeneral.Controls.Add(this.lbl_tab3_Studenname);
+			this.tab3_Alumno_VistaGeneral.Controls.Add(this.lbl_tab3_StudentName);
 			this.tab3_Alumno_VistaGeneral.Controls.Add(this.flatStickyButton3);
 			this.tab3_Alumno_VistaGeneral.Controls.Add(this.btn_tab3_listagrupo);
 			this.tab3_Alumno_VistaGeneral.Controls.Add(this.btn_tab3_GrupoInscrito);
@@ -804,16 +773,16 @@
 			this.llb_tab3_materia1.TabStop = true;
 			this.llb_tab3_materia1.Text = "Materia 1";
 			// 
-			// lbl_tab3_Studenname
+			// lbl_tab3_StudentName
 			// 
-			this.lbl_tab3_Studenname.AutoSize = true;
-			this.lbl_tab3_Studenname.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl_tab3_Studenname.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbl_tab3_Studenname.Location = new System.Drawing.Point(30, 32);
-			this.lbl_tab3_Studenname.Name = "lbl_tab3_Studenname";
-			this.lbl_tab3_Studenname.Size = new System.Drawing.Size(200, 32);
-			this.lbl_tab3_Studenname.TabIndex = 8;
-			this.lbl_tab3_Studenname.Text = "Student Name---";
+			this.lbl_tab3_StudentName.AutoSize = true;
+			this.lbl_tab3_StudentName.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_tab3_StudentName.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.lbl_tab3_StudentName.Location = new System.Drawing.Point(30, 32);
+			this.lbl_tab3_StudentName.Name = "lbl_tab3_StudentName";
+			this.lbl_tab3_StudentName.Size = new System.Drawing.Size(200, 32);
+			this.lbl_tab3_StudentName.TabIndex = 8;
+			this.lbl_tab3_StudentName.Text = "Student Name---";
 			// 
 			// flatStickyButton3
 			// 
@@ -1464,7 +1433,7 @@
 		private System.Windows.Forms.LinkLabel llb_tab3_materia3;
 		private System.Windows.Forms.LinkLabel llb_tab3_materia2;
 		private System.Windows.Forms.LinkLabel llb_tab3_materia1;
-		private System.Windows.Forms.Label lbl_tab3_Studenname;
+		private System.Windows.Forms.Label lbl_tab3_StudentName;
 		private FlatUI.FlatStickyButton flatStickyButton3;
 		private FlatUI.FlatStickyButton btn_tab3_listagrupo;
 		private FlatUI.FlatButton btn_tab3_CrearGrupoPrf;
@@ -1494,8 +1463,6 @@
 		private FlatUI.FlatButton btn_tab6_CrearGrupos;
 		private FlatUI.FlatButton btn_tab6_regresar;
 		private FlatUI.FlatLabel lbl_tab6_listagrupos;
-		private FlatUI.FlatTextBox txtbox_tab2_email;
-		private FlatUI.FlatLabel lbl_tab2_email;
 		private FlatUI.FlatLabel lbl_tab2_dejeseBlanco;
 		private FlatUI.FlatButton btn_tab2_cancelar;
 		private FlatUI.FlatButton btn_tab2_aceptar;
@@ -1505,7 +1472,7 @@
 		private FlatUI.FlatLabel lbl_tab2_contraseña;
 		private FlatUI.FlatTextBox txtbox_tab2_codigo;
 		private FlatUI.FlatLabel lbl_tab2_codigoDocente;
-		private FlatUI.FlatTextBox txtbox_tab2_apellidos;
+		private FlatUI.FlatTextBox txtbox_tab2_registro;
 		private FlatUI.FlatLabel lbl_tab2_apellidos;
 		private FlatUI.FlatLabel lbl_tab2_nombres;
 		private FlatUI.FlatTextBox txtbox_tab2_nombres;

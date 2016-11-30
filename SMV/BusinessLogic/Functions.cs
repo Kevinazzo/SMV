@@ -15,12 +15,10 @@ namespace BusinessLogic
 		public static bool connectedToDB = false;
 		public static bool logged;
 		public static bool loggedAsTeacher;
-		public static BusinessEntities.user BLLCurrentSesion;
-
+		public static BusinessEntities.user currentSession;
 		#endregion
 
 		#region toDataAccessLayer
-
 
 		#region Startup
 		public static void startupConnectToServer(string param1)
@@ -47,6 +45,8 @@ namespace BusinessLogic
 		}
 		#endregion
 		#region DataValidation
+
+
 		#region registerUser
 		public static bool VerifyExistingUserToIns(string userName)
 		{
@@ -74,24 +74,22 @@ namespace BusinessLogic
 		#region logIn
 		public static bool verifyUserDataTologIn(string paramUsr, string paramPsw)
 		{
-			DataAccessLayer.Context.Select(paramUsr,paramPsw);
-			if (DataAccessLayer.Context.VerifyUserToLogIn(paramUsr,paramPsw))
+			DataAccessLayer.Context.getAccountCredentials(paramUsr, paramPsw);
+			if (DataAccessLayer.Context.VerifyUserToLogIn(paramUsr, paramPsw))
 			{
-				DataAccessLayer.Context.accountsList[0].Clear();
-				DataAccessLayer.Context.accountsList[1].Clear();
-				DataAccessLayer.Context.accountsList[2].Clear();
-				DataAccessLayer.Context.accountsList[3].Clear();
-				DataAccessLayer.Context.accountsList[5].Clear();
+				DataAccessLayer.Context.getCurrentSessionData();
+				for (int x = 0x0; x < DataAccessLayer.Context.accountsList.Length; x++)
+				{
+					DataAccessLayer.Context.accountsList[x].Clear();
+				}
+				importCurrentSesion();
+				logged = true;
 				return true;
 			}
 			else
 			{
 				return false;
 			}
-		}
-		public static void loadCurrentSesion()
-		{
-			BLLCurrentSesion = DataAccessLayer.Context.currentSession;
 		}
 		
 		#endregion
@@ -116,16 +114,12 @@ namespace BusinessLogic
 		}
 		#endregion
 
-		private static void createAccount(string Usr, string name, string LName, string pwd, string code)
+		public static void importCurrentSesion()
 		{
-			DataAccessLayer.Context.INSERTINTOuser(Usr, name, LName, pwd, code);
-		}
-		private static void logIn(string usr, string psw)
-		{
-			if (DataAccessLayer.Context.VerifyUserToLogIn(usr,psw))
-			{
-
-			}
+			currentSession = new BusinessEntities.user(DataAccessLayer.Context.currentSesionInfo.ElementAt(0),
+				DataAccessLayer.Context.currentSesionInfo.ElementAt(1),
+				DataAccessLayer.Context.currentSesionInfo.ElementAt(2),
+				DataAccessLayer.Context.currentSesionInfo.ElementAt(3));
 		}
 		public static void closeConnection()
 		{

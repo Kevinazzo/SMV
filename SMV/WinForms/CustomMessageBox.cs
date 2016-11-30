@@ -27,6 +27,21 @@ namespace WinForms
 		[DllImportAttribute("user32.dll")]
 		public static extern bool ReleaseCapture();
 		#endregion
+		public DialogResult Show(string text)
+		{
+			txtbox_content2.Text = text;
+			btn_aceptar.Location = new Point(86, 70);
+			btn_cancelar.Visible = false;
+			lbl_Title.Visible = false;
+			txtbox_content2.Dock = DockStyle.Fill;
+			txtbox_content2.UseSystemPasswordChar = false;
+			txtbox_content2.Multiline = true;
+			txtbox_content2.ReadOnly = true;
+			txtbox_content2.TextAlign = HorizontalAlignment.Center;
+			ShowDialog();
+			return DialogResult;
+
+		}
 		public DialogResult Show (string text, CustomMessageBoxButtons buttons)
 		{
 			txtbox_content2.Text = text;

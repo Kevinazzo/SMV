@@ -105,7 +105,7 @@ namespace WinForms
 				lbl_tab2_apellidos.ForeColor = Color.White;
 				return false;
 			}// Last Name textbox is empty
-			else if (txtbox_tab2_apellidos.Text.Length == 0 || txtbox_tab2_apellidos.Text.Length < 0x4)
+			else if (txtbox_tab2_registro.Text.Length == 0 || txtbox_tab2_registro.Text.Length < 0x4)
 			{
 				lbl_tab2_apellidos.ForeColor = Color.Red;
 				lbl_tab2_nombreUsuario.ForeColor = Color.White;
@@ -163,12 +163,15 @@ namespace WinForms
 		}
 		#endregion
 
+		public void loadCurrentSession()
+		{
+			lbl_tab3_StudentName.Text = "Bienvenido " + BusinessLogic.Functions.currentSession.name;
+		}
 		public void cleanTab2Txtbox()
 		{
-			txtbox_tab2_apellidos.Text = "";
+			txtbox_tab2_registro.Text = "";
 			txtbox_tab2_conficontraseña.Text = "";
 			txtbox_tab2_contraseña.Text = "";
-			txtbox_tab2_email.Text = "";
 			txtbox_tab2_nombres.Text = "";
 			txtbox_tab2_nombreUsuario.Text = "";
 		}
@@ -234,7 +237,7 @@ namespace WinForms
 				{
 					MsgBox = new CustomMessageBox();
 					BusinessLogic.Functions.registerNewUser(txtbox_tab2_nombreUsuario.Text, txtbox_tab2_nombres.Text,
-						txtbox_tab2_apellidos.Text, txtbox_tab2_contraseña.Text, txtbox_tab2_codigo.Text);
+						txtbox_tab2_registro.Text, txtbox_tab2_contraseña.Text, txtbox_tab2_codigo.Text);
 					MsgBox.Show("Usuario creado", "", CustomMessageBox.CustomMessageBoxButtons.Ok, CustomMessageBox.CustomMessageBoxTxtBoxState.VisibleCharReadOnly);
 					cleanTab2Txtbox();
 					tabControl.SelectedTab = tab1_login;
@@ -255,11 +258,18 @@ namespace WinForms
 			{
 				if (BusinessLogic.Functions.verifyUserDataTologIn(txtbox_usuario.Text, txtbox_contraseña.Text))
 				{
-				} 
+					loadCurrentSession();
+
+				}
+				else
+				{
+					MsgBox = new CustomMessageBox();
+					MsgBox.Show("Datos Incorrectos");
+				}
 			}
 			else
 			{
-				MessageBox.Show("Rellene los campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MsgBox.Show("Rellene Los campos Vacios");
 			}
 			if (true)//BusinessLogic.Functions.logOn.logged)
 			{
@@ -274,7 +284,7 @@ namespace WinForms
 				tabControl.SelectedTab = tab3_Docente_VistaGeneral;
 			}
 		}
-		private void flatClose1_Click_1(object sender, EventArgs e)
+		private void Cerrar_Click_1(object sender, EventArgs e)
 		{
 			try
 			{
@@ -297,7 +307,7 @@ namespace WinForms
 			catch (MySqlException)
 			{
 				MsgBox = new CustomMessageBox();
-				MsgBox.Show("Contraseña incorrecta", "ERROR", CustomMessageBox.CustomMessageBoxButtons.Ok, CustomMessageBox.CustomMessageBoxTxtBoxState.VisibleCharReadOnly);
+				MsgBox.Show("Contraseña incorrecta");
 			}
 			if (BusinessLogic.Functions.connectedToDB)
 			{
