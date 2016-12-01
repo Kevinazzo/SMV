@@ -43,29 +43,28 @@ namespace DataAccessLayer
 				"DROP DATABASE IF EXISTS smv;" +
 				"CREATE DATABASE smv;use smv;" +
 
-			"CREATE TABLE IF NOT EXISTS codes(cCode VARCHAR(10) NOT NULL PRIMARY KEY);" +
+			"CREATE TABLE IF NOT EXISTS codes(cCode VARCHAR(10) UNIQUE);" +
 
 			"CREATE TABLE IF NOT EXISTS user(" +
 				"userName VARCHAR(25) NOT NULL PRIMARY KEY," +
 				"`name` VARCHAR(50) NOT NULL," +
 				"lastName VARCHAR(50) NOT NULL," +
 				"pwd VARCHAR(32) NOT NULL," +
-				"cCode VARCHAR(10)," +
-				"FOREIGN KEY (cCode) REFERENCES codes(cCode))ENGINE=INNODB;" + Environment.NewLine +
+				"cCode VARCHAR (10) NULL UNIQUE)ENGINE=INNODB;" + Environment.NewLine +
 
 			"CREATE TABLE IF NOT EXISTS course(" +
 				"`name` VARCHAR(50) NOT NULL," +
 				"admin varchar(25) NOT NULL," +
 				"grade CHAR(1) NOT NULL," +
 				"`group` CHAR(1) NOT NULL," +
-				"ID INT AUTO_INCREMENT NOT NULL PRIMARY KEY," + 
+				"ID INT AUTO_INCREMENT NOT NULL PRIMARY KEY," +
 				"FOREIGN KEY(admin)REFERENCES user(userName))ENGINE = INNODB;" + Environment.NewLine +
 
 			"CREATE TABLE IF NOT EXISTS masterList(" +
 				"userName VARCHAR(25) NOT NULL," +
 				"ID_course INT NOT NULL," +
 				"un1 FLOAT,un2 FLOAT,un3 FLOAT,un4 FLOAT,un5 FLOAT,un6 FLOAT," +
-				"FOREIGN KEY(userName) REFERENCES user(userName),"+
+				"FOREIGN KEY(userName) REFERENCES user(userName)," +
 				"FOREIGN KEY(ID_course)REFERENCES course(ID)," +
 				"UNIQUE keypair(userName, ID_course))ENGINE = INNODB;";
 
@@ -89,7 +88,7 @@ namespace DataAccessLayer
 		}
 		public static bool verifyuserToIns(string param1)
 		{
-			string query = "SELECT * FROM user WHERE username='" + param1 + "';";
+			string query = "SELECT * FROM user WHERE userName='" + param1 + "';";
 			command = new MySqlCommand(query, connection);
 			reader = command.ExecuteReader();
 			while (reader.Read())
@@ -106,6 +105,7 @@ namespace DataAccessLayer
 				return false;
 			}
 		}
+
 		#endregion
 
 		#region selectUser
@@ -123,7 +123,25 @@ namespace DataAccessLayer
 				return false;
 			}
 		}
-		public static List<string>[] getAccountCredentials(string param1, string param2)
+		public static List<string> getCodesList()
+		{
+			string query = "SELECT * FROM codes;";
+			command = new MySqlCommand(query, connection);
+			reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				accountsList[4].Add(reader["cCode"] + "");
+			}
+			return accountsList[4];
+		}
+		public static void dropTeacherCode(string code)
+		{
+			string query = "DELETE FROM codes WHERE cCode=" + code + ";";
+			command = new MySqlCommand(query, connection);
+			command.ExecuteNonQuery();
+		}
+		public static List<string>[] getAccountCredentials(string param1, string param2, bool alumno)
 		{
 			string query = "SELECT userName,pwd,cCode FROM user WHERE username='" + param1 + "' AND pwd='" + param2 + "';";
 			command = new MySqlCommand(query, connection);

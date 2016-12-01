@@ -118,7 +118,6 @@
 			this.lbl_tab6_listagrupos = new FlatUI.FlatLabel();
 			this.tab7_Docente_OpcionesDeCurso = new System.Windows.Forms.TabPage();
 			this.tmr_psw = new System.Windows.Forms.Timer(this.components);
-			this.tmr_startup = new System.Windows.Forms.Timer(this.components);
 			this.pnl_header.SuspendLayout();
 			this.pnl_body.SuspendLayout();
 			this.tabControl.SuspendLayout();
@@ -397,7 +396,7 @@
 			this.txtbox_contraseña.TabIndex = 3;
 			this.txtbox_contraseña.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.txtbox_contraseña.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-			this.txtbox_contraseña.UseSystemPasswordChar = false;
+			this.txtbox_contraseña.UseSystemPasswordChar = true;
 			// 
 			// txtbox_usuario
 			// 
@@ -1354,10 +1353,6 @@
 			this.tmr_psw.Interval = 500;
 			this.tmr_psw.Tick += new System.EventHandler(this.tmr_psw_Tick);
 			// 
-			// tmr_startup
-			// 
-			this.tmr_startup.Interval = 1500;
-			// 
 			// Frame
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1486,7 +1481,6 @@
 		private System.Windows.Forms.TabPage tab0_Startup;
 		private System.Windows.Forms.Label SMV_LOGO;
 		private iTalk.iTalk_Label BY_EPI;
-		private System.Windows.Forms.Timer tmr_startup;
 		private FlatUI.FlatClose flatClose1;
 		private FlatUI.FlatButton btn_connectToDB;
 		private FlatUI.FlatLabel lbl_rootPsw;

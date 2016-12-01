@@ -38,6 +38,7 @@ namespace WinForms
 			txtbox_content2.Multiline = true;
 			txtbox_content2.ReadOnly = true;
 			txtbox_content2.TextAlign = HorizontalAlignment.Center;
+			btn_aceptar.BringToFront();
 			ShowDialog();
 			return DialogResult;
 

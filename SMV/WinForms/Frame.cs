@@ -28,7 +28,7 @@ namespace WinForms
 		[DllImportAttribute("user32.dll")]
 		public static extern bool ReleaseCapture();
 
-		CustomMessageBox MsgBox;
+		CustomMessageBox MsgBox = new CustomMessageBox();
 
 		#endregion
 
@@ -38,7 +38,7 @@ namespace WinForms
 
 		public void startupConnectToDB()
 		{
-			MsgBox = new CustomMessageBox();
+
 			MsgBox.Show("", "Contraseña de Usuario ROOT", CustomMessageBox.CustomMessageBoxButtons.OkCancel, CustomMessageBox.CustomMessageBoxTxtBoxState.PasswordChar);
 			switch (MsgBox.DialogResult)
 			{
@@ -165,7 +165,14 @@ namespace WinForms
 
 		public void loadCurrentSession()
 		{
-			lbl_tab3_StudentName.Text = "Bienvenido " + BusinessLogic.Functions.currentSession.name;
+			if (BusinessLogic.Functions.currentSession.code.Length != 0)
+			{
+				lbl_tab3_StudentName.Text = "Bienvenido " + BusinessLogic.Functions.currentSession.name;
+			}
+			else
+			{
+				lbl_tab3_NombreProfesor.Text = "Bienvenido " + BusinessLogic.Functions.currentSession.name;
+			}
 		}
 
 		public void cleanTab1Txtbox()
@@ -178,6 +185,7 @@ namespace WinForms
 		public void cleanTab2Txtbox()
 		{
 			txtbox_tab2_registro.Text = "";
+			txtbox_tab2_codigo.Text = "";
 			txtbox_tab2_conficontraseña.Text = "";
 			txtbox_tab2_contraseña.Text = "";
 			txtbox_tab2_nombres.Text = "";
@@ -243,22 +251,28 @@ namespace WinForms
 			{
 				if (BusinessLogic.Functions.VerifyExistingUserToIns(txtbox_tab2_nombreUsuario.Text))
 				{
-					MsgBox = new CustomMessageBox();
-					BusinessLogic.Functions.registerNewUser(txtbox_tab2_nombreUsuario.Text, txtbox_tab2_nombres.Text,
-						txtbox_tab2_registro.Text, txtbox_tab2_contraseña.Text, txtbox_tab2_codigo.Text);
-					MsgBox.Show("Usuario creado", "", CustomMessageBox.CustomMessageBoxButtons.Ok, CustomMessageBox.CustomMessageBoxTxtBoxState.VisibleCharReadOnly);
-					cleanTab2Txtbox();
-					tabControl.SelectedTab = tab1_login;
+					try
+					{
+						BusinessLogic.Functions.registerNewUser(txtbox_tab2_nombreUsuario.Text, txtbox_tab2_nombres.Text,
+							txtbox_tab2_registro.Text, txtbox_tab2_contraseña.Text, txtbox_tab2_codigo.Text);
+						MsgBox.Show("Cuenta creada");
+						cleanTab2Txtbox();
+						tabControl.SelectedTab = tab1_login;
+					}
+					catch (NotFiniteNumberException)
+					{
+						MsgBox.Show("Codigo de Docente no valido");
+					}
 				}
 				else
 				{
-					MsgBox.Show("El Usuario ya Existe", "ERROR", CustomMessageBox.CustomMessageBoxButtons.Ok, CustomMessageBox.CustomMessageBoxTxtBoxState.VisibleCharReadOnly);
+					MsgBox.Show("El Usuario ya Existe");
 				}
 			}
 			else
 			{
-				MsgBox = new CustomMessageBox();
-				MsgBox.Show("El usuario ya existe", "ERROR", CustomMessageBox.CustomMessageBoxButtons.Ok, CustomMessageBox.CustomMessageBoxTxtBoxState.VisibleCharReadOnly);
+
+				MsgBox.Show("Verifique los campos marcados de rojo");
 			}
 		}
 		private void btn_ingresar_Click(object sender, EventArgs e)
@@ -268,29 +282,26 @@ namespace WinForms
 				if (BusinessLogic.Functions.verifyUserDataTologIn(txtbox_usuario.Text, txtbox_contraseña.Text))
 				{
 					loadCurrentSession();
-
+					if (BusinessLogic.Functions.logged)//BusinessLogic.Functions.logOn.logged)
+					{
+						cleanTab1Txtbox();
+						tabControl.SelectedTab = tab3_Alumno_VistaGeneral;
+					}
+					else if (BusinessLogic.Functions.loggedAsTeacher) //BusinessLogic.Functions.logOn.loggedAsTeacher)
+					{
+						cleanTab1Txtbox();
+						tabControl.SelectedTab = tab3_Docente_VistaGeneral;
+					}
 				}
 				else
 				{
-					MsgBox = new CustomMessageBox();
+
 					MsgBox.Show("Datos Incorrectos");
 				}
 			}
 			else
 			{
 				MsgBox.Show("Rellene Los campos Vacios");
-			}
-			if (true)//BusinessLogic.Functions.logOn.logged)
-			{
-				txtbox_usuario.Text = null;
-				txtbox_contraseña.Text = null;
-				tabControl.SelectedTab = tab3_Alumno_VistaGeneral;
-			}
-			else if (true) //BusinessLogic.Functions.logOn.loggedAsTeacher)
-			{
-				txtbox_usuario.Text = null;
-				txtbox_contraseña.Text = null;
-				tabControl.SelectedTab = tab3_Docente_VistaGeneral;
 			}
 		}
 		private void Cerrar_Click_1(object sender, EventArgs e)
@@ -315,7 +326,7 @@ namespace WinForms
 			}
 			catch (MySqlException)
 			{
-				MsgBox = new CustomMessageBox();
+
 				MsgBox.Show("Contraseña incorrecta");
 			}
 			if (BusinessLogic.Functions.connectedToDB)
@@ -327,8 +338,8 @@ namespace WinForms
 				}
 				catch (MySqlException)
 				{
-					MsgBox = new CustomMessageBox();
-					if (MsgBox.Show("la Base de Datos no existe, Quiere crearla?", "ERROR", CustomMessageBox.CustomMessageBoxButtons.OkCancel, CustomMessageBox.CustomMessageBoxTxtBoxState.VisibleCharReadOnly) == DialogResult.OK)
+
+					if (MsgBox.Show("la Base de Datos no existe, Quiere crearla?") == DialogResult.OK)
 					{
 						try
 						{

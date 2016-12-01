@@ -61,20 +61,35 @@ namespace BusinessLogic
 		}
 		public static bool verifyCode(string code)
 		{
-			if (true)
+			if (code.Length > 0x0)
 			{
-				return true;
+				var desiredCode = DataAccessLayer.Context.accountsList[4].Find(item => item == code);
+				if (desiredCode == code)
+				{
+					DataAccessLayer.Context.dropTeacherCode(desiredCode);
+					DataAccessLayer.Context.accountsList[4].Clear();
+					return true;
+				}
+				else
+				{
+					return false;
+				}
 			}
+			else
+			{
+				return false;
+			} 
 		}
-		public static void registerNewUser(string Usr,string name,string Ln,string psw, string code)
+		public static void registerNewUser(string Usr,string name,string Ln,string psw,string code)
 		{
-			DataAccessLayer.Context.INSERTINTOuser(Usr, name, Ln, psw, code);
+			DataAccessLayer.Context.INSERTINTOuser(Usr, name, Ln, psw,code);
 		}
 		#endregion
 		#region logIn
 		public static bool verifyUserDataTologIn(string paramUsr, string paramPsw)
 		{
-			DataAccessLayer.Context.getAccountCredentials(paramUsr, paramPsw);
+			DataAccessLayer.Context.getAccountCredentials(paramUsr, paramPsw, true);
+			DataAccessLayer.Context.getAccountCredentials(paramUsr, paramPsw, false);
 			if (DataAccessLayer.Context.VerifyUserToLogIn(paramUsr, paramPsw))
 			{
 				DataAccessLayer.Context.getCurrentSessionData();
@@ -83,15 +98,30 @@ namespace BusinessLogic
 					DataAccessLayer.Context.accountsList[x].Clear();
 				}
 				importCurrentSesion();
-				logged = true;
-				return true;
+				if (currentSession.code.Length != 0)
+				{
+					loggedAsTeacher = true;
+					return true;
+				}
+				else
+				{
+					logged = true;
+					return true;
+				}
 			}
 			else
 			{
 				return false;
 			}
 		}
-		
+		public static void importCurrentSesion()
+		{
+			currentSession = new BusinessEntities.user(DataAccessLayer.Context.currentSesionInfo.ElementAt(0),
+				DataAccessLayer.Context.currentSesionInfo.ElementAt(1),
+				DataAccessLayer.Context.currentSesionInfo.ElementAt(2),
+				DataAccessLayer.Context.currentSesionInfo.ElementAt(3));
+		}
+
 		#endregion
 
 		#endregion
@@ -114,13 +144,7 @@ namespace BusinessLogic
 		}
 		#endregion
 
-		public static void importCurrentSesion()
-		{
-			currentSession = new BusinessEntities.user(DataAccessLayer.Context.currentSesionInfo.ElementAt(0),
-				DataAccessLayer.Context.currentSesionInfo.ElementAt(1),
-				DataAccessLayer.Context.currentSesionInfo.ElementAt(2),
-				DataAccessLayer.Context.currentSesionInfo.ElementAt(3));
-		}
+
 		public static void closeConnection()
 		{
 			DataAccessLayer.Context.connection.Close();
