@@ -11,6 +11,7 @@ namespace BusinessEntities
 		public course(){ }
 		public List<string>[] nameAdmin = new List<string>[2];
 		public List<char>[] gradeGrup = new List<char>[2];
-		public List<int> ID = new List<int>();
+		public List<string> ID = new List<string>();
+		
 	}
 }

@@ -63,6 +63,7 @@ namespace BusinessLogic
 		{
 			if (code.Length > 0x0)
 			{
+				DataAccessLayer.Context.getCodesList();
 				var desiredCode = DataAccessLayer.Context.accountsList[4].Find(item => item == code);
 				if (desiredCode == code)
 				{
@@ -125,6 +126,21 @@ namespace BusinessLogic
 		#endregion
 
 		#endregion
+		#region Courses
+
+		public static void createcourse(string Cname, char Cgrade, char Cgroup)
+		{
+			DataAccessLayer.Context.INSERTINTOcourse(Cname,Cgrade,Cgroup);
+		}
+		public static List<string>[] dgvSourceCourseView = new List<string>[3];
+
+		public static void importDGVnames()
+		{
+			dgvSourceCourseView[0] = DataAccessLayer.Context.courseList.nameAdmin[0].Select(a => a).ToList();
+			dgvSourceCourseView[1] = DataAccessLayer.Context.courseList.gradeGrup[0].Select(a => a.ToString()).ToList();
+			dgvSourceCourseView[2] = DataAccessLayer.Context.courseList.gradeGrup[1].Select(a => a.ToString()).ToList();
+		}
+		#endregion
 
 		#endregion
 
@@ -144,7 +160,10 @@ namespace BusinessLogic
 		}
 		#endregion
 
-
+		public static void getCourses()
+		{
+			DataAccessLayer.Context.getCourses();
+		}
 		public static void closeConnection()
 		{
 			DataAccessLayer.Context.connection.Close();

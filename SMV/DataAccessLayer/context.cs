@@ -25,6 +25,9 @@ namespace DataAccessLayer
 		public static List<string> userList = new List<string>();
 		public static List<string>[] accountsList = { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>() };
 		public static string[] currentSesionInfo = new string[4];
+		public static List<string>[] table = new List<string>[5];
+
+		public static float[] cals = new float[4];
 		#endregion
 		#region Notes(calificaciones)
 
@@ -79,7 +82,7 @@ namespace DataAccessLayer
 		}
 		#endregion
 
-		#region InsertUser
+		#region Insert
 		public static void INSERTINTOuser(string userName, string name, string lastName, string pwd, string code)
 		{
 			string query = "INSERT INTO user (userName,`name`,lastName,pwd,cCode) values('" + userName + "','" + name + "','" + lastName + "','" + pwd + "','" + code + "');";
@@ -105,10 +108,19 @@ namespace DataAccessLayer
 				return false;
 			}
 		}
+		public static void INSERTINTOcourse(string name, char grade, char group)
+		{
+			string query = "INSERT INTO course values ('" + name + "','" + currentSesionInfo[0] + "','" + grade + "','" + group + "',NULL);";
+			command = new MySqlCommand(query, connection);
+			command.ExecuteNonQuery();
+		}
 
 		#endregion
 
-		#region selectUser
+		#region select
+
+		#region fromuser
+
 		public static bool VerifyUserToLogIn(string param1, string param2)
 		{
 			var user = accountsList[0].Find(a => a == param1);
@@ -122,24 +134,6 @@ namespace DataAccessLayer
 			{
 				return false;
 			}
-		}
-		public static List<string> getCodesList()
-		{
-			string query = "SELECT * FROM codes;";
-			command = new MySqlCommand(query, connection);
-			reader = command.ExecuteReader();
-
-			while (reader.Read())
-			{
-				accountsList[4].Add(reader["cCode"] + "");
-			}
-			return accountsList[4];
-		}
-		public static void dropTeacherCode(string code)
-		{
-			string query = "DELETE FROM codes WHERE cCode=" + code + ";";
-			command = new MySqlCommand(query, connection);
-			command.ExecuteNonQuery();
 		}
 		public static List<string>[] getAccountCredentials(string param1, string param2, bool alumno)
 		{
@@ -171,6 +165,52 @@ namespace DataAccessLayer
 			}
 			reader.Close();
 		}
+
+
+		#endregion
+		#region FROMcodes
+
+		public static List<string> getCodesList()
+		{
+			string query = "SELECT * FROM codes;";
+			command = new MySqlCommand(query, connection);
+			reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				accountsList[4].Add(reader["cCode"] + "");
+			}
+			reader.Close();
+			return accountsList[4];
+		}
+		public static void dropTeacherCode(string code)
+		{
+			string query = "DELETE FROM codes WHERE cCode='" + code + "';";
+			command = new MySqlCommand(query, connection);
+			command.ExecuteNonQuery();
+		}
+
+		#endregion
+		#region FROMcourse
+
+		public static void getCourses()
+		{
+			string query = "SELECT * FROM course;";
+			command = new MySqlCommand(query, connection);
+			reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				table[0].Add(reader["name"] + "");
+				table[1].Add(reader["admin"] + "");
+				table[2].Add(reader.GetChar("grade").ToString());
+				table[3].Add(reader.GetChar("group").ToString());
+				table[4].Add(reader["ID"].ToString() + "");
+			}
+			reader.Close();
+		}
+
+		#endregion
 		#endregion
 
 		#endregion

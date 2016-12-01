@@ -163,24 +163,43 @@ namespace WinForms
 		}
 		#endregion
 
-		public void loadCurrentSession()
+		#region DGV
+
+
+		public void populateDGV()
 		{
-			if (BusinessLogic.Functions.currentSession.code.Length != 0)
-			{
-				lbl_tab3_StudentName.Text = "Bienvenido " + BusinessLogic.Functions.currentSession.name;
-			}
-			else
-			{
-				lbl_tab3_NombreProfesor.Text = "Bienvenido " + BusinessLogic.Functions.currentSession.name;
-			}
+			dgv_courseList.DataSource = BusinessLogic.Functions.dgvSourceCourseView;
 		}
 
+		#endregion
+		public void loadCurrentSession()
+		{
+			if (BusinessLogic.Functions.loggedAsTeacher)
+			{
+				lbl_tab3_NombreProfesor.Text = "Bienvenido " + BusinessLogic.Functions.currentSession.name;
+				tabControl.SelectedTab = tab3_Docente_VistaGeneral;
+				cleanTab1Txtbox();
+			}
+			else if (BusinessLogic.Functions.logged)
+			{
+				cleanTab1Txtbox();
+				tabControl.SelectedTab = tab3_Alumno_VistaGeneral;
+				lbl_tab3_NombreAlumno.Text = "Bienvenido " + BusinessLogic.Functions.currentSession.name;
+				lbl_tab4_NombreAlumno.Text = BusinessLogic.Functions.currentSession.name;
+			}
+		}
 		public void cleanTab1Txtbox()
 		{
 			txtbox_contraseña.Text = "";
 			txtbox_rootPsw.Text = "";
 			txtbox_usuario.Text = "";
 
+		}
+		public void cleanTab5TxtBox()
+		{
+			txtbox_tab5_courseName.Text = "";
+			txtbox_tab5_grade.Text = "";
+			txtbox_tab5_grup.Text = "";
 		}
 		public void cleanTab2Txtbox()
 		{
@@ -251,7 +270,7 @@ namespace WinForms
 			{
 				if (BusinessLogic.Functions.VerifyExistingUserToIns(txtbox_tab2_nombreUsuario.Text))
 				{
-					try
+					if (BusinessLogic.Functions.verifyCode(txtbox_tab2_codigo.Text))
 					{
 						BusinessLogic.Functions.registerNewUser(txtbox_tab2_nombreUsuario.Text, txtbox_tab2_nombres.Text,
 							txtbox_tab2_registro.Text, txtbox_tab2_contraseña.Text, txtbox_tab2_codigo.Text);
@@ -259,9 +278,13 @@ namespace WinForms
 						cleanTab2Txtbox();
 						tabControl.SelectedTab = tab1_login;
 					}
-					catch (NotFiniteNumberException)
+					else
 					{
-						MsgBox.Show("Codigo de Docente no valido");
+						BusinessLogic.Functions.registerNewUser(txtbox_tab2_nombreUsuario.Text, txtbox_tab2_nombres.Text,
+							txtbox_tab2_registro.Text, txtbox_tab2_contraseña.Text, txtbox_tab2_codigo.Text);
+						MsgBox.Show("Cuenta creada");
+						cleanTab2Txtbox();
+						tabControl.SelectedTab = tab1_login;
 					}
 				}
 				else
@@ -282,16 +305,6 @@ namespace WinForms
 				if (BusinessLogic.Functions.verifyUserDataTologIn(txtbox_usuario.Text, txtbox_contraseña.Text))
 				{
 					loadCurrentSession();
-					if (BusinessLogic.Functions.logged)//BusinessLogic.Functions.logOn.logged)
-					{
-						cleanTab1Txtbox();
-						tabControl.SelectedTab = tab3_Alumno_VistaGeneral;
-					}
-					else if (BusinessLogic.Functions.loggedAsTeacher) //BusinessLogic.Functions.logOn.loggedAsTeacher)
-					{
-						cleanTab1Txtbox();
-						tabControl.SelectedTab = tab3_Docente_VistaGeneral;
-					}
 				}
 				else
 				{
@@ -358,6 +371,28 @@ namespace WinForms
 				}
 			}
 		}
+		private void btn_tab3_GrupoInscrito_Click(object sender, EventArgs e)
+		{
+			tabControl.SelectedTab = tab4_Alumno_ListaDeCursos;
+		}
+
 		#endregion
+
+		private void btn_tab3_CrearGrupoPrf_Click(object sender, EventArgs e)
+		{
+			tabControl.SelectedTab = tab5_Docente_CrearCurso;
+			BusinessLogic.Functions.getCourses();
+		}
+		private void btn_tab5_aceptar_Click(object sender, EventArgs e)
+		{
+			BusinessLogic.Functions.createcourse(txtbox_tab5_courseName.Text, txtbox_tab5_grade.Text[0], txtbox_tab5_grup.Text[0]);
+			cleanTab5TxtBox();
+			tabControl.SelectedTab = tab6_Docente_CursoLista;
+		}
+
+		private void btn_tab6_regresar_Click(object sender, EventArgs e)
+		{
+			tabControl.SelectedTab = tab3_Docente_VistaGeneral;
+		}
 	}
 }

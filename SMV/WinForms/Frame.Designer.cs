@@ -74,8 +74,7 @@
 			this.llb_tab3_materia3 = new System.Windows.Forms.LinkLabel();
 			this.llb_tab3_materia2 = new System.Windows.Forms.LinkLabel();
 			this.llb_tab3_materia1 = new System.Windows.Forms.LinkLabel();
-			this.lbl_tab3_StudentName = new System.Windows.Forms.Label();
-			this.flatStickyButton3 = new FlatUI.FlatStickyButton();
+			this.lbl_tab3_NombreAlumno = new System.Windows.Forms.Label();
 			this.btn_tab3_listagrupo = new FlatUI.FlatStickyButton();
 			this.btn_tab3_GrupoInscrito = new FlatUI.FlatStickyButton();
 			this.radGrp_tab3_Progresototal5 = new iTalk.iTalk_ProgressBar();
@@ -83,41 +82,45 @@
 			this.radGrp_tab3_Progresototal4 = new iTalk.iTalk_ProgressBar();
 			this.radGrp_tab3_Progresototal2 = new iTalk.iTalk_ProgressBar();
 			this.radGrp_tab3_Progresototal = new iTalk.iTalk_ProgressBar();
-			this.tab4_Alumno_ListaDeCursos = new System.Windows.Forms.TabPage();
-			this.radgrp_tab4_materiaProgreso = new iTalk.iTalk_ProgressBar();
-			this.dataGridview_tab4 = new System.Windows.Forms.DataGridView();
-			this.radGrp_tab3_PromedioGeneral = new iTalk.iTalk_ProgressBar();
-			this.lbl_tab4_NombreAlumno = new FlatUI.FlatLabel();
-			this.tab5_Alumno_VistaGeneralCurso = new System.Windows.Forms.TabPage();
 			this.tab3_Docente_VistaGeneral = new System.Windows.Forms.TabPage();
 			this.lbl_tab3_selectOpcion = new FlatUI.FlatLabel();
 			this.btn_tab3_CrearGrupoPrf = new FlatUI.FlatButton();
 			this.btn_tab3_GrupolistaProf = new FlatUI.FlatButton();
 			this.btn_tab3_CursoGeneralProfesor = new FlatUI.FlatButton();
 			this.lbl_tab3_NombreProfesor = new System.Windows.Forms.Label();
+			this.tab4_Alumno_ListaDeCursos = new System.Windows.Forms.TabPage();
+			this.radgrp_tab4_materiaProgreso = new iTalk.iTalk_ProgressBar();
+			this.dataGridview_tab4 = new System.Windows.Forms.DataGridView();
+			this.radGrp_tab3_PromedioGeneral = new iTalk.iTalk_ProgressBar();
+			this.lbl_tab4_NombreAlumno = new FlatUI.FlatLabel();
 			this.tab4_Docente_CursoGeneral = new System.Windows.Forms.TabPage();
+			this.regresar = new FlatUI.FlatButton();
 			this.lbl_tab4_AlumnosVuln = new System.Windows.Forms.Label();
-			this.tab4_dataGridview = new System.Windows.Forms.DataGridView();
-			this.lbl_tab4_NombreAlumn = new System.Windows.Forms.Label();
+			this.dgv_tab4_Vulnerables = new System.Windows.Forms.DataGridView();
+			this.lbl_tab4_NombreCurso = new System.Windows.Forms.Label();
+			this.tab5_Alumno_VistaGeneralCurso = new System.Windows.Forms.TabPage();
 			this.tab5_Docente_CrearCurso = new System.Windows.Forms.TabPage();
+			this.flatLabel1 = new FlatUI.FlatLabel();
+			this.txtbox_tab5_courseName = new FlatUI.FlatTextBox();
 			this.lbl_tab5_ejemplo = new FlatUI.FlatLabel();
 			this.btn_tab5_cancelar = new FlatUI.FlatButton();
 			this.btn_tab5_aceptar = new FlatUI.FlatButton();
-			this.lbl_tab5_ExamParciales = new FlatUI.FlatCheckBox();
-			this.flatNumeric2_Tab5 = new FlatUI.FlatNumeric();
-			this.flatNumeric1_tab5 = new FlatUI.FlatNumeric();
-			this.lbl_tab5_UnidadesCurso = new FlatUI.FlatLabel();
 			this.lbl_tab5_NombreMateria = new FlatUI.FlatLabel();
 			this.lbl_tab5_NombCortGrupo = new FlatUI.FlatLabel();
-			this.txtbox_tab5_nombremateria = new FlatUI.FlatTextBox();
-			this.txtbox_tab5_nombreGrupo = new FlatUI.FlatTextBox();
+			this.txtbox_tab5_grup = new FlatUI.FlatTextBox();
+			this.txtbox_tab5_grade = new FlatUI.FlatTextBox();
 			this.lbl_tab5_Creargrupo = new System.Windows.Forms.Label();
 			this.tab6_Docente_CursoLista = new System.Windows.Forms.TabPage();
+			this.dgv_courseList = new System.Windows.Forms.DataGridView();
 			this.btn_tab6_CrearGrupos = new FlatUI.FlatButton();
 			this.btn_tab6_regresar = new FlatUI.FlatButton();
 			this.lbl_tab6_listagrupos = new FlatUI.FlatLabel();
 			this.tab7_Docente_OpcionesDeCurso = new System.Windows.Forms.TabPage();
 			this.tmr_psw = new System.Windows.Forms.Timer(this.components);
+			this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.grado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.pnl_header.SuspendLayout();
 			this.pnl_body.SuspendLayout();
 			this.tabControl.SuspendLayout();
@@ -125,13 +128,14 @@
 			this.tab1_login.SuspendLayout();
 			this.tab2_registro.SuspendLayout();
 			this.tab3_Alumno_VistaGeneral.SuspendLayout();
+			this.tab3_Docente_VistaGeneral.SuspendLayout();
 			this.tab4_Alumno_ListaDeCursos.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridview_tab4)).BeginInit();
-			this.tab3_Docente_VistaGeneral.SuspendLayout();
 			this.tab4_Docente_CursoGeneral.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.tab4_dataGridview)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgv_tab4_Vulnerables)).BeginInit();
 			this.tab5_Docente_CrearCurso.SuspendLayout();
 			this.tab6_Docente_CursoLista.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgv_courseList)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// pnl_header
@@ -206,10 +210,10 @@
 			this.tabControl.Controls.Add(this.tab1_login);
 			this.tabControl.Controls.Add(this.tab2_registro);
 			this.tabControl.Controls.Add(this.tab3_Alumno_VistaGeneral);
-			this.tabControl.Controls.Add(this.tab4_Alumno_ListaDeCursos);
-			this.tabControl.Controls.Add(this.tab5_Alumno_VistaGeneralCurso);
 			this.tabControl.Controls.Add(this.tab3_Docente_VistaGeneral);
+			this.tabControl.Controls.Add(this.tab4_Alumno_ListaDeCursos);
 			this.tabControl.Controls.Add(this.tab4_Docente_CursoGeneral);
+			this.tabControl.Controls.Add(this.tab5_Alumno_VistaGeneralCurso);
 			this.tabControl.Controls.Add(this.tab5_Docente_CrearCurso);
 			this.tabControl.Controls.Add(this.tab6_Docente_CursoLista);
 			this.tabControl.Controls.Add(this.tab7_Docente_OpcionesDeCurso);
@@ -337,7 +341,7 @@
 			this.flatLabel4.BackColor = System.Drawing.Color.Transparent;
 			this.flatLabel4.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.flatLabel4.ForeColor = System.Drawing.Color.White;
-			this.flatLabel4.Location = new System.Drawing.Point(33, 27);
+			this.flatLabel4.Location = new System.Drawing.Point(30, 30);
 			this.flatLabel4.Name = "flatLabel4";
 			this.flatLabel4.Size = new System.Drawing.Size(137, 30);
 			this.flatLabel4.TabIndex = 6;
@@ -447,7 +451,7 @@
 			this.iTalk_Label2.BackColor = System.Drawing.Color.Transparent;
 			this.iTalk_Label2.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.iTalk_Label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-			this.iTalk_Label2.Location = new System.Drawing.Point(266, 241);
+			this.iTalk_Label2.Location = new System.Drawing.Point(266, 252);
 			this.iTalk_Label2.Name = "iTalk_Label2";
 			this.iTalk_Label2.Size = new System.Drawing.Size(116, 13);
 			this.iTalk_Label2.TabIndex = 0;
@@ -456,7 +460,7 @@
 			// lbl_tab2_pswMatch
 			// 
 			this.lbl_tab2_pswMatch.AutoSize = true;
-			this.lbl_tab2_pswMatch.Location = new System.Drawing.Point(265, 289);
+			this.lbl_tab2_pswMatch.Location = new System.Drawing.Point(265, 284);
 			this.lbl_tab2_pswMatch.Name = "lbl_tab2_pswMatch";
 			this.lbl_tab2_pswMatch.Size = new System.Drawing.Size(0, 19);
 			this.lbl_tab2_pswMatch.TabIndex = 19;
@@ -467,7 +471,7 @@
 			this.iTalk_Label1.BackColor = System.Drawing.Color.Transparent;
 			this.iTalk_Label1.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.iTalk_Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-			this.iTalk_Label1.Location = new System.Drawing.Point(212, 81);
+			this.iTalk_Label1.Location = new System.Drawing.Point(212, 92);
 			this.iTalk_Label1.Name = "iTalk_Label1";
 			this.iTalk_Label1.Size = new System.Drawing.Size(111, 13);
 			this.iTalk_Label1.TabIndex = 0;
@@ -479,7 +483,7 @@
 			this.lbl_tab2_dejeseBlanco.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_tab2_dejeseBlanco.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.lbl_tab2_dejeseBlanco.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-			this.lbl_tab2_dejeseBlanco.Location = new System.Drawing.Point(215, 193);
+			this.lbl_tab2_dejeseBlanco.Location = new System.Drawing.Point(215, 204);
 			this.lbl_tab2_dejeseBlanco.Name = "lbl_tab2_dejeseBlanco";
 			this.lbl_tab2_dejeseBlanco.Size = new System.Drawing.Size(212, 13);
 			this.lbl_tab2_dejeseBlanco.TabIndex = 0;
@@ -521,7 +525,7 @@
 			// 
 			this.txtbox_tab2_conficontraseña.BackColor = System.Drawing.Color.Transparent;
 			this.txtbox_tab2_conficontraseña.FocusOnHover = false;
-			this.txtbox_tab2_conficontraseña.Location = new System.Drawing.Point(36, 289);
+			this.txtbox_tab2_conficontraseña.Location = new System.Drawing.Point(36, 300);
 			this.txtbox_tab2_conficontraseña.MaxLength = 32767;
 			this.txtbox_tab2_conficontraseña.Multiline = false;
 			this.txtbox_tab2_conficontraseña.Name = "txtbox_tab2_conficontraseña";
@@ -538,7 +542,7 @@
 			this.lbl_tab2_confirmarcontra.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_tab2_confirmarcontra.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.lbl_tab2_confirmarcontra.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab2_confirmarcontra.Location = new System.Drawing.Point(39, 273);
+			this.lbl_tab2_confirmarcontra.Location = new System.Drawing.Point(39, 284);
 			this.lbl_tab2_confirmarcontra.Name = "lbl_tab2_confirmarcontra";
 			this.lbl_tab2_confirmarcontra.Size = new System.Drawing.Size(121, 13);
 			this.lbl_tab2_confirmarcontra.TabIndex = 0;
@@ -548,7 +552,7 @@
 			// 
 			this.txtbox_tab2_contraseña.BackColor = System.Drawing.Color.Transparent;
 			this.txtbox_tab2_contraseña.FocusOnHover = false;
-			this.txtbox_tab2_contraseña.Location = new System.Drawing.Point(36, 241);
+			this.txtbox_tab2_contraseña.Location = new System.Drawing.Point(36, 252);
 			this.txtbox_tab2_contraseña.MaxLength = 32767;
 			this.txtbox_tab2_contraseña.Multiline = false;
 			this.txtbox_tab2_contraseña.Name = "txtbox_tab2_contraseña";
@@ -565,7 +569,7 @@
 			this.lbl_tab2_contraseña.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_tab2_contraseña.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.lbl_tab2_contraseña.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab2_contraseña.Location = new System.Drawing.Point(39, 225);
+			this.lbl_tab2_contraseña.Location = new System.Drawing.Point(39, 236);
 			this.lbl_tab2_contraseña.Name = "lbl_tab2_contraseña";
 			this.lbl_tab2_contraseña.Size = new System.Drawing.Size(64, 13);
 			this.lbl_tab2_contraseña.TabIndex = 0;
@@ -575,7 +579,7 @@
 			// 
 			this.txtbox_tab2_codigo.BackColor = System.Drawing.Color.Transparent;
 			this.txtbox_tab2_codigo.FocusOnHover = false;
-			this.txtbox_tab2_codigo.Location = new System.Drawing.Point(36, 193);
+			this.txtbox_tab2_codigo.Location = new System.Drawing.Point(36, 204);
 			this.txtbox_tab2_codigo.MaxLength = 32767;
 			this.txtbox_tab2_codigo.Multiline = false;
 			this.txtbox_tab2_codigo.Name = "txtbox_tab2_codigo";
@@ -592,7 +596,7 @@
 			this.lbl_tab2_codigoDocente.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_tab2_codigoDocente.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.lbl_tab2_codigoDocente.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab2_codigoDocente.Location = new System.Drawing.Point(39, 177);
+			this.lbl_tab2_codigoDocente.Location = new System.Drawing.Point(39, 188);
 			this.lbl_tab2_codigoDocente.Name = "lbl_tab2_codigoDocente";
 			this.lbl_tab2_codigoDocente.Size = new System.Drawing.Size(109, 13);
 			this.lbl_tab2_codigoDocente.TabIndex = 0;
@@ -602,7 +606,7 @@
 			// 
 			this.txtbox_tab2_registro.BackColor = System.Drawing.Color.Transparent;
 			this.txtbox_tab2_registro.FocusOnHover = false;
-			this.txtbox_tab2_registro.Location = new System.Drawing.Point(207, 145);
+			this.txtbox_tab2_registro.Location = new System.Drawing.Point(207, 156);
 			this.txtbox_tab2_registro.MaxLength = 32767;
 			this.txtbox_tab2_registro.Multiline = false;
 			this.txtbox_tab2_registro.Name = "txtbox_tab2_registro";
@@ -619,7 +623,7 @@
 			this.lbl_tab2_apellidos.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_tab2_apellidos.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.lbl_tab2_apellidos.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab2_apellidos.Location = new System.Drawing.Point(212, 129);
+			this.lbl_tab2_apellidos.Location = new System.Drawing.Point(212, 140);
 			this.lbl_tab2_apellidos.Name = "lbl_tab2_apellidos";
 			this.lbl_tab2_apellidos.Size = new System.Drawing.Size(55, 13);
 			this.lbl_tab2_apellidos.TabIndex = 0;
@@ -631,7 +635,7 @@
 			this.lbl_tab2_nombres.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_tab2_nombres.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.lbl_tab2_nombres.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab2_nombres.Location = new System.Drawing.Point(36, 129);
+			this.lbl_tab2_nombres.Location = new System.Drawing.Point(36, 140);
 			this.lbl_tab2_nombres.Name = "lbl_tab2_nombres";
 			this.lbl_tab2_nombres.Size = new System.Drawing.Size(56, 13);
 			this.lbl_tab2_nombres.TabIndex = 0;
@@ -641,7 +645,7 @@
 			// 
 			this.txtbox_tab2_nombres.BackColor = System.Drawing.Color.Transparent;
 			this.txtbox_tab2_nombres.FocusOnHover = false;
-			this.txtbox_tab2_nombres.Location = new System.Drawing.Point(36, 145);
+			this.txtbox_tab2_nombres.Location = new System.Drawing.Point(36, 156);
 			this.txtbox_tab2_nombres.MaxLength = 32767;
 			this.txtbox_tab2_nombres.Multiline = false;
 			this.txtbox_tab2_nombres.Name = "txtbox_tab2_nombres";
@@ -658,9 +662,9 @@
 			this.lbl_tab2_registro.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_tab2_registro.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_tab2_registro.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab2_registro.Location = new System.Drawing.Point(36, 24);
+			this.lbl_tab2_registro.Location = new System.Drawing.Point(30, 30);
 			this.lbl_tab2_registro.Name = "lbl_tab2_registro";
-			this.lbl_tab2_registro.Size = new System.Drawing.Size(114, 37);
+			this.lbl_tab2_registro.Size = new System.Drawing.Size(115, 37);
 			this.lbl_tab2_registro.TabIndex = 0;
 			this.lbl_tab2_registro.Text = "Registro";
 			// 
@@ -668,7 +672,7 @@
 			// 
 			this.txtbox_tab2_nombreUsuario.BackColor = System.Drawing.Color.Transparent;
 			this.txtbox_tab2_nombreUsuario.FocusOnHover = false;
-			this.txtbox_tab2_nombreUsuario.Location = new System.Drawing.Point(36, 97);
+			this.txtbox_tab2_nombreUsuario.Location = new System.Drawing.Point(36, 108);
 			this.txtbox_tab2_nombreUsuario.MaxLength = 32767;
 			this.txtbox_tab2_nombreUsuario.Multiline = false;
 			this.txtbox_tab2_nombreUsuario.Name = "txtbox_tab2_nombreUsuario";
@@ -685,7 +689,7 @@
 			this.lbl_tab2_nombreUsuario.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_tab2_nombreUsuario.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.lbl_tab2_nombreUsuario.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab2_nombreUsuario.Location = new System.Drawing.Point(33, 81);
+			this.lbl_tab2_nombreUsuario.Location = new System.Drawing.Point(33, 92);
 			this.lbl_tab2_nombreUsuario.Name = "lbl_tab2_nombreUsuario";
 			this.lbl_tab2_nombreUsuario.Size = new System.Drawing.Size(109, 13);
 			this.lbl_tab2_nombreUsuario.TabIndex = 0;
@@ -699,8 +703,7 @@
 			this.tab3_Alumno_VistaGeneral.Controls.Add(this.llb_tab3_materia3);
 			this.tab3_Alumno_VistaGeneral.Controls.Add(this.llb_tab3_materia2);
 			this.tab3_Alumno_VistaGeneral.Controls.Add(this.llb_tab3_materia1);
-			this.tab3_Alumno_VistaGeneral.Controls.Add(this.lbl_tab3_StudentName);
-			this.tab3_Alumno_VistaGeneral.Controls.Add(this.flatStickyButton3);
+			this.tab3_Alumno_VistaGeneral.Controls.Add(this.lbl_tab3_NombreAlumno);
 			this.tab3_Alumno_VistaGeneral.Controls.Add(this.btn_tab3_listagrupo);
 			this.tab3_Alumno_VistaGeneral.Controls.Add(this.btn_tab3_GrupoInscrito);
 			this.tab3_Alumno_VistaGeneral.Controls.Add(this.radGrp_tab3_Progresototal5);
@@ -733,10 +736,8 @@
 			this.llb_tab3_materia4.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
 			this.llb_tab3_materia4.Location = new System.Drawing.Point(385, 280);
 			this.llb_tab3_materia4.Name = "llb_tab3_materia4";
-			this.llb_tab3_materia4.Size = new System.Drawing.Size(68, 19);
+			this.llb_tab3_materia4.Size = new System.Drawing.Size(0, 19);
 			this.llb_tab3_materia4.TabIndex = 12;
-			this.llb_tab3_materia4.TabStop = true;
-			this.llb_tab3_materia4.Text = "Materia 4";
 			// 
 			// llb_tab3_materia3
 			// 
@@ -745,10 +746,8 @@
 			this.llb_tab3_materia3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
 			this.llb_tab3_materia3.Location = new System.Drawing.Point(276, 280);
 			this.llb_tab3_materia3.Name = "llb_tab3_materia3";
-			this.llb_tab3_materia3.Size = new System.Drawing.Size(68, 19);
+			this.llb_tab3_materia3.Size = new System.Drawing.Size(0, 19);
 			this.llb_tab3_materia3.TabIndex = 11;
-			this.llb_tab3_materia3.TabStop = true;
-			this.llb_tab3_materia3.Text = "Materia 3";
 			// 
 			// llb_tab3_materia2
 			// 
@@ -756,10 +755,8 @@
 			this.llb_tab3_materia2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
 			this.llb_tab3_materia2.Location = new System.Drawing.Point(383, 171);
 			this.llb_tab3_materia2.Name = "llb_tab3_materia2";
-			this.llb_tab3_materia2.Size = new System.Drawing.Size(68, 19);
+			this.llb_tab3_materia2.Size = new System.Drawing.Size(0, 19);
 			this.llb_tab3_materia2.TabIndex = 10;
-			this.llb_tab3_materia2.TabStop = true;
-			this.llb_tab3_materia2.Text = "Materia 2";
 			// 
 			// llb_tab3_materia1
 			// 
@@ -767,35 +764,19 @@
 			this.llb_tab3_materia1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
 			this.llb_tab3_materia1.Location = new System.Drawing.Point(277, 171);
 			this.llb_tab3_materia1.Name = "llb_tab3_materia1";
-			this.llb_tab3_materia1.Size = new System.Drawing.Size(68, 19);
+			this.llb_tab3_materia1.Size = new System.Drawing.Size(0, 19);
 			this.llb_tab3_materia1.TabIndex = 9;
-			this.llb_tab3_materia1.TabStop = true;
-			this.llb_tab3_materia1.Text = "Materia 1";
 			// 
-			// lbl_tab3_StudentName
+			// lbl_tab3_NombreAlumno
 			// 
-			this.lbl_tab3_StudentName.AutoSize = true;
-			this.lbl_tab3_StudentName.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl_tab3_StudentName.ForeColor = System.Drawing.SystemColors.ButtonFace;
-			this.lbl_tab3_StudentName.Location = new System.Drawing.Point(30, 32);
-			this.lbl_tab3_StudentName.Name = "lbl_tab3_StudentName";
-			this.lbl_tab3_StudentName.Size = new System.Drawing.Size(199, 32);
-			this.lbl_tab3_StudentName.TabIndex = 8;
-			this.lbl_tab3_StudentName.Text = "Student Name---";
-			// 
-			// flatStickyButton3
-			// 
-			this.flatStickyButton3.BackColor = System.Drawing.Color.Transparent;
-			this.flatStickyButton3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-			this.flatStickyButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.flatStickyButton3.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.flatStickyButton3.Location = new System.Drawing.Point(402, 377);
-			this.flatStickyButton3.Name = "flatStickyButton3";
-			this.flatStickyButton3.Rounded = false;
-			this.flatStickyButton3.Size = new System.Drawing.Size(106, 32);
-			this.flatStickyButton3.TabIndex = 7;
-			this.flatStickyButton3.Text = "flatStickyButton3";
-			this.flatStickyButton3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			this.lbl_tab3_NombreAlumno.AutoSize = true;
+			this.lbl_tab3_NombreAlumno.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_tab3_NombreAlumno.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.lbl_tab3_NombreAlumno.Location = new System.Drawing.Point(30, 32);
+			this.lbl_tab3_NombreAlumno.Name = "lbl_tab3_NombreAlumno";
+			this.lbl_tab3_NombreAlumno.Size = new System.Drawing.Size(200, 32);
+			this.lbl_tab3_NombreAlumno.TabIndex = 8;
+			this.lbl_tab3_NombreAlumno.Text = "Student Name---";
 			// 
 			// btn_tab3_listagrupo
 			// 
@@ -824,6 +805,7 @@
 			this.btn_tab3_GrupoInscrito.TabIndex = 5;
 			this.btn_tab3_GrupoInscrito.Text = "Grupos inscritos ";
 			this.btn_tab3_GrupoInscrito.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			this.btn_tab3_GrupoInscrito.Click += new System.EventHandler(this.btn_tab3_GrupoInscrito_Click);
 			// 
 			// radGrp_tab3_Progresototal5
 			// 
@@ -902,6 +884,89 @@
 			this.radGrp_tab3_Progresototal.Text = "iTalk_ProgressBar1";
 			this.radGrp_tab3_Progresototal.Value = ((long)(0));
 			// 
+			// tab3_Docente_VistaGeneral
+			// 
+			this.tab3_Docente_VistaGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+			this.tab3_Docente_VistaGeneral.Controls.Add(this.lbl_tab3_selectOpcion);
+			this.tab3_Docente_VistaGeneral.Controls.Add(this.btn_tab3_CrearGrupoPrf);
+			this.tab3_Docente_VistaGeneral.Controls.Add(this.btn_tab3_GrupolistaProf);
+			this.tab3_Docente_VistaGeneral.Controls.Add(this.btn_tab3_CursoGeneralProfesor);
+			this.tab3_Docente_VistaGeneral.Controls.Add(this.lbl_tab3_NombreProfesor);
+			this.tab3_Docente_VistaGeneral.Location = new System.Drawing.Point(4, 44);
+			this.tab3_Docente_VistaGeneral.Name = "tab3_Docente_VistaGeneral";
+			this.tab3_Docente_VistaGeneral.Size = new System.Drawing.Size(532, 440);
+			this.tab3_Docente_VistaGeneral.TabIndex = 5;
+			this.tab3_Docente_VistaGeneral.Text = "tabPage1";
+			// 
+			// lbl_tab3_selectOpcion
+			// 
+			this.lbl_tab3_selectOpcion.AutoSize = true;
+			this.lbl_tab3_selectOpcion.BackColor = System.Drawing.Color.Transparent;
+			this.lbl_tab3_selectOpcion.Font = new System.Drawing.Font("High Tower Text", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_tab3_selectOpcion.ForeColor = System.Drawing.Color.Gold;
+			this.lbl_tab3_selectOpcion.Location = new System.Drawing.Point(50, 385);
+			this.lbl_tab3_selectOpcion.Name = "lbl_tab3_selectOpcion";
+			this.lbl_tab3_selectOpcion.Size = new System.Drawing.Size(208, 25);
+			this.lbl_tab3_selectOpcion.TabIndex = 4;
+			this.lbl_tab3_selectOpcion.Text = "Selecciona la opcion...";
+			// 
+			// btn_tab3_CrearGrupoPrf
+			// 
+			this.btn_tab3_CrearGrupoPrf.BackColor = System.Drawing.Color.Transparent;
+			this.btn_tab3_CrearGrupoPrf.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+			this.btn_tab3_CrearGrupoPrf.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab3_CrearGrupoPrf.DialogResult = System.Windows.Forms.DialogResult.None;
+			this.btn_tab3_CrearGrupoPrf.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.btn_tab3_CrearGrupoPrf.Location = new System.Drawing.Point(377, 267);
+			this.btn_tab3_CrearGrupoPrf.Name = "btn_tab3_CrearGrupoPrf";
+			this.btn_tab3_CrearGrupoPrf.Rounded = false;
+			this.btn_tab3_CrearGrupoPrf.Size = new System.Drawing.Size(106, 50);
+			this.btn_tab3_CrearGrupoPrf.TabIndex = 3;
+			this.btn_tab3_CrearGrupoPrf.Text = "Crear grupo";
+			this.btn_tab3_CrearGrupoPrf.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			this.btn_tab3_CrearGrupoPrf.Click += new System.EventHandler(this.btn_tab3_CrearGrupoPrf_Click);
+			// 
+			// btn_tab3_GrupolistaProf
+			// 
+			this.btn_tab3_GrupolistaProf.BackColor = System.Drawing.Color.Transparent;
+			this.btn_tab3_GrupolistaProf.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+			this.btn_tab3_GrupolistaProf.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab3_GrupolistaProf.DialogResult = System.Windows.Forms.DialogResult.None;
+			this.btn_tab3_GrupolistaProf.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.btn_tab3_GrupolistaProf.Location = new System.Drawing.Point(212, 267);
+			this.btn_tab3_GrupolistaProf.Name = "btn_tab3_GrupolistaProf";
+			this.btn_tab3_GrupolistaProf.Rounded = false;
+			this.btn_tab3_GrupolistaProf.Size = new System.Drawing.Size(106, 50);
+			this.btn_tab3_GrupolistaProf.TabIndex = 2;
+			this.btn_tab3_GrupolistaProf.Text = "Lista de Grupos";
+			this.btn_tab3_GrupolistaProf.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			// 
+			// btn_tab3_CursoGeneralProfesor
+			// 
+			this.btn_tab3_CursoGeneralProfesor.BackColor = System.Drawing.Color.Transparent;
+			this.btn_tab3_CursoGeneralProfesor.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+			this.btn_tab3_CursoGeneralProfesor.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab3_CursoGeneralProfesor.DialogResult = System.Windows.Forms.DialogResult.None;
+			this.btn_tab3_CursoGeneralProfesor.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.btn_tab3_CursoGeneralProfesor.Location = new System.Drawing.Point(36, 267);
+			this.btn_tab3_CursoGeneralProfesor.Name = "btn_tab3_CursoGeneralProfesor";
+			this.btn_tab3_CursoGeneralProfesor.Rounded = false;
+			this.btn_tab3_CursoGeneralProfesor.Size = new System.Drawing.Size(127, 50);
+			this.btn_tab3_CursoGeneralProfesor.TabIndex = 1;
+			this.btn_tab3_CursoGeneralProfesor.Text = "Curso General ";
+			this.btn_tab3_CursoGeneralProfesor.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			// 
+			// lbl_tab3_NombreProfesor
+			// 
+			this.lbl_tab3_NombreProfesor.AutoSize = true;
+			this.lbl_tab3_NombreProfesor.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_tab3_NombreProfesor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.lbl_tab3_NombreProfesor.Location = new System.Drawing.Point(30, 30);
+			this.lbl_tab3_NombreProfesor.Name = "lbl_tab3_NombreProfesor";
+			this.lbl_tab3_NombreProfesor.Size = new System.Drawing.Size(196, 30);
+			this.lbl_tab3_NombreProfesor.TabIndex = 0;
+			this.lbl_tab3_NombreProfesor.Text = "Nombre Profesor---";
+			// 
 			// tab4_Alumno_ListaDeCursos
 			// 
 			this.tab4_Alumno_ListaDeCursos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
@@ -959,11 +1024,69 @@
 			this.lbl_tab4_NombreAlumno.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_tab4_NombreAlumno.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_tab4_NombreAlumno.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab4_NombreAlumno.Location = new System.Drawing.Point(20, 31);
+			this.lbl_tab4_NombreAlumno.Location = new System.Drawing.Point(30, 30);
 			this.lbl_tab4_NombreAlumno.Name = "lbl_tab4_NombreAlumno";
 			this.lbl_tab4_NombreAlumno.Size = new System.Drawing.Size(214, 32);
 			this.lbl_tab4_NombreAlumno.TabIndex = 0;
 			this.lbl_tab4_NombreAlumno.Text = "Nombre Alumno--";
+			// 
+			// tab4_Docente_CursoGeneral
+			// 
+			this.tab4_Docente_CursoGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+			this.tab4_Docente_CursoGeneral.Controls.Add(this.regresar);
+			this.tab4_Docente_CursoGeneral.Controls.Add(this.lbl_tab4_AlumnosVuln);
+			this.tab4_Docente_CursoGeneral.Controls.Add(this.dgv_tab4_Vulnerables);
+			this.tab4_Docente_CursoGeneral.Controls.Add(this.lbl_tab4_NombreCurso);
+			this.tab4_Docente_CursoGeneral.Location = new System.Drawing.Point(4, 44);
+			this.tab4_Docente_CursoGeneral.Name = "tab4_Docente_CursoGeneral";
+			this.tab4_Docente_CursoGeneral.Size = new System.Drawing.Size(532, 440);
+			this.tab4_Docente_CursoGeneral.TabIndex = 6;
+			this.tab4_Docente_CursoGeneral.Text = "tabPage1";
+			// 
+			// regresar
+			// 
+			this.regresar.BackColor = System.Drawing.Color.Transparent;
+			this.regresar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+			this.regresar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.regresar.DialogResult = System.Windows.Forms.DialogResult.None;
+			this.regresar.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.regresar.Location = new System.Drawing.Point(36, 376);
+			this.regresar.Name = "regresar";
+			this.regresar.Rounded = false;
+			this.regresar.Size = new System.Drawing.Size(106, 32);
+			this.regresar.TabIndex = 3;
+			this.regresar.Text = "flatButton1";
+			this.regresar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			// 
+			// lbl_tab4_AlumnosVuln
+			// 
+			this.lbl_tab4_AlumnosVuln.AutoSize = true;
+			this.lbl_tab4_AlumnosVuln.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_tab4_AlumnosVuln.ForeColor = System.Drawing.Color.Red;
+			this.lbl_tab4_AlumnosVuln.Location = new System.Drawing.Point(194, 183);
+			this.lbl_tab4_AlumnosVuln.Name = "lbl_tab4_AlumnosVuln";
+			this.lbl_tab4_AlumnosVuln.Size = new System.Drawing.Size(215, 30);
+			this.lbl_tab4_AlumnosVuln.TabIndex = 2;
+			this.lbl_tab4_AlumnosVuln.Text = "Alumnos Vulnerables ";
+			// 
+			// dgv_tab4_Vulnerables
+			// 
+			this.dgv_tab4_Vulnerables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgv_tab4_Vulnerables.Location = new System.Drawing.Point(177, 243);
+			this.dgv_tab4_Vulnerables.Name = "dgv_tab4_Vulnerables";
+			this.dgv_tab4_Vulnerables.Size = new System.Drawing.Size(314, 150);
+			this.dgv_tab4_Vulnerables.TabIndex = 1;
+			// 
+			// lbl_tab4_NombreCurso
+			// 
+			this.lbl_tab4_NombreCurso.AutoSize = true;
+			this.lbl_tab4_NombreCurso.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_tab4_NombreCurso.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.lbl_tab4_NombreCurso.Location = new System.Drawing.Point(30, 30);
+			this.lbl_tab4_NombreCurso.Name = "lbl_tab4_NombreCurso";
+			this.lbl_tab4_NombreCurso.Size = new System.Drawing.Size(171, 32);
+			this.lbl_tab4_NombreCurso.TabIndex = 0;
+			this.lbl_tab4_NombreCurso.Text = "Nombre Curso";
 			// 
 			// tab5_Alumno_VistaGeneralCurso
 			// 
@@ -974,144 +1097,18 @@
 			this.tab5_Alumno_VistaGeneralCurso.TabIndex = 4;
 			this.tab5_Alumno_VistaGeneralCurso.Text = "tabPage1";
 			// 
-			// tab3_Docente_VistaGeneral
-			// 
-			this.tab3_Docente_VistaGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-			this.tab3_Docente_VistaGeneral.Controls.Add(this.lbl_tab3_selectOpcion);
-			this.tab3_Docente_VistaGeneral.Controls.Add(this.btn_tab3_CrearGrupoPrf);
-			this.tab3_Docente_VistaGeneral.Controls.Add(this.btn_tab3_GrupolistaProf);
-			this.tab3_Docente_VistaGeneral.Controls.Add(this.btn_tab3_CursoGeneralProfesor);
-			this.tab3_Docente_VistaGeneral.Controls.Add(this.lbl_tab3_NombreProfesor);
-			this.tab3_Docente_VistaGeneral.Location = new System.Drawing.Point(4, 44);
-			this.tab3_Docente_VistaGeneral.Name = "tab3_Docente_VistaGeneral";
-			this.tab3_Docente_VistaGeneral.Size = new System.Drawing.Size(532, 440);
-			this.tab3_Docente_VistaGeneral.TabIndex = 5;
-			this.tab3_Docente_VistaGeneral.Text = "tabPage1";
-			// 
-			// lbl_tab3_selectOpcion
-			// 
-			this.lbl_tab3_selectOpcion.AutoSize = true;
-			this.lbl_tab3_selectOpcion.BackColor = System.Drawing.Color.Transparent;
-			this.lbl_tab3_selectOpcion.Font = new System.Drawing.Font("High Tower Text", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl_tab3_selectOpcion.ForeColor = System.Drawing.Color.Gold;
-			this.lbl_tab3_selectOpcion.Location = new System.Drawing.Point(50, 385);
-			this.lbl_tab3_selectOpcion.Name = "lbl_tab3_selectOpcion";
-			this.lbl_tab3_selectOpcion.Size = new System.Drawing.Size(208, 25);
-			this.lbl_tab3_selectOpcion.TabIndex = 4;
-			this.lbl_tab3_selectOpcion.Text = "Selecciona la opcion...";
-			// 
-			// btn_tab3_CrearGrupoPrf
-			// 
-			this.btn_tab3_CrearGrupoPrf.BackColor = System.Drawing.Color.Transparent;
-			this.btn_tab3_CrearGrupoPrf.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-			this.btn_tab3_CrearGrupoPrf.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btn_tab3_CrearGrupoPrf.DialogResult = System.Windows.Forms.DialogResult.None;
-			this.btn_tab3_CrearGrupoPrf.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.btn_tab3_CrearGrupoPrf.Location = new System.Drawing.Point(377, 267);
-			this.btn_tab3_CrearGrupoPrf.Name = "btn_tab3_CrearGrupoPrf";
-			this.btn_tab3_CrearGrupoPrf.Rounded = false;
-			this.btn_tab3_CrearGrupoPrf.Size = new System.Drawing.Size(106, 50);
-			this.btn_tab3_CrearGrupoPrf.TabIndex = 3;
-			this.btn_tab3_CrearGrupoPrf.Text = "Crear grupo";
-			this.btn_tab3_CrearGrupoPrf.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-			// 
-			// btn_tab3_GrupolistaProf
-			// 
-			this.btn_tab3_GrupolistaProf.BackColor = System.Drawing.Color.Transparent;
-			this.btn_tab3_GrupolistaProf.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-			this.btn_tab3_GrupolistaProf.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btn_tab3_GrupolistaProf.DialogResult = System.Windows.Forms.DialogResult.None;
-			this.btn_tab3_GrupolistaProf.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.btn_tab3_GrupolistaProf.Location = new System.Drawing.Point(210, 267);
-			this.btn_tab3_GrupolistaProf.Name = "btn_tab3_GrupolistaProf";
-			this.btn_tab3_GrupolistaProf.Rounded = false;
-			this.btn_tab3_GrupolistaProf.Size = new System.Drawing.Size(106, 50);
-			this.btn_tab3_GrupolistaProf.TabIndex = 2;
-			this.btn_tab3_GrupolistaProf.Text = "Grupo lista ";
-			this.btn_tab3_GrupolistaProf.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-			// 
-			// btn_tab3_CursoGeneralProfesor
-			// 
-			this.btn_tab3_CursoGeneralProfesor.BackColor = System.Drawing.Color.Transparent;
-			this.btn_tab3_CursoGeneralProfesor.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-			this.btn_tab3_CursoGeneralProfesor.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btn_tab3_CursoGeneralProfesor.DialogResult = System.Windows.Forms.DialogResult.None;
-			this.btn_tab3_CursoGeneralProfesor.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.btn_tab3_CursoGeneralProfesor.Location = new System.Drawing.Point(36, 267);
-			this.btn_tab3_CursoGeneralProfesor.Name = "btn_tab3_CursoGeneralProfesor";
-			this.btn_tab3_CursoGeneralProfesor.Rounded = false;
-			this.btn_tab3_CursoGeneralProfesor.Size = new System.Drawing.Size(127, 50);
-			this.btn_tab3_CursoGeneralProfesor.TabIndex = 1;
-			this.btn_tab3_CursoGeneralProfesor.Text = "Curso General ";
-			this.btn_tab3_CursoGeneralProfesor.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-			// 
-			// lbl_tab3_NombreProfesor
-			// 
-			this.lbl_tab3_NombreProfesor.AutoSize = true;
-			this.lbl_tab3_NombreProfesor.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl_tab3_NombreProfesor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.lbl_tab3_NombreProfesor.Location = new System.Drawing.Point(48, 44);
-			this.lbl_tab3_NombreProfesor.Name = "lbl_tab3_NombreProfesor";
-			this.lbl_tab3_NombreProfesor.Size = new System.Drawing.Size(196, 30);
-			this.lbl_tab3_NombreProfesor.TabIndex = 0;
-			this.lbl_tab3_NombreProfesor.Text = "Nombre Profesor---";
-			// 
-			// tab4_Docente_CursoGeneral
-			// 
-			this.tab4_Docente_CursoGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-			this.tab4_Docente_CursoGeneral.Controls.Add(this.lbl_tab4_AlumnosVuln);
-			this.tab4_Docente_CursoGeneral.Controls.Add(this.tab4_dataGridview);
-			this.tab4_Docente_CursoGeneral.Controls.Add(this.lbl_tab4_NombreAlumn);
-			this.tab4_Docente_CursoGeneral.Location = new System.Drawing.Point(4, 44);
-			this.tab4_Docente_CursoGeneral.Name = "tab4_Docente_CursoGeneral";
-			this.tab4_Docente_CursoGeneral.Size = new System.Drawing.Size(532, 440);
-			this.tab4_Docente_CursoGeneral.TabIndex = 6;
-			this.tab4_Docente_CursoGeneral.Text = "tabPage1";
-			// 
-			// lbl_tab4_AlumnosVuln
-			// 
-			this.lbl_tab4_AlumnosVuln.AutoSize = true;
-			this.lbl_tab4_AlumnosVuln.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl_tab4_AlumnosVuln.ForeColor = System.Drawing.Color.Red;
-			this.lbl_tab4_AlumnosVuln.Location = new System.Drawing.Point(194, 183);
-			this.lbl_tab4_AlumnosVuln.Name = "lbl_tab4_AlumnosVuln";
-			this.lbl_tab4_AlumnosVuln.Size = new System.Drawing.Size(214, 30);
-			this.lbl_tab4_AlumnosVuln.TabIndex = 2;
-			this.lbl_tab4_AlumnosVuln.Text = "Alumnos Vulnerables ";
-			// 
-			// tab4_dataGridview
-			// 
-			this.tab4_dataGridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.tab4_dataGridview.Location = new System.Drawing.Point(177, 243);
-			this.tab4_dataGridview.Name = "tab4_dataGridview";
-			this.tab4_dataGridview.Size = new System.Drawing.Size(314, 150);
-			this.tab4_dataGridview.TabIndex = 1;
-			// 
-			// lbl_tab4_NombreAlumn
-			// 
-			this.lbl_tab4_NombreAlumn.AutoSize = true;
-			this.lbl_tab4_NombreAlumn.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lbl_tab4_NombreAlumn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.lbl_tab4_NombreAlumn.Location = new System.Drawing.Point(49, 52);
-			this.lbl_tab4_NombreAlumn.Name = "lbl_tab4_NombreAlumn";
-			this.lbl_tab4_NombreAlumn.Size = new System.Drawing.Size(214, 32);
-			this.lbl_tab4_NombreAlumn.TabIndex = 0;
-			this.lbl_tab4_NombreAlumn.Text = "Nombre Alumno--";
-			// 
 			// tab5_Docente_CrearCurso
 			// 
 			this.tab5_Docente_CrearCurso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+			this.tab5_Docente_CrearCurso.Controls.Add(this.flatLabel1);
+			this.tab5_Docente_CrearCurso.Controls.Add(this.txtbox_tab5_courseName);
 			this.tab5_Docente_CrearCurso.Controls.Add(this.lbl_tab5_ejemplo);
 			this.tab5_Docente_CrearCurso.Controls.Add(this.btn_tab5_cancelar);
 			this.tab5_Docente_CrearCurso.Controls.Add(this.btn_tab5_aceptar);
-			this.tab5_Docente_CrearCurso.Controls.Add(this.lbl_tab5_ExamParciales);
-			this.tab5_Docente_CrearCurso.Controls.Add(this.flatNumeric2_Tab5);
-			this.tab5_Docente_CrearCurso.Controls.Add(this.flatNumeric1_tab5);
-			this.tab5_Docente_CrearCurso.Controls.Add(this.lbl_tab5_UnidadesCurso);
 			this.tab5_Docente_CrearCurso.Controls.Add(this.lbl_tab5_NombreMateria);
 			this.tab5_Docente_CrearCurso.Controls.Add(this.lbl_tab5_NombCortGrupo);
-			this.tab5_Docente_CrearCurso.Controls.Add(this.txtbox_tab5_nombremateria);
-			this.tab5_Docente_CrearCurso.Controls.Add(this.txtbox_tab5_nombreGrupo);
+			this.tab5_Docente_CrearCurso.Controls.Add(this.txtbox_tab5_grup);
+			this.tab5_Docente_CrearCurso.Controls.Add(this.txtbox_tab5_grade);
 			this.tab5_Docente_CrearCurso.Controls.Add(this.lbl_tab5_Creargrupo);
 			this.tab5_Docente_CrearCurso.Location = new System.Drawing.Point(4, 44);
 			this.tab5_Docente_CrearCurso.Name = "tab5_Docente_CrearCurso";
@@ -1119,17 +1116,44 @@
 			this.tab5_Docente_CrearCurso.TabIndex = 7;
 			this.tab5_Docente_CrearCurso.Text = "tabPage1";
 			// 
+			// flatLabel1
+			// 
+			this.flatLabel1.AutoSize = true;
+			this.flatLabel1.BackColor = System.Drawing.Color.Transparent;
+			this.flatLabel1.Font = new System.Drawing.Font("Segoe UI", 8F);
+			this.flatLabel1.ForeColor = System.Drawing.Color.White;
+			this.flatLabel1.Location = new System.Drawing.Point(39, 90);
+			this.flatLabel1.Name = "flatLabel1";
+			this.flatLabel1.Size = new System.Drawing.Size(100, 13);
+			this.flatLabel1.TabIndex = 14;
+			this.flatLabel1.Text = "Nombre del Curso";
+			// 
+			// txtbox_tab5_courseName
+			// 
+			this.txtbox_tab5_courseName.BackColor = System.Drawing.Color.Transparent;
+			this.txtbox_tab5_courseName.FocusOnHover = false;
+			this.txtbox_tab5_courseName.Location = new System.Drawing.Point(36, 107);
+			this.txtbox_tab5_courseName.MaxLength = 32767;
+			this.txtbox_tab5_courseName.Multiline = false;
+			this.txtbox_tab5_courseName.Name = "txtbox_tab5_courseName";
+			this.txtbox_tab5_courseName.ReadOnly = false;
+			this.txtbox_tab5_courseName.Size = new System.Drawing.Size(176, 29);
+			this.txtbox_tab5_courseName.TabIndex = 0;
+			this.txtbox_tab5_courseName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.txtbox_tab5_courseName.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.txtbox_tab5_courseName.UseSystemPasswordChar = false;
+			// 
 			// lbl_tab5_ejemplo
 			// 
 			this.lbl_tab5_ejemplo.AutoSize = true;
 			this.lbl_tab5_ejemplo.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_tab5_ejemplo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_tab5_ejemplo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-			this.lbl_tab5_ejemplo.Location = new System.Drawing.Point(278, 107);
+			this.lbl_tab5_ejemplo.Location = new System.Drawing.Point(218, 107);
 			this.lbl_tab5_ejemplo.Name = "lbl_tab5_ejemplo";
-			this.lbl_tab5_ejemplo.Size = new System.Drawing.Size(121, 17);
+			this.lbl_tab5_ejemplo.Size = new System.Drawing.Size(158, 17);
 			this.lbl_tab5_ejemplo.TabIndex = 11;
-			this.lbl_tab5_ejemplo.Text = "//Ejemplo \"2A, 1°A\"";
+			this.lbl_tab5_ejemplo.Text = "//Ejemplo Programacion I";
 			// 
 			// btn_tab5_cancelar
 			// 
@@ -1138,7 +1162,7 @@
 			this.btn_tab5_cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btn_tab5_cancelar.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_tab5_cancelar.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.btn_tab5_cancelar.Location = new System.Drawing.Point(257, 384);
+			this.btn_tab5_cancelar.Location = new System.Drawing.Point(173, 370);
 			this.btn_tab5_cancelar.Name = "btn_tab5_cancelar";
 			this.btn_tab5_cancelar.Rounded = false;
 			this.btn_tab5_cancelar.Size = new System.Drawing.Size(106, 32);
@@ -1153,72 +1177,14 @@
 			this.btn_tab5_aceptar.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btn_tab5_aceptar.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_tab5_aceptar.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.btn_tab5_aceptar.Location = new System.Drawing.Point(81, 384);
+			this.btn_tab5_aceptar.Location = new System.Drawing.Point(36, 370);
 			this.btn_tab5_aceptar.Name = "btn_tab5_aceptar";
 			this.btn_tab5_aceptar.Rounded = false;
 			this.btn_tab5_aceptar.Size = new System.Drawing.Size(106, 32);
 			this.btn_tab5_aceptar.TabIndex = 9;
 			this.btn_tab5_aceptar.Text = "Aceptar";
 			this.btn_tab5_aceptar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-			// 
-			// lbl_tab5_ExamParciales
-			// 
-			this.lbl_tab5_ExamParciales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-			this.lbl_tab5_ExamParciales.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-			this.lbl_tab5_ExamParciales.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-			this.lbl_tab5_ExamParciales.Checked = false;
-			this.lbl_tab5_ExamParciales.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.lbl_tab5_ExamParciales.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.lbl_tab5_ExamParciales.Location = new System.Drawing.Point(53, 288);
-			this.lbl_tab5_ExamParciales.Name = "lbl_tab5_ExamParciales";
-			this.lbl_tab5_ExamParciales.Options = FlatUI.FlatCheckBox._Options.Style1;
-			this.lbl_tab5_ExamParciales.Size = new System.Drawing.Size(146, 22);
-			this.lbl_tab5_ExamParciales.TabIndex = 8;
-			this.lbl_tab5_ExamParciales.Text = "Examenes parciales ";
-			// 
-			// flatNumeric2_Tab5
-			// 
-			this.flatNumeric2_Tab5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-			this.flatNumeric2_Tab5.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-			this.flatNumeric2_Tab5.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-			this.flatNumeric2_Tab5.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.flatNumeric2_Tab5.ForeColor = System.Drawing.Color.White;
-			this.flatNumeric2_Tab5.Location = new System.Drawing.Point(209, 280);
-			this.flatNumeric2_Tab5.Maximum = ((long)(9999999));
-			this.flatNumeric2_Tab5.Minimum = ((long)(0));
-			this.flatNumeric2_Tab5.Name = "flatNumeric2_Tab5";
-			this.flatNumeric2_Tab5.Size = new System.Drawing.Size(63, 30);
-			this.flatNumeric2_Tab5.TabIndex = 7;
-			this.flatNumeric2_Tab5.Text = "flatNumeric2";
-			this.flatNumeric2_Tab5.Value = ((long)(0));
-			// 
-			// flatNumeric1_tab5
-			// 
-			this.flatNumeric1_tab5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-			this.flatNumeric1_tab5.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-			this.flatNumeric1_tab5.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-			this.flatNumeric1_tab5.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.flatNumeric1_tab5.ForeColor = System.Drawing.Color.White;
-			this.flatNumeric1_tab5.Location = new System.Drawing.Point(209, 244);
-			this.flatNumeric1_tab5.Maximum = ((long)(9999999));
-			this.flatNumeric1_tab5.Minimum = ((long)(0));
-			this.flatNumeric1_tab5.Name = "flatNumeric1_tab5";
-			this.flatNumeric1_tab5.Size = new System.Drawing.Size(63, 30);
-			this.flatNumeric1_tab5.TabIndex = 6;
-			this.flatNumeric1_tab5.Text = "flatNumeric1";
-			this.flatNumeric1_tab5.Value = ((long)(0));
-			// 
-			// lbl_tab5_UnidadesCurso
-			// 
-			this.lbl_tab5_UnidadesCurso.AutoSize = true;
-			this.lbl_tab5_UnidadesCurso.BackColor = System.Drawing.Color.Transparent;
-			this.lbl_tab5_UnidadesCurso.Font = new System.Drawing.Font("Segoe UI", 8F);
-			this.lbl_tab5_UnidadesCurso.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab5_UnidadesCurso.Location = new System.Drawing.Point(56, 244);
-			this.lbl_tab5_UnidadesCurso.Name = "lbl_tab5_UnidadesCurso";
-			this.lbl_tab5_UnidadesCurso.Size = new System.Drawing.Size(106, 13);
-			this.lbl_tab5_UnidadesCurso.TabIndex = 5;
-			this.lbl_tab5_UnidadesCurso.Text = "Unidades del curso";
+			this.btn_tab5_aceptar.Click += new System.EventHandler(this.btn_tab5_aceptar_Click);
 			// 
 			// lbl_tab5_NombreMateria
 			// 
@@ -1226,11 +1192,11 @@
 			this.lbl_tab5_NombreMateria.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_tab5_NombreMateria.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.lbl_tab5_NombreMateria.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab5_NombreMateria.Location = new System.Drawing.Point(56, 154);
+			this.lbl_tab5_NombreMateria.Location = new System.Drawing.Point(39, 203);
 			this.lbl_tab5_NombreMateria.Name = "lbl_tab5_NombreMateria";
-			this.lbl_tab5_NombreMateria.Size = new System.Drawing.Size(120, 13);
+			this.lbl_tab5_NombreMateria.Size = new System.Drawing.Size(40, 13);
 			this.lbl_tab5_NombreMateria.TabIndex = 4;
-			this.lbl_tab5_NombreMateria.Text = "Nombre de la materia ";
+			this.lbl_tab5_NombreMateria.Text = "Grupo";
 			// 
 			// lbl_tab5_NombCortGrupo
 			// 
@@ -1238,48 +1204,48 @@
 			this.lbl_tab5_NombCortGrupo.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_tab5_NombCortGrupo.Font = new System.Drawing.Font("Segoe UI", 8F);
 			this.lbl_tab5_NombCortGrupo.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab5_NombCortGrupo.Location = new System.Drawing.Point(53, 91);
+			this.lbl_tab5_NombCortGrupo.Location = new System.Drawing.Point(39, 147);
 			this.lbl_tab5_NombCortGrupo.Name = "lbl_tab5_NombCortGrupo";
-			this.lbl_tab5_NombCortGrupo.Size = new System.Drawing.Size(132, 13);
+			this.lbl_tab5_NombCortGrupo.Size = new System.Drawing.Size(39, 13);
 			this.lbl_tab5_NombCortGrupo.TabIndex = 3;
-			this.lbl_tab5_NombCortGrupo.Text = "Nombre corto de grupo ";
+			this.lbl_tab5_NombCortGrupo.Text = "Grado";
 			// 
-			// txtbox_tab5_nombremateria
+			// txtbox_tab5_grup
 			// 
-			this.txtbox_tab5_nombremateria.BackColor = System.Drawing.Color.Transparent;
-			this.txtbox_tab5_nombremateria.FocusOnHover = false;
-			this.txtbox_tab5_nombremateria.Location = new System.Drawing.Point(53, 170);
-			this.txtbox_tab5_nombremateria.MaxLength = 32767;
-			this.txtbox_tab5_nombremateria.Multiline = false;
-			this.txtbox_tab5_nombremateria.Name = "txtbox_tab5_nombremateria";
-			this.txtbox_tab5_nombremateria.ReadOnly = false;
-			this.txtbox_tab5_nombremateria.Size = new System.Drawing.Size(219, 29);
-			this.txtbox_tab5_nombremateria.TabIndex = 2;
-			this.txtbox_tab5_nombremateria.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-			this.txtbox_tab5_nombremateria.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-			this.txtbox_tab5_nombremateria.UseSystemPasswordChar = false;
+			this.txtbox_tab5_grup.BackColor = System.Drawing.Color.Transparent;
+			this.txtbox_tab5_grup.FocusOnHover = false;
+			this.txtbox_tab5_grup.Location = new System.Drawing.Point(36, 219);
+			this.txtbox_tab5_grup.MaxLength = 1;
+			this.txtbox_tab5_grup.Multiline = false;
+			this.txtbox_tab5_grup.Name = "txtbox_tab5_grup";
+			this.txtbox_tab5_grup.ReadOnly = false;
+			this.txtbox_tab5_grup.Size = new System.Drawing.Size(55, 29);
+			this.txtbox_tab5_grup.TabIndex = 2;
+			this.txtbox_tab5_grup.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.txtbox_tab5_grup.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.txtbox_tab5_grup.UseSystemPasswordChar = false;
 			// 
-			// txtbox_tab5_nombreGrupo
+			// txtbox_tab5_grade
 			// 
-			this.txtbox_tab5_nombreGrupo.BackColor = System.Drawing.Color.Transparent;
-			this.txtbox_tab5_nombreGrupo.FocusOnHover = false;
-			this.txtbox_tab5_nombreGrupo.Location = new System.Drawing.Point(53, 107);
-			this.txtbox_tab5_nombreGrupo.MaxLength = 32767;
-			this.txtbox_tab5_nombreGrupo.Multiline = false;
-			this.txtbox_tab5_nombreGrupo.Name = "txtbox_tab5_nombreGrupo";
-			this.txtbox_tab5_nombreGrupo.ReadOnly = false;
-			this.txtbox_tab5_nombreGrupo.Size = new System.Drawing.Size(219, 29);
-			this.txtbox_tab5_nombreGrupo.TabIndex = 1;
-			this.txtbox_tab5_nombreGrupo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-			this.txtbox_tab5_nombreGrupo.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-			this.txtbox_tab5_nombreGrupo.UseSystemPasswordChar = false;
+			this.txtbox_tab5_grade.BackColor = System.Drawing.Color.Transparent;
+			this.txtbox_tab5_grade.FocusOnHover = false;
+			this.txtbox_tab5_grade.Location = new System.Drawing.Point(36, 163);
+			this.txtbox_tab5_grade.MaxLength = 1;
+			this.txtbox_tab5_grade.Multiline = false;
+			this.txtbox_tab5_grade.Name = "txtbox_tab5_grade";
+			this.txtbox_tab5_grade.ReadOnly = false;
+			this.txtbox_tab5_grade.Size = new System.Drawing.Size(55, 29);
+			this.txtbox_tab5_grade.TabIndex = 1;
+			this.txtbox_tab5_grade.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.txtbox_tab5_grade.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.txtbox_tab5_grade.UseSystemPasswordChar = false;
 			// 
 			// lbl_tab5_Creargrupo
 			// 
 			this.lbl_tab5_Creargrupo.AutoSize = true;
 			this.lbl_tab5_Creargrupo.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_tab5_Creargrupo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-			this.lbl_tab5_Creargrupo.Location = new System.Drawing.Point(49, 27);
+			this.lbl_tab5_Creargrupo.Location = new System.Drawing.Point(30, 30);
 			this.lbl_tab5_Creargrupo.Name = "lbl_tab5_Creargrupo";
 			this.lbl_tab5_Creargrupo.Size = new System.Drawing.Size(144, 32);
 			this.lbl_tab5_Creargrupo.TabIndex = 0;
@@ -1288,6 +1254,7 @@
 			// tab6_Docente_CursoLista
 			// 
 			this.tab6_Docente_CursoLista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+			this.tab6_Docente_CursoLista.Controls.Add(this.dgv_courseList);
 			this.tab6_Docente_CursoLista.Controls.Add(this.btn_tab6_CrearGrupos);
 			this.tab6_Docente_CursoLista.Controls.Add(this.btn_tab6_regresar);
 			this.tab6_Docente_CursoLista.Controls.Add(this.lbl_tab6_listagrupos);
@@ -1297,6 +1264,23 @@
 			this.tab6_Docente_CursoLista.TabIndex = 8;
 			this.tab6_Docente_CursoLista.Text = "tabPage1";
 			// 
+			// dgv_courseList
+			// 
+			this.dgv_courseList.AllowUserToAddRows = false;
+			this.dgv_courseList.AllowUserToDeleteRows = false;
+			this.dgv_courseList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.dgv_courseList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Nombre,
+            this.grado,
+            this.grupo});
+			this.dgv_courseList.Location = new System.Drawing.Point(11, 77);
+			this.dgv_courseList.Name = "dgv_courseList";
+			this.dgv_courseList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgv_courseList.Size = new System.Drawing.Size(321, 355);
+			this.dgv_courseList.TabIndex = 3;
+			this.dgv_courseList.TabStop = false;
+			// 
 			// btn_tab6_CrearGrupos
 			// 
 			this.btn_tab6_CrearGrupos.BackColor = System.Drawing.Color.Transparent;
@@ -1304,12 +1288,12 @@
 			this.btn_tab6_CrearGrupos.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btn_tab6_CrearGrupos.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_tab6_CrearGrupos.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.btn_tab6_CrearGrupos.Location = new System.Drawing.Point(361, 165);
+			this.btn_tab6_CrearGrupos.Location = new System.Drawing.Point(361, 108);
 			this.btn_tab6_CrearGrupos.Name = "btn_tab6_CrearGrupos";
 			this.btn_tab6_CrearGrupos.Rounded = false;
-			this.btn_tab6_CrearGrupos.Size = new System.Drawing.Size(106, 32);
+			this.btn_tab6_CrearGrupos.Size = new System.Drawing.Size(145, 68);
 			this.btn_tab6_CrearGrupos.TabIndex = 2;
-			this.btn_tab6_CrearGrupos.Text = "Crear Grupos ";
+			this.btn_tab6_CrearGrupos.Text = "inscribir Alumnos al grupo Seleccionado";
 			this.btn_tab6_CrearGrupos.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
 			// 
 			// btn_tab6_regresar
@@ -1319,13 +1303,14 @@
 			this.btn_tab6_regresar.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btn_tab6_regresar.DialogResult = System.Windows.Forms.DialogResult.None;
 			this.btn_tab6_regresar.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.btn_tab6_regresar.Location = new System.Drawing.Point(361, 127);
+			this.btn_tab6_regresar.Location = new System.Drawing.Point(361, 182);
 			this.btn_tab6_regresar.Name = "btn_tab6_regresar";
 			this.btn_tab6_regresar.Rounded = false;
-			this.btn_tab6_regresar.Size = new System.Drawing.Size(106, 32);
+			this.btn_tab6_regresar.Size = new System.Drawing.Size(145, 40);
 			this.btn_tab6_regresar.TabIndex = 1;
 			this.btn_tab6_regresar.Text = "Regresar";
 			this.btn_tab6_regresar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			this.btn_tab6_regresar.Click += new System.EventHandler(this.btn_tab6_regresar_Click);
 			// 
 			// lbl_tab6_listagrupos
 			// 
@@ -1333,7 +1318,7 @@
 			this.lbl_tab6_listagrupos.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_tab6_listagrupos.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lbl_tab6_listagrupos.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab6_listagrupos.Location = new System.Drawing.Point(42, 37);
+			this.lbl_tab6_listagrupos.Location = new System.Drawing.Point(30, 30);
 			this.lbl_tab6_listagrupos.Name = "lbl_tab6_listagrupos";
 			this.lbl_tab6_listagrupos.Size = new System.Drawing.Size(205, 37);
 			this.lbl_tab6_listagrupos.TabIndex = 0;
@@ -1352,6 +1337,34 @@
 			// 
 			this.tmr_psw.Interval = 500;
 			this.tmr_psw.Tick += new System.EventHandler(this.tmr_psw_Tick);
+			// 
+			// ID
+			// 
+			this.ID.DataPropertyName = "ID";
+			this.ID.HeaderText = "ID";
+			this.ID.Name = "ID";
+			this.ID.ReadOnly = true;
+			// 
+			// Nombre
+			// 
+			this.Nombre.DataPropertyName = "Nombre";
+			this.Nombre.HeaderText = "Nombre";
+			this.Nombre.Name = "Nombre";
+			this.Nombre.ReadOnly = true;
+			// 
+			// grado
+			// 
+			this.grado.DataPropertyName = "grado";
+			this.grado.HeaderText = "grado";
+			this.grado.Name = "grado";
+			this.grado.ReadOnly = true;
+			// 
+			// grupo
+			// 
+			this.grupo.DataPropertyName = "grupo";
+			this.grupo.HeaderText = "grupo";
+			this.grupo.Name = "grupo";
+			this.grupo.ReadOnly = true;
 			// 
 			// Frame
 			// 
@@ -1377,18 +1390,19 @@
 			this.tab2_registro.PerformLayout();
 			this.tab3_Alumno_VistaGeneral.ResumeLayout(false);
 			this.tab3_Alumno_VistaGeneral.PerformLayout();
+			this.tab3_Docente_VistaGeneral.ResumeLayout(false);
+			this.tab3_Docente_VistaGeneral.PerformLayout();
 			this.tab4_Alumno_ListaDeCursos.ResumeLayout(false);
 			this.tab4_Alumno_ListaDeCursos.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridview_tab4)).EndInit();
-			this.tab3_Docente_VistaGeneral.ResumeLayout(false);
-			this.tab3_Docente_VistaGeneral.PerformLayout();
 			this.tab4_Docente_CursoGeneral.ResumeLayout(false);
 			this.tab4_Docente_CursoGeneral.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.tab4_dataGridview)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgv_tab4_Vulnerables)).EndInit();
 			this.tab5_Docente_CrearCurso.ResumeLayout(false);
 			this.tab5_Docente_CrearCurso.PerformLayout();
 			this.tab6_Docente_CursoLista.ResumeLayout(false);
 			this.tab6_Docente_CursoLista.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgv_courseList)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -1428,8 +1442,7 @@
 		private System.Windows.Forms.LinkLabel llb_tab3_materia3;
 		private System.Windows.Forms.LinkLabel llb_tab3_materia2;
 		private System.Windows.Forms.LinkLabel llb_tab3_materia1;
-		private System.Windows.Forms.Label lbl_tab3_StudentName;
-		private FlatUI.FlatStickyButton flatStickyButton3;
+		private System.Windows.Forms.Label lbl_tab3_NombreAlumno;
 		private FlatUI.FlatStickyButton btn_tab3_listagrupo;
 		private FlatUI.FlatButton btn_tab3_CrearGrupoPrf;
 		private FlatUI.FlatButton btn_tab3_GrupolistaProf;
@@ -1441,18 +1454,14 @@
 		private iTalk.iTalk_ProgressBar radGrp_tab3_PromedioGeneral;
 		private FlatUI.FlatLabel lbl_tab4_NombreAlumno;
 		private System.Windows.Forms.Label lbl_tab4_AlumnosVuln;
-		private System.Windows.Forms.DataGridView tab4_dataGridview;
-		private System.Windows.Forms.Label lbl_tab4_NombreAlumn;
+		private System.Windows.Forms.DataGridView dgv_tab4_Vulnerables;
+		private System.Windows.Forms.Label lbl_tab4_NombreCurso;
 		private FlatUI.FlatButton btn_tab5_cancelar;
 		private FlatUI.FlatButton btn_tab5_aceptar;
-		private FlatUI.FlatCheckBox lbl_tab5_ExamParciales;
-		private FlatUI.FlatNumeric flatNumeric2_Tab5;
-		private FlatUI.FlatNumeric flatNumeric1_tab5;
-		private FlatUI.FlatLabel lbl_tab5_UnidadesCurso;
 		private FlatUI.FlatLabel lbl_tab5_NombreMateria;
 		private FlatUI.FlatLabel lbl_tab5_NombCortGrupo;
-		private FlatUI.FlatTextBox txtbox_tab5_nombremateria;
-		private FlatUI.FlatTextBox txtbox_tab5_nombreGrupo;
+		private FlatUI.FlatTextBox txtbox_tab5_grup;
+		private FlatUI.FlatTextBox txtbox_tab5_grade;
 		private System.Windows.Forms.Label lbl_tab5_Creargrupo;
 		private FlatUI.FlatLabel lbl_tab5_ejemplo;
 		private FlatUI.FlatButton btn_tab6_CrearGrupos;
@@ -1485,6 +1494,14 @@
 		private FlatUI.FlatButton btn_connectToDB;
 		private FlatUI.FlatLabel lbl_rootPsw;
 		private FlatUI.FlatTextBox txtbox_rootPsw;
+		private FlatUI.FlatButton regresar;
+		private FlatUI.FlatLabel flatLabel1;
+		private FlatUI.FlatTextBox txtbox_tab5_courseName;
+		private System.Windows.Forms.DataGridView dgv_courseList;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+		private System.Windows.Forms.DataGridViewTextBoxColumn grado;
+		private System.Windows.Forms.DataGridViewTextBoxColumn grupo;
 	}
 }
 
