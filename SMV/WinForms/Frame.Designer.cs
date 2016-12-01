@@ -661,7 +661,7 @@
 			this.lbl_tab2_registro.ForeColor = System.Drawing.Color.White;
 			this.lbl_tab2_registro.Location = new System.Drawing.Point(36, 24);
 			this.lbl_tab2_registro.Name = "lbl_tab2_registro";
-			this.lbl_tab2_registro.Size = new System.Drawing.Size(115, 37);
+			this.lbl_tab2_registro.Size = new System.Drawing.Size(114, 37);
 			this.lbl_tab2_registro.TabIndex = 0;
 			this.lbl_tab2_registro.Text = "Registro";
 			// 
@@ -780,7 +780,7 @@
 			this.lbl_tab3_StudentName.ForeColor = System.Drawing.SystemColors.ButtonFace;
 			this.lbl_tab3_StudentName.Location = new System.Drawing.Point(30, 32);
 			this.lbl_tab3_StudentName.Name = "lbl_tab3_StudentName";
-			this.lbl_tab3_StudentName.Size = new System.Drawing.Size(200, 32);
+			this.lbl_tab3_StudentName.Size = new System.Drawing.Size(199, 32);
 			this.lbl_tab3_StudentName.TabIndex = 8;
 			this.lbl_tab3_StudentName.Text = "Student Name---";
 			// 
@@ -1076,7 +1076,7 @@
 			this.lbl_tab4_AlumnosVuln.ForeColor = System.Drawing.Color.Red;
 			this.lbl_tab4_AlumnosVuln.Location = new System.Drawing.Point(194, 183);
 			this.lbl_tab4_AlumnosVuln.Name = "lbl_tab4_AlumnosVuln";
-			this.lbl_tab4_AlumnosVuln.Size = new System.Drawing.Size(215, 30);
+			this.lbl_tab4_AlumnosVuln.Size = new System.Drawing.Size(214, 30);
 			this.lbl_tab4_AlumnosVuln.TabIndex = 2;
 			this.lbl_tab4_AlumnosVuln.Text = "Alumnos Vulnerables ";
 			// 

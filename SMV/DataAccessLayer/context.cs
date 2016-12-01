@@ -43,31 +43,32 @@ namespace DataAccessLayer
 				"DROP DATABASE IF EXISTS smv;" +
 				"CREATE DATABASE smv;use smv;" +
 
+			"CREATE TABLE IF NOT EXISTS codes(cCode VARCHAR(10) NOT NULL PRIMARY KEY);" +
+
 			"CREATE TABLE IF NOT EXISTS user(" +
-				"ID INT AUTO_INCREMENT PRIMARY KEY," +
-				"userName VARCHAR(25) NOT NULL UNIQUE," +
+				"userName VARCHAR(25) NOT NULL PRIMARY KEY," +
 				"`name` VARCHAR(50) NOT NULL," +
 				"lastName VARCHAR(50) NOT NULL," +
 				"pwd VARCHAR(32) NOT NULL," +
 				"cCode VARCHAR(10)," +
-				"FOREIGN KEY (cCode) REFERENCES codes(cCode)ENGINE=INNODB);" + Environment.NewLine +
+				"FOREIGN KEY (cCode) REFERENCES codes(cCode))ENGINE=INNODB;" + Environment.NewLine +
 
 			"CREATE TABLE IF NOT EXISTS course(" +
 				"`name` VARCHAR(50) NOT NULL," +
-				"admin_ID INT NOT NULL," +
+				"admin varchar(25) NOT NULL," +
 				"grade CHAR(1) NOT NULL," +
 				"`group` CHAR(1) NOT NULL," +
-				"ID INT AUTO_INCREMENT NOT NULL PRIMARY KEY," +
-				"FOREIGN KEY(admin_ID)REFERENCES user(ID))ENGINE = INNODB;" + Environment.NewLine +
+				"ID INT AUTO_INCREMENT NOT NULL PRIMARY KEY," + 
+				"FOREIGN KEY(admin)REFERENCES user(userName))ENGINE = INNODB;" + Environment.NewLine +
 
 			"CREATE TABLE IF NOT EXISTS masterList(" +
 				"userName VARCHAR(25) NOT NULL," +
 				"ID_course INT NOT NULL," +
 				"un1 FLOAT,un2 FLOAT,un3 FLOAT,un4 FLOAT,un5 FLOAT,un6 FLOAT," +
+				"FOREIGN KEY(userName) REFERENCES user(userName),"+
 				"FOREIGN KEY(ID_course)REFERENCES course(ID)," +
-				"UNIQUE keypair(userName, ID_course))ENGINE = INNODB;" +
+				"UNIQUE keypair(userName, ID_course))ENGINE = INNODB;";
 
-			"CREATE TABLE IF NOT EXISTS codes(cCode VARCHAR(10) NOT NULL PRIMARY KEY);";
 			command = new MySqlCommand(querySMV, connection);
 			command.ExecuteNonQuery();
 		}
@@ -82,7 +83,7 @@ namespace DataAccessLayer
 		#region InsertUser
 		public static void INSERTINTOuser(string userName, string name, string lastName, string pwd, string code)
 		{
-			string query = "INSERT INTO user values('" + userName + "','" + name + "','" + lastName + "','" + pwd + "','" + code + "');";
+			string query = "INSERT INTO user (userName,`name`,lastName,pwd,cCode) values('" + userName + "','" + name + "','" + lastName + "','" + pwd + "','" + code + "');";
 			command = new MySqlCommand(query, connection);
 			command.ExecuteNonQuery();
 		}
@@ -91,7 +92,6 @@ namespace DataAccessLayer
 			string query = "SELECT * FROM user WHERE username='" + param1 + "';";
 			command = new MySqlCommand(query, connection);
 			reader = command.ExecuteReader();
-
 			while (reader.Read())
 			{
 				userList.Add(param1);

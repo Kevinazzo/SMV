@@ -167,6 +167,14 @@ namespace WinForms
 		{
 			lbl_tab3_StudentName.Text = "Bienvenido " + BusinessLogic.Functions.currentSession.name;
 		}
+
+		public void cleanTab1Txtbox()
+		{
+			txtbox_contraseña.Text = "";
+			txtbox_rootPsw.Text = "";
+			txtbox_usuario.Text = "";
+
+		}
 		public void cleanTab2Txtbox()
 		{
 			txtbox_tab2_registro.Text = "";
@@ -249,6 +257,7 @@ namespace WinForms
 			}
 			else
 			{
+				MsgBox = new CustomMessageBox();
 				MsgBox.Show("El usuario ya existe", "ERROR", CustomMessageBox.CustomMessageBoxButtons.Ok, CustomMessageBox.CustomMessageBoxTxtBoxState.VisibleCharReadOnly);
 			}
 		}
