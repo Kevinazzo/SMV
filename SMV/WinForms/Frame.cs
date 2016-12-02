@@ -163,14 +163,22 @@ namespace WinForms
 		}
 		#endregion
 
-		#region DGV
+		#region LGV
 
-		public void populateListView()
+		public void refreshListView()
 		{
-			
+			for (int i = 0; i < BusinessLogic.Functions.courseList[0].Select(a => a).Count(); i++)
+			{
+				ListViewItem item = new ListViewItem(BusinessLogic.Functions.courseList[0].ElementAt(i));
+				item.SubItems.Add(BusinessLogic.Functions.courseList[1].ElementAt(i));
+				item.SubItems.Add(BusinessLogic.Functions.courseList[2].ElementAt(i));
+				item.Name = BusinessLogic.Functions.courseList[0].ElementAt(i);
+				lvw_tab6_GroupList.Items.Add(item);
+			}
 		}
 
 		#endregion
+
 		public void loadCurrentSession()
 		{
 			if (BusinessLogic.Functions.loggedAsTeacher)
@@ -304,6 +312,8 @@ namespace WinForms
 				if (BusinessLogic.Functions.verifyUserDataTologIn(txtbox_usuario.Text, txtbox_contraseña.Text))
 				{
 					loadCurrentSession();
+					BusinessLogic.Functions.selectCourses();
+					BusinessLogic.Functions.importCourses();
 				}
 				else
 				{
@@ -375,35 +385,40 @@ namespace WinForms
 			tabControl.SelectedTab = tab4_Alumno_ListaDeCursos;
 		}
 
-		#endregion
-
 		private void btn_tab3_CrearGrupoPrf_Click(object sender, EventArgs e)
 		{
 			tabControl.SelectedTab = tab5_Docente_CrearCurso;
-			BusinessLogic.Functions.getCourses();
-			
 		}
 		private void btn_tab5_aceptar_Click(object sender, EventArgs e)
 		{
 			BusinessLogic.Functions.createcourse(txtbox_tab5_courseName.Text, txtbox_tab5_grade.Text[0], txtbox_tab5_grup.Text[0]);
 			cleanTab5TxtBox();
+			BusinessLogic.Functions.clearCourseList();
+			BusinessLogic.Functions.selectCourses();
+			BusinessLogic.Functions.importCourses();
+			refreshListView();
 			tabControl.SelectedTab = tab6_Docente_CursoLista;
+			
 		}
 
 		private void btn_tab6_regresar_Click(object sender, EventArgs e)
 		{
 			tabControl.SelectedTab = tab3_Docente_VistaGeneral;
+			lvw_tab6_GroupList.Items.Clear();
 		}
 
 		private void btn_tab3_GrupolistaProf_Click(object sender, EventArgs e)
 		{
 			tabControl.SelectedTab = tab6_Docente_CursoLista;
+			lvw_tab6_GroupList.Items.Clear();
+			refreshListView();
 		}
 
 		private void tab6_Docente_CursoLista_Click(object sender, EventArgs e)
 		{
 
 		}
+
 		private void dgv_courseList_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 
@@ -411,15 +426,55 @@ namespace WinForms
 
 		private void flatButton1_Click(object sender, EventArgs e)
 		{
-			ListViewItem item = new ListViewItem();
-			foreach (var row in BusinessLogic.Functions.courseList[0].Select(a => a))
-			{
-				item.Text = BusinessLogic.Functions.courseList[0].Select(a=>a).ToString();
-				item.SubItems.Add(BusinessLogic.Functions.courseList[1].Select(a => a==row).ToString());
-				item.SubItems.Add(BusinessLogic.Functions.courseList[2].Select(a => a == row).ToString());
-			}
-			lvw_tab6_GroupList.Items.Add(item);
+
+		}
+		#endregion
+
+		private void btn_tab5_cancelar_Click(object sender, EventArgs e)
+		{
+			tabControl.SelectedTab = tab3_Docente_VistaGeneral;
 			
+		}
+
+		private void btn_tab6_EraseCourse_Click(object sender, EventArgs e)
+		{
+			if (lvw_tab6_GroupList.SelectedItems.Count >0)
+			{
+				if (MsgBox.Show("Desea eliminar el curso seleccionado?", CustomMessageBox.CustomMessageBoxButtons.OkCancel) == DialogResult.OK)
+				{
+					BusinessLogic.Functions.deleteCourse(lvw_tab6_GroupList.SelectedItems[0].Name);
+					BusinessLogic.Functions.clearCourseList();
+					BusinessLogic.Functions.selectCourses();
+					BusinessLogic.Functions.importCourses();
+					lvw_tab6_GroupList.Items[lvw_tab6_GroupList.SelectedItems[0].Name].Remove();
+				}
+
+				
+			}
+		}
+
+		private void btn_tab7_regresarAListaDeCurso_Click(object sender, EventArgs e)
+		{
+			tabControl.SelectedTab = tab4_Alumno_ListaDeCursos;
+		}
+
+		private void flatButton2_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				BusinessLogic.Functions.enrollStudent(txtbox_tab7_userName.Text, BusinessLogic.Functions.getCourseID(txtbox_tab7_userName.Text));
+				ListViewItem item = new ListViewItem()
+			}
+			catch (MySqlException)
+			{ 
+
+			}
+		}
+
+		private void btn_tab6_EnrollStudents_Click(object sender, EventArgs e)
+		{
+			tabControl.SelectedTab = tab7_Docente_InscripcionAlumnos;
+			lbl_tab7_inscribira.Text = lvw_tab6_GroupList.SelectedItems[0].Name;
 		}
 	}
 }

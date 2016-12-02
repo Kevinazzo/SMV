@@ -47,6 +47,12 @@ namespace WinForms
 		{
 			txtbox_content2.Text = text;
 			lbl_Title.Text = "";
+			txtbox_content2.Dock = DockStyle.Fill;
+			txtbox_content2.UseSystemPasswordChar = false;
+			txtbox_content2.Multiline = true;
+			txtbox_content2.TextAlign = HorizontalAlignment.Center;
+			btn_aceptar.BringToFront();
+			btn_cancelar.BringToFront();
 			if (buttons == CustomMessageBoxButtons.Ok)
 			{
 				btn_aceptar.Location = new Point(86, 70);

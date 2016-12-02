@@ -16,7 +16,7 @@ namespace BusinessLogic
 		public static bool logged;
 		public static bool loggedAsTeacher;
 		public static BusinessEntities.user currentSession;
-		public static List<string>[] courseList = { new List<string>(), new List<string>(), new List<string>() };
+		public static List<List<string>> courseList = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>()};
 		#endregion
 
 		#region toDataAccessLayer
@@ -82,6 +82,7 @@ namespace BusinessLogic
 				return false;
 			} 
 		}
+	
 		public static void registerNewUser(string Usr,string name,string Ln,string psw,string code)
 		{
 			DataAccessLayer.Context.INSERTINTOuser(Usr, name, Ln, psw,code);
@@ -95,10 +96,7 @@ namespace BusinessLogic
 			if (DataAccessLayer.Context.VerifyUserToLogIn(paramUsr, paramPsw))
 			{
 				DataAccessLayer.Context.getCurrentSessionData();
-				for (int x = 0x0; x < DataAccessLayer.Context.accountsList.Length; x++)
-				{
-					DataAccessLayer.Context.accountsList[x].Clear();
-				}
+				clearTmpList();
 				importCurrentSesion();
 				if (currentSession.code.Length != 0)
 				{
@@ -134,14 +132,45 @@ namespace BusinessLogic
 			DataAccessLayer.Context.INSERTINTOcourse(Cname,Cgrade,Cgroup);
 		}
 
-		public static void importDGVnames()
+		public static void importCourses()
 		{
-			courseList[0] = DataAccessLayer.Context.courseList[0].Select(a => a).ToList();
-			courseList[1] = DataAccessLayer.Context.courseList[2].Select(a => a.ToString()).ToList();
-			courseList[2] = DataAccessLayer.Context.courseList[3].Select(a => a.ToString()).ToList();
+			for (int i = 0; i < DataAccessLayer.Context.LoL[0].Count; i++)
+			{
+				courseList[0].Add(DataAccessLayer.Context.LoL[0].ElementAt(i));
+			}
+			for (int i = 0; i < DataAccessLayer.Context.LoL[0].Count; i++)
+			{
+				courseList[1].Add(DataAccessLayer.Context.LoL[2].ElementAt(i));
+			}
+			for (int i = 0; i < DataAccessLayer.Context.LoL[0].Count; i++)
+			{
+				courseList[2].Add(DataAccessLayer.Context.LoL[3].ElementAt(i));
+			}
+		}
+		public static void selectCourses()
+		{
+			DataAccessLayer.Context.SELECTFROMcourse();
+		}
+		public static void clearCourseList()
+		{
+			for (int i = 0; i < courseList.Count; i++)
+			{
+				courseList[i].Clear();
+			}
+		}
+		public static void deleteCourse(string param1)
+		{
+			DataAccessLayer.Context.DROPcourse(param1);
 		}
 		#endregion
-
+		#region EnrollStudents
+		public static void enrollStudent(string userName,int IDo)
+		{
+			clearTmpList();
+			DataAccessLayer.Context.INSERTINTOmasterList(userName, IDo);
+		}
+		#endregion
+		
 		#endregion
 
 		#region logic
@@ -159,10 +188,16 @@ namespace BusinessLogic
 			}
 		}
 		#endregion
-
-		public static void getCourses()
+		public static int getCourseID (string Name)
 		{
-			DataAccessLayer.Context.getCourses();
+			return DataAccessLayer.Context.getCourseId(Name);
+		}
+		public static void clearTmpList()
+		{
+			for (int x = 0x0; x < DataAccessLayer.Context.Col3tmpStringList[0].Count; x++)
+			{
+				DataAccessLayer.Context.Col3tmpStringList[x].Clear();
+			}
 		}
 		public static void closeConnection()
 		{

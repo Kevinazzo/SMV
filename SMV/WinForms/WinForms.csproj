@@ -110,7 +110,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -155,7 +154,6 @@
     <Content Include="referencias\Hura Theme.dll" />
     <Content Include="referencias\Italk.dll" />
     <Content Include="referencias\light hura theme.dll" />
-    <Content Include="ReleaseNotes.txt" />
     <None Include="referencias\loading.gif" />
     <None Include="referencias\loadingtest.gif" />
     <Content Include="referencias\Login Theme.dll" />

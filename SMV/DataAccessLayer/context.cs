@@ -19,14 +19,15 @@ namespace DataAccessLayer
 		public static MySqlDataReader reader;
 		#endregion
 		#region AccountInfo
-		public static BusinessEntities.masterList masterList = new BusinessEntities.masterList();
 
 		public static List<string> userList = new List<string>();
 		public static List<string>[] accountsList = { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>() };
 		public static string[] currentSesionInfo = new string[4];
-		public static List<string>[] courseList = { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>() };
+		public static List<List<string>> LoL = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), };
+		public static List<List<string>> masterList = new List<List<string>> { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>() };
+		public static List<List<string>> Col3tmpStringList = new List<List<string>> { new List<string>(), new List<string>() };
 
-		public static float[] cals = new float[4];
+	public static float[] cals = new float[4];
 		#endregion
 		#region Notes(calificaciones)
 
@@ -113,6 +114,12 @@ namespace DataAccessLayer
 			command = new MySqlCommand(query, connection);
 			command.ExecuteNonQuery();
 		}
+		public static void INSERTINTOmasterList (string UN,int ID)
+		{
+			string query = "INSERT INTO masterList values('" + UN + "','" + ID + "');";
+			command = new MySqlCommand(query, connection);
+			command.ExecuteNonQuery();
+		}
 
 		#endregion
 
@@ -164,7 +171,17 @@ namespace DataAccessLayer
 			}
 			reader.Close();
 		}
+		public static void loadCourseMasterList(string userName, int ID)
+		{
+			string query="SELECT userName FROM user WHERE username='" + userName + "';";
+			command = new MySqlCommand(query, connection);
+			reader = command.ExecuteReader();
 
+			while (reader.Read()) 
+			{
+
+			}
+		}
 
 		#endregion
 		#region FROMcodes
@@ -191,25 +208,55 @@ namespace DataAccessLayer
 
 		#endregion
 		#region FROMcourse
-
-		public static void getCourses()
+		public static int getCourseId(string name)
 		{
-			string query = "SELECT name,grade,`group`,ID FROM course WHERE admin = '" + currentSesionInfo[0] + "';";
+			string x="";
+			string query = "SELECT ID FROM course WHERE name='" + name + "';";
+			command = new MySqlCommand(query, connection);
+			reader = command.ExecuteReader();
+			if (reader.Read())
+			{
+				x = (reader["ID"]+"");
+			}
+			return int.Parse(x);
+		}
+		public static void refreshLoL()
+		{
+			for (int i = 0; i < LoL.Count; i++)
+			{
+				LoL[i].Clear();
+			}
+		}
+
+		public static void SELECTFROMcourse()
+		{
+			refreshLoL();
+			string query = "SELECT * FROM course WHERE admin = '" + currentSesionInfo[0] + "';";
 			command = new MySqlCommand(query, connection);
 			reader = command.ExecuteReader();
 
 			while (reader.Read())
 			{
-
-				courseList[0].Add(reader["name"] + "");
-				courseList[2].Add(reader.GetChar("grade").ToString());
-				courseList[3].Add(reader.GetChar("group").ToString());
-				courseList[4].Add(reader["ID"].ToString() + "");
+				LoL[0].Add(reader["name"] + "");
+				LoL[1].Add(reader["admin"] + "");
+				LoL[2].Add(reader.GetChar("grade").ToString());
+				LoL[3].Add(reader.GetChar("group").ToString());
+				LoL[4].Add(reader["ID"].ToString() + "");
 			}
 			reader.Close();
 		}
+		public static void DROPcourse(string courseName)
+		{
+			string query1 = "DELETE FROM masterList WHERE ID_course='" + LoL[4].ElementAt(LoL[0].IndexOf(courseName)) + "';";
+			string query2 = "DELETE FROM course WHERE name='" + courseName + "';";
+			command = new MySqlCommand(query1, connection);
+			command.ExecuteNonQuery();
+			command.CommandText = query2;
+			command.ExecuteNonQuery();
+		}
 
 		#endregion
+
 		#endregion
 
 		#endregion
