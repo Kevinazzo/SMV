@@ -110,7 +110,7 @@
 			this.txtbox_tab5_grup = new FlatUI.FlatTextBox();
 			this.txtbox_tab5_grade = new FlatUI.FlatTextBox();
 			this.lbl_tab5_Creargrupo = new System.Windows.Forms.Label();
-			this.tab6_Docente_CursoLista = new System.Windows.Forms.TabPage();
+			this.tab6_Docente_ListaDeCursos = new System.Windows.Forms.TabPage();
 			this.flatButton1 = new FlatUI.FlatButton();
 			this.btn_tab6_EditCourse = new FlatUI.FlatButton();
 			this.btn_tab6_EraseCourse = new FlatUI.FlatButton();
@@ -122,14 +122,21 @@
 			this.btn_tab6_regresar = new FlatUI.FlatButton();
 			this.lbl_tab6_listagrupos = new FlatUI.FlatLabel();
 			this.tab7_Docente_InscripcionAlumnos = new System.Windows.Forms.TabPage();
-			this.tmr_psw = new System.Windows.Forms.Timer(this.components);
-			this.lbl_tab7_inscribira = new FlatUI.FlatLabel();
-			this.lvw_tab7_enrolledStudents = new System.Windows.Forms.ListView();
-			this.txtbox_tab7_userName = new FlatUI.FlatTextBox();
-			this.flatButton2 = new FlatUI.FlatButton();
-			this.flatButton3 = new FlatUI.FlatButton();
 			this.btn_tab7_regresarAListaDeCurso = new FlatUI.FlatButton();
+			this.btn_tab7_eliminar = new FlatUI.FlatButton();
+			this.btn_tab7_insciribir = new FlatUI.FlatButton();
+			this.txtbox_tab7_userName = new FlatUI.FlatTextBox();
+			this.lvw_tab7_enrolledStudents = new System.Windows.Forms.ListView();
 			this.Nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.lbl_tab7_inscribira = new FlatUI.FlatLabel();
+			this.tmr_psw = new System.Windows.Forms.Timer(this.components);
+			this.cal1 = new FlatUI.FlatTextBox();
+			this.cal2 = new FlatUI.FlatTextBox();
+			this.cal3 = new FlatUI.FlatTextBox();
+			this.cal4 = new FlatUI.FlatTextBox();
+			this.cal5 = new FlatUI.FlatTextBox();
+			this.cal6 = new FlatUI.FlatTextBox();
+			this.btn_tab7_upgradeCALS = new FlatUI.FlatButton();
 			this.pnl_header.SuspendLayout();
 			this.pnl_body.SuspendLayout();
 			this.tabControl.SuspendLayout();
@@ -143,7 +150,7 @@
 			this.tab4_Docente_CursoGeneral.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgv_tab4_Vulnerables)).BeginInit();
 			this.tab5_Docente_CrearCurso.SuspendLayout();
-			this.tab6_Docente_CursoLista.SuspendLayout();
+			this.tab6_Docente_ListaDeCursos.SuspendLayout();
 			this.tab7_Docente_InscripcionAlumnos.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -224,7 +231,7 @@
 			this.tabControl.Controls.Add(this.tab4_Docente_CursoGeneral);
 			this.tabControl.Controls.Add(this.tab5_Alumno_VistaGeneralCurso);
 			this.tabControl.Controls.Add(this.tab5_Docente_CrearCurso);
-			this.tabControl.Controls.Add(this.tab6_Docente_CursoLista);
+			this.tabControl.Controls.Add(this.tab6_Docente_ListaDeCursos);
 			this.tabControl.Controls.Add(this.tab7_Docente_InscripcionAlumnos);
 			this.tabControl.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.tabControl.ItemSize = new System.Drawing.Size(120, 40);
@@ -673,7 +680,7 @@
 			this.lbl_tab2_registro.ForeColor = System.Drawing.Color.White;
 			this.lbl_tab2_registro.Location = new System.Drawing.Point(30, 30);
 			this.lbl_tab2_registro.Name = "lbl_tab2_registro";
-			this.lbl_tab2_registro.Size = new System.Drawing.Size(115, 37);
+			this.lbl_tab2_registro.Size = new System.Drawing.Size(114, 37);
 			this.lbl_tab2_registro.TabIndex = 0;
 			this.lbl_tab2_registro.Text = "Registro";
 			// 
@@ -783,7 +790,7 @@
 			this.lbl_tab3_NombreAlumno.ForeColor = System.Drawing.SystemColors.ButtonFace;
 			this.lbl_tab3_NombreAlumno.Location = new System.Drawing.Point(30, 32);
 			this.lbl_tab3_NombreAlumno.Name = "lbl_tab3_NombreAlumno";
-			this.lbl_tab3_NombreAlumno.Size = new System.Drawing.Size(200, 32);
+			this.lbl_tab3_NombreAlumno.Size = new System.Drawing.Size(199, 32);
 			this.lbl_tab3_NombreAlumno.TabIndex = 8;
 			this.lbl_tab3_NombreAlumno.Text = "Student Name---";
 			// 
@@ -1075,7 +1082,7 @@
 			this.lbl_tab4_AlumnosVuln.ForeColor = System.Drawing.Color.Red;
 			this.lbl_tab4_AlumnosVuln.Location = new System.Drawing.Point(194, 183);
 			this.lbl_tab4_AlumnosVuln.Name = "lbl_tab4_AlumnosVuln";
-			this.lbl_tab4_AlumnosVuln.Size = new System.Drawing.Size(215, 30);
+			this.lbl_tab4_AlumnosVuln.Size = new System.Drawing.Size(214, 30);
 			this.lbl_tab4_AlumnosVuln.TabIndex = 2;
 			this.lbl_tab4_AlumnosVuln.Text = "Alumnos Vulnerables ";
 			// 
@@ -1262,22 +1269,22 @@
 			this.lbl_tab5_Creargrupo.TabIndex = 0;
 			this.lbl_tab5_Creargrupo.Text = "Crear Grupo";
 			// 
-			// tab6_Docente_CursoLista
+			// tab6_Docente_ListaDeCursos
 			// 
-			this.tab6_Docente_CursoLista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
-			this.tab6_Docente_CursoLista.Controls.Add(this.flatButton1);
-			this.tab6_Docente_CursoLista.Controls.Add(this.btn_tab6_EditCourse);
-			this.tab6_Docente_CursoLista.Controls.Add(this.btn_tab6_EraseCourse);
-			this.tab6_Docente_CursoLista.Controls.Add(this.lvw_tab6_GroupList);
-			this.tab6_Docente_CursoLista.Controls.Add(this.btn_tab6_EnrollStudents);
-			this.tab6_Docente_CursoLista.Controls.Add(this.btn_tab6_regresar);
-			this.tab6_Docente_CursoLista.Controls.Add(this.lbl_tab6_listagrupos);
-			this.tab6_Docente_CursoLista.Location = new System.Drawing.Point(4, 44);
-			this.tab6_Docente_CursoLista.Name = "tab6_Docente_CursoLista";
-			this.tab6_Docente_CursoLista.Size = new System.Drawing.Size(532, 440);
-			this.tab6_Docente_CursoLista.TabIndex = 8;
-			this.tab6_Docente_CursoLista.Text = "tabPage1";
-			this.tab6_Docente_CursoLista.Click += new System.EventHandler(this.tab6_Docente_CursoLista_Click);
+			this.tab6_Docente_ListaDeCursos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+			this.tab6_Docente_ListaDeCursos.Controls.Add(this.flatButton1);
+			this.tab6_Docente_ListaDeCursos.Controls.Add(this.btn_tab6_EditCourse);
+			this.tab6_Docente_ListaDeCursos.Controls.Add(this.btn_tab6_EraseCourse);
+			this.tab6_Docente_ListaDeCursos.Controls.Add(this.lvw_tab6_GroupList);
+			this.tab6_Docente_ListaDeCursos.Controls.Add(this.btn_tab6_EnrollStudents);
+			this.tab6_Docente_ListaDeCursos.Controls.Add(this.btn_tab6_regresar);
+			this.tab6_Docente_ListaDeCursos.Controls.Add(this.lbl_tab6_listagrupos);
+			this.tab6_Docente_ListaDeCursos.Location = new System.Drawing.Point(4, 44);
+			this.tab6_Docente_ListaDeCursos.Name = "tab6_Docente_ListaDeCursos";
+			this.tab6_Docente_ListaDeCursos.Size = new System.Drawing.Size(532, 440);
+			this.tab6_Docente_ListaDeCursos.TabIndex = 8;
+			this.tab6_Docente_ListaDeCursos.Text = "tabPage1";
+			this.tab6_Docente_ListaDeCursos.Click += new System.EventHandler(this.tab6_Docente_CursoLista_Click);
 			// 
 			// flatButton1
 			// 
@@ -1407,9 +1414,16 @@
 			// tab7_Docente_InscripcionAlumnos
 			// 
 			this.tab7_Docente_InscripcionAlumnos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
+			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.btn_tab7_upgradeCALS);
+			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.cal6);
+			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.cal5);
+			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.cal4);
+			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.cal3);
+			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.cal2);
+			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.cal1);
 			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.btn_tab7_regresarAListaDeCurso);
-			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.flatButton3);
-			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.flatButton2);
+			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.btn_tab7_eliminar);
+			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.btn_tab7_insciribir);
 			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.txtbox_tab7_userName);
 			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.lvw_tab7_enrolledStudents);
 			this.tab7_Docente_InscripcionAlumnos.Controls.Add(this.lbl_tab7_inscribira);
@@ -1417,83 +1431,7 @@
 			this.tab7_Docente_InscripcionAlumnos.Name = "tab7_Docente_InscripcionAlumnos";
 			this.tab7_Docente_InscripcionAlumnos.Size = new System.Drawing.Size(532, 440);
 			this.tab7_Docente_InscripcionAlumnos.TabIndex = 9;
-			this.tab7_Docente_InscripcionAlumnos.Text = "tabPage1";
-			// 
-			// tmr_psw
-			// 
-			this.tmr_psw.Interval = 500;
-			this.tmr_psw.Tick += new System.EventHandler(this.tmr_psw_Tick);
-			// 
-			// lbl_tab7_inscribira
-			// 
-			this.lbl_tab7_inscribira.AutoSize = true;
-			this.lbl_tab7_inscribira.BackColor = System.Drawing.Color.Transparent;
-			this.lbl_tab7_inscribira.Font = new System.Drawing.Font("Segoe UI", 20.25F);
-			this.lbl_tab7_inscribira.ForeColor = System.Drawing.Color.White;
-			this.lbl_tab7_inscribira.Location = new System.Drawing.Point(30, 30);
-			this.lbl_tab7_inscribira.Name = "lbl_tab7_inscribira";
-			this.lbl_tab7_inscribira.Size = new System.Drawing.Size(249, 37);
-			this.lbl_tab7_inscribira.TabIndex = 0;
-			this.lbl_tab7_inscribira.Text = "Inscribir Alumnos a ";
-			// 
-			// lvw_tab7_enrolledStudents
-			// 
-			this.lvw_tab7_enrolledStudents.BackColor = System.Drawing.Color.Silver;
-			this.lvw_tab7_enrolledStudents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Nombre});
-			this.lvw_tab7_enrolledStudents.FullRowSelect = true;
-			this.lvw_tab7_enrolledStudents.Location = new System.Drawing.Point(37, 89);
-			this.lvw_tab7_enrolledStudents.Name = "lvw_tab7_enrolledStudents";
-			this.lvw_tab7_enrolledStudents.Size = new System.Drawing.Size(242, 319);
-			this.lvw_tab7_enrolledStudents.TabIndex = 1;
-			this.lvw_tab7_enrolledStudents.UseCompatibleStateImageBehavior = false;
-			this.lvw_tab7_enrolledStudents.View = System.Windows.Forms.View.Details;
-			// 
-			// txtbox_tab7_userName
-			// 
-			this.txtbox_tab7_userName.BackColor = System.Drawing.Color.Transparent;
-			this.txtbox_tab7_userName.FocusOnHover = false;
-			this.txtbox_tab7_userName.Location = new System.Drawing.Point(298, 89);
-			this.txtbox_tab7_userName.MaxLength = 32767;
-			this.txtbox_tab7_userName.Multiline = false;
-			this.txtbox_tab7_userName.Name = "txtbox_tab7_userName";
-			this.txtbox_tab7_userName.ReadOnly = false;
-			this.txtbox_tab7_userName.Size = new System.Drawing.Size(162, 29);
-			this.txtbox_tab7_userName.TabIndex = 2;
-			this.txtbox_tab7_userName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-			this.txtbox_tab7_userName.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-			this.txtbox_tab7_userName.UseSystemPasswordChar = false;
-			// 
-			// flatButton2
-			// 
-			this.flatButton2.BackColor = System.Drawing.Color.Transparent;
-			this.flatButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-			this.flatButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.flatButton2.DialogResult = System.Windows.Forms.DialogResult.None;
-			this.flatButton2.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.flatButton2.Location = new System.Drawing.Point(298, 125);
-			this.flatButton2.Name = "flatButton2";
-			this.flatButton2.Rounded = false;
-			this.flatButton2.Size = new System.Drawing.Size(162, 32);
-			this.flatButton2.TabIndex = 3;
-			this.flatButton2.Text = "Inscribir";
-			this.flatButton2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-			this.flatButton2.Click += new System.EventHandler(this.flatButton2_Click);
-			// 
-			// flatButton3
-			// 
-			this.flatButton3.BackColor = System.Drawing.Color.Transparent;
-			this.flatButton3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-			this.flatButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.flatButton3.DialogResult = System.Windows.Forms.DialogResult.None;
-			this.flatButton3.Font = new System.Drawing.Font("Segoe UI", 12F);
-			this.flatButton3.Location = new System.Drawing.Point(298, 164);
-			this.flatButton3.Name = "flatButton3";
-			this.flatButton3.Rounded = false;
-			this.flatButton3.Size = new System.Drawing.Size(162, 32);
-			this.flatButton3.TabIndex = 4;
-			this.flatButton3.Text = "Eliminar";
-			this.flatButton3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			this.tab7_Docente_InscripcionAlumnos.Text = "ActualizarCalificaciones";
 			// 
 			// btn_tab7_regresarAListaDeCurso
 			// 
@@ -1511,10 +1449,193 @@
 			this.btn_tab7_regresarAListaDeCurso.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
 			this.btn_tab7_regresarAListaDeCurso.Click += new System.EventHandler(this.btn_tab7_regresarAListaDeCurso_Click);
 			// 
+			// btn_tab7_eliminar
+			// 
+			this.btn_tab7_eliminar.BackColor = System.Drawing.Color.Transparent;
+			this.btn_tab7_eliminar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+			this.btn_tab7_eliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab7_eliminar.DialogResult = System.Windows.Forms.DialogResult.None;
+			this.btn_tab7_eliminar.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.btn_tab7_eliminar.Location = new System.Drawing.Point(298, 164);
+			this.btn_tab7_eliminar.Name = "btn_tab7_eliminar";
+			this.btn_tab7_eliminar.Rounded = false;
+			this.btn_tab7_eliminar.Size = new System.Drawing.Size(162, 32);
+			this.btn_tab7_eliminar.TabIndex = 4;
+			this.btn_tab7_eliminar.Text = "Eliminar";
+			this.btn_tab7_eliminar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			this.btn_tab7_eliminar.Click += new System.EventHandler(this.btn_tab7_eliminar_Click);
+			// 
+			// btn_tab7_insciribir
+			// 
+			this.btn_tab7_insciribir.BackColor = System.Drawing.Color.Transparent;
+			this.btn_tab7_insciribir.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+			this.btn_tab7_insciribir.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab7_insciribir.DialogResult = System.Windows.Forms.DialogResult.None;
+			this.btn_tab7_insciribir.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.btn_tab7_insciribir.Location = new System.Drawing.Point(298, 125);
+			this.btn_tab7_insciribir.Name = "btn_tab7_insciribir";
+			this.btn_tab7_insciribir.Rounded = false;
+			this.btn_tab7_insciribir.Size = new System.Drawing.Size(162, 32);
+			this.btn_tab7_insciribir.TabIndex = 3;
+			this.btn_tab7_insciribir.Text = "Inscribir";
+			this.btn_tab7_insciribir.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			this.btn_tab7_insciribir.Click += new System.EventHandler(this.flatButton2_Click);
+			// 
+			// txtbox_tab7_userName
+			// 
+			this.txtbox_tab7_userName.BackColor = System.Drawing.Color.Transparent;
+			this.txtbox_tab7_userName.FocusOnHover = false;
+			this.txtbox_tab7_userName.Location = new System.Drawing.Point(298, 89);
+			this.txtbox_tab7_userName.MaxLength = 32767;
+			this.txtbox_tab7_userName.Multiline = false;
+			this.txtbox_tab7_userName.Name = "txtbox_tab7_userName";
+			this.txtbox_tab7_userName.ReadOnly = false;
+			this.txtbox_tab7_userName.Size = new System.Drawing.Size(162, 29);
+			this.txtbox_tab7_userName.TabIndex = 2;
+			this.txtbox_tab7_userName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.txtbox_tab7_userName.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.txtbox_tab7_userName.UseSystemPasswordChar = false;
+			// 
+			// lvw_tab7_enrolledStudents
+			// 
+			this.lvw_tab7_enrolledStudents.BackColor = System.Drawing.Color.Silver;
+			this.lvw_tab7_enrolledStudents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Nombre});
+			this.lvw_tab7_enrolledStudents.FullRowSelect = true;
+			this.lvw_tab7_enrolledStudents.Location = new System.Drawing.Point(37, 89);
+			this.lvw_tab7_enrolledStudents.Name = "lvw_tab7_enrolledStudents";
+			this.lvw_tab7_enrolledStudents.Size = new System.Drawing.Size(242, 319);
+			this.lvw_tab7_enrolledStudents.TabIndex = 1;
+			this.lvw_tab7_enrolledStudents.UseCompatibleStateImageBehavior = false;
+			this.lvw_tab7_enrolledStudents.View = System.Windows.Forms.View.Details;
+			// 
 			// Nombre
 			// 
 			this.Nombre.Text = "Nombre";
 			this.Nombre.Width = 227;
+			// 
+			// lbl_tab7_inscribira
+			// 
+			this.lbl_tab7_inscribira.AutoSize = true;
+			this.lbl_tab7_inscribira.BackColor = System.Drawing.Color.Transparent;
+			this.lbl_tab7_inscribira.Font = new System.Drawing.Font("Segoe UI", 20.25F);
+			this.lbl_tab7_inscribira.ForeColor = System.Drawing.Color.White;
+			this.lbl_tab7_inscribira.Location = new System.Drawing.Point(30, 30);
+			this.lbl_tab7_inscribira.Name = "lbl_tab7_inscribira";
+			this.lbl_tab7_inscribira.Size = new System.Drawing.Size(249, 37);
+			this.lbl_tab7_inscribira.TabIndex = 0;
+			this.lbl_tab7_inscribira.Text = "Inscribir Alumnos a ";
+			// 
+			// tmr_psw
+			// 
+			this.tmr_psw.Interval = 500;
+			this.tmr_psw.Tick += new System.EventHandler(this.tmr_psw_Tick);
+			// 
+			// cal1
+			// 
+			this.cal1.BackColor = System.Drawing.Color.Transparent;
+			this.cal1.FocusOnHover = false;
+			this.cal1.Location = new System.Drawing.Point(298, 222);
+			this.cal1.MaxLength = 32767;
+			this.cal1.Multiline = false;
+			this.cal1.Name = "cal1";
+			this.cal1.ReadOnly = false;
+			this.cal1.Size = new System.Drawing.Size(37, 29);
+			this.cal1.TabIndex = 6;
+			this.cal1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.cal1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.cal1.UseSystemPasswordChar = false;
+			// 
+			// cal2
+			// 
+			this.cal2.BackColor = System.Drawing.Color.Transparent;
+			this.cal2.FocusOnHover = false;
+			this.cal2.Location = new System.Drawing.Point(341, 222);
+			this.cal2.MaxLength = 32767;
+			this.cal2.Multiline = false;
+			this.cal2.Name = "cal2";
+			this.cal2.ReadOnly = false;
+			this.cal2.Size = new System.Drawing.Size(36, 29);
+			this.cal2.TabIndex = 7;
+			this.cal2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.cal2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.cal2.UseSystemPasswordChar = false;
+			// 
+			// cal3
+			// 
+			this.cal3.BackColor = System.Drawing.Color.Transparent;
+			this.cal3.FocusOnHover = false;
+			this.cal3.Location = new System.Drawing.Point(383, 222);
+			this.cal3.MaxLength = 32767;
+			this.cal3.Multiline = false;
+			this.cal3.Name = "cal3";
+			this.cal3.ReadOnly = false;
+			this.cal3.Size = new System.Drawing.Size(39, 29);
+			this.cal3.TabIndex = 8;
+			this.cal3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.cal3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.cal3.UseSystemPasswordChar = false;
+			// 
+			// cal4
+			// 
+			this.cal4.BackColor = System.Drawing.Color.Transparent;
+			this.cal4.FocusOnHover = false;
+			this.cal4.Location = new System.Drawing.Point(298, 257);
+			this.cal4.MaxLength = 32767;
+			this.cal4.Multiline = false;
+			this.cal4.Name = "cal4";
+			this.cal4.ReadOnly = false;
+			this.cal4.Size = new System.Drawing.Size(37, 29);
+			this.cal4.TabIndex = 9;
+			this.cal4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.cal4.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.cal4.UseSystemPasswordChar = false;
+			// 
+			// cal5
+			// 
+			this.cal5.BackColor = System.Drawing.Color.Transparent;
+			this.cal5.FocusOnHover = false;
+			this.cal5.Location = new System.Drawing.Point(341, 257);
+			this.cal5.MaxLength = 32767;
+			this.cal5.Multiline = false;
+			this.cal5.Name = "cal5";
+			this.cal5.ReadOnly = false;
+			this.cal5.Size = new System.Drawing.Size(36, 29);
+			this.cal5.TabIndex = 10;
+			this.cal5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.cal5.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.cal5.UseSystemPasswordChar = false;
+			// 
+			// cal6
+			// 
+			this.cal6.BackColor = System.Drawing.Color.Transparent;
+			this.cal6.FocusOnHover = false;
+			this.cal6.Location = new System.Drawing.Point(383, 257);
+			this.cal6.MaxLength = 32767;
+			this.cal6.Multiline = false;
+			this.cal6.Name = "cal6";
+			this.cal6.ReadOnly = false;
+			this.cal6.Size = new System.Drawing.Size(39, 29);
+			this.cal6.TabIndex = 11;
+			this.cal6.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.cal6.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.cal6.UseSystemPasswordChar = false;
+			// 
+			// btn_tab7_upgradeCALS
+			// 
+			this.btn_tab7_upgradeCALS.BackColor = System.Drawing.Color.Transparent;
+			this.btn_tab7_upgradeCALS.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
+			this.btn_tab7_upgradeCALS.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_tab7_upgradeCALS.DialogResult = System.Windows.Forms.DialogResult.None;
+			this.btn_tab7_upgradeCALS.Font = new System.Drawing.Font("Segoe UI", 12F);
+			this.btn_tab7_upgradeCALS.Location = new System.Drawing.Point(298, 293);
+			this.btn_tab7_upgradeCALS.Name = "btn_tab7_upgradeCALS";
+			this.btn_tab7_upgradeCALS.Rounded = false;
+			this.btn_tab7_upgradeCALS.Size = new System.Drawing.Size(162, 43);
+			this.btn_tab7_upgradeCALS.TabIndex = 12;
+			this.btn_tab7_upgradeCALS.Text = "Actualizar Calificaciones ";
+			this.btn_tab7_upgradeCALS.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+			this.btn_tab7_upgradeCALS.Click += new System.EventHandler(this.btn_tab7_upgradeCALS_Click);
 			// 
 			// Frame
 			// 
@@ -1550,8 +1671,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgv_tab4_Vulnerables)).EndInit();
 			this.tab5_Docente_CrearCurso.ResumeLayout(false);
 			this.tab5_Docente_CrearCurso.PerformLayout();
-			this.tab6_Docente_CursoLista.ResumeLayout(false);
-			this.tab6_Docente_CursoLista.PerformLayout();
+			this.tab6_Docente_ListaDeCursos.ResumeLayout(false);
+			this.tab6_Docente_ListaDeCursos.PerformLayout();
 			this.tab7_Docente_InscripcionAlumnos.ResumeLayout(false);
 			this.tab7_Docente_InscripcionAlumnos.PerformLayout();
 			this.ResumeLayout(false);
@@ -1579,7 +1700,7 @@
 		private System.Windows.Forms.TabPage tab3_Docente_VistaGeneral;
 		private System.Windows.Forms.TabPage tab4_Docente_CursoGeneral;
 		private System.Windows.Forms.TabPage tab5_Docente_CrearCurso;
-		private System.Windows.Forms.TabPage tab6_Docente_CursoLista;
+		private System.Windows.Forms.TabPage tab6_Docente_ListaDeCursos;
 		private System.Windows.Forms.TabPage tab7_Docente_InscripcionAlumnos;
 		private FlatUI.FlatMini flatMini1;
 		private FlatUI.FlatStickyButton btn_tab3_GrupoInscrito;
@@ -1657,11 +1778,18 @@
 		private FlatUI.FlatButton flatButton1;
 		private FlatUI.FlatLabel lbl_tab7_inscribira;
 		private FlatUI.FlatButton btn_tab7_regresarAListaDeCurso;
-		private FlatUI.FlatButton flatButton3;
-		private FlatUI.FlatButton flatButton2;
+		private FlatUI.FlatButton btn_tab7_eliminar;
+		private FlatUI.FlatButton btn_tab7_insciribir;
 		private FlatUI.FlatTextBox txtbox_tab7_userName;
 		private System.Windows.Forms.ListView lvw_tab7_enrolledStudents;
 		private System.Windows.Forms.ColumnHeader Nombre;
+		private FlatUI.FlatTextBox cal6;
+		private FlatUI.FlatTextBox cal5;
+		private FlatUI.FlatTextBox cal4;
+		private FlatUI.FlatTextBox cal3;
+		private FlatUI.FlatTextBox cal2;
+		private FlatUI.FlatTextBox cal1;
+		private FlatUI.FlatButton btn_tab7_upgradeCALS;
 	}
 }
 

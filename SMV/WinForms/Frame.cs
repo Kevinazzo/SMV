@@ -176,6 +176,15 @@ namespace WinForms
 				lvw_tab6_GroupList.Items.Add(item);
 			}
 		}
+		public void refreshStudentListBiew()
+		{
+			for (int i = 0; i < BusinessLogic.Functions.BLLmasterList[0].Select(a=> a).Count(); i++)
+			{
+				ListViewItem item = new ListViewItem(BusinessLogic.Functions.BLLmasterList[0].ElementAt(i));
+				item.Name = BusinessLogic.Functions.BLLmasterList[0].ElementAt(i);
+				lvw_tab7_enrolledStudents.Items.Add(item);
+			}
+		}
 
 		#endregion
 
@@ -397,7 +406,7 @@ namespace WinForms
 			BusinessLogic.Functions.selectCourses();
 			BusinessLogic.Functions.importCourses();
 			refreshListView();
-			tabControl.SelectedTab = tab6_Docente_CursoLista;
+			tabControl.SelectedTab = tab6_Docente_ListaDeCursos;
 			
 		}
 
@@ -409,7 +418,7 @@ namespace WinForms
 
 		private void btn_tab3_GrupolistaProf_Click(object sender, EventArgs e)
 		{
-			tabControl.SelectedTab = tab6_Docente_CursoLista;
+			tabControl.SelectedTab = tab6_Docente_ListaDeCursos;
 			lvw_tab6_GroupList.Items.Clear();
 			refreshListView();
 		}
@@ -433,9 +442,7 @@ namespace WinForms
 		private void btn_tab5_cancelar_Click(object sender, EventArgs e)
 		{
 			tabControl.SelectedTab = tab3_Docente_VistaGeneral;
-			
 		}
-
 		private void btn_tab6_EraseCourse_Click(object sender, EventArgs e)
 		{
 			if (lvw_tab6_GroupList.SelectedItems.Count >0)
@@ -448,8 +455,6 @@ namespace WinForms
 					BusinessLogic.Functions.importCourses();
 					lvw_tab6_GroupList.Items[lvw_tab6_GroupList.SelectedItems[0].Name].Remove();
 				}
-
-				
 			}
 		}
 
@@ -457,24 +462,60 @@ namespace WinForms
 		{
 			tabControl.SelectedTab = tab4_Alumno_ListaDeCursos;
 		}
-
 		private void flatButton2_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				BusinessLogic.Functions.enrollStudent(txtbox_tab7_userName.Text, BusinessLogic.Functions.getCourseID(txtbox_tab7_userName.Text));
-				ListViewItem item = new ListViewItem()
+				if (txtbox_tab7_userName.Text.Length > 0)
+				{
+					BusinessLogic.Functions.enrollStudent(txtbox_tab7_userName.Text, BusinessLogic.Functions.getCourseID(lbl_tab7_inscribira.Text));
+					ListViewItem item = new ListViewItem(txtbox_tab7_userName.Text);
+					lvw_tab7_enrolledStudents.Items.Add(item);
+					txtbox_tab7_userName.Text = "";
+				}
+			
 			}
 			catch (MySqlException)
 			{ 
 
 			}
 		}
-
 		private void btn_tab6_EnrollStudents_Click(object sender, EventArgs e)
 		{
-			tabControl.SelectedTab = tab7_Docente_InscripcionAlumnos;
-			lbl_tab7_inscribira.Text = lvw_tab6_GroupList.SelectedItems[0].Name;
+			if (lvw_tab6_GroupList.SelectedItems.Count > 0)
+			{
+				BusinessLogic.Functions.clearBLLMasterList();
+				BusinessLogic.Functions.getMasterList(BusinessLogic.Functions.getCourseID(lvw_tab6_GroupList.SelectedItems[0].Text));
+				BusinessLogic.Functions.importMasterList();
+				refreshStudentListBiew();
+				tabControl.SelectedTab = tab7_Docente_InscripcionAlumnos;
+				lbl_tab7_inscribira.Text = lvw_tab6_GroupList.SelectedItems[0].Name;
+			}
+			
+		}
+
+		private void btn_tab7_eliminar_Click(object sender, EventArgs e)
+		{
+			if (lvw_tab7_enrolledStudents.SelectedItems.Count >0)
+			{
+				if (MsgBox.Show("Desea Borrar el Alumno Seleccionado?",CustomMessageBox.CustomMessageBoxButtons.OkCancel)==DialogResult.OK)
+				{
+					BusinessLogic.Functions.eraseStudent(lvw_tab7_enrolledStudents.SelectedItems[0].Text, BusinessLogic.Functions.getCourseID(txtbox_tab7_userName.Text));
+					lvw_tab7_enrolledStudents.SelectedItems[0].Remove();
+				}
+			}	
+		}
+
+		private void btn_tab7_upgradeCALS_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				BusinessLogic.Functions.updateCals(lvw_tab7_enrolledStudents.SelectedItems[0].Name, cal1.Text, cal2.Text, cal3.Text, cal4.Text, cal5.Text, cal6.Text);
+			}
+			catch (MySqlException)
+			{
+				MsgBox.Show("Error");
+			}
 		}
 	}
 }

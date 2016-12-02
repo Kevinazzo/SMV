@@ -17,6 +17,8 @@ namespace BusinessLogic
 		public static bool loggedAsTeacher;
 		public static BusinessEntities.user currentSession;
 		public static List<List<string>> courseList = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>()};
+		public static List<string> rolledStudents = new List<string>();
+		public static List<List<string>> BLLmasterList = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>() };
 		#endregion
 
 		#region toDataAccessLayer
@@ -82,7 +84,6 @@ namespace BusinessLogic
 				return false;
 			} 
 		}
-	
 		public static void registerNewUser(string Usr,string name,string Ln,string psw,string code)
 		{
 			DataAccessLayer.Context.INSERTINTOuser(Usr, name, Ln, psw,code);
@@ -164,13 +165,78 @@ namespace BusinessLogic
 		}
 		#endregion
 		#region EnrollStudents
-		public static void enrollStudent(string userName,int IDo)
+		public static bool enrollStudent(string userName,int IDo)
 		{
 			clearTmpList();
-			DataAccessLayer.Context.INSERTINTOmasterList(userName, IDo);
+			try
+			{
+				DataAccessLayer.Context.INSERTINTOmasterList(userName, IDo);
+				return true;
+			}
+			catch (MySqlException)
+			{
+				return false;
+			}
+		}
+		public static void eraseStudent(string usr, int id)
+		{
+			DataAccessLayer.Context.DROPFROMmasterList(usr, id);
+		}
+		public static void getMasterList(int ido)
+		{
+			DataAccessLayer.Context.SELECTFROMmasterList(ido);
+		}
+		public static void clearBLLMasterList()
+		{
+			for (int i = 0; i < BLLmasterList.Count; i++)
+			{
+				BLLmasterList[i].Clear();
+			}
+		}
+		public static void importMasterList()
+		{
+			for (int i = 0; i < DataAccessLayer.Context.DALmasterList[0].Count; i++)
+			{
+				BLLmasterList[0].Add(DataAccessLayer.Context.DALmasterList[0].ElementAt(i));
+			}
+			for (int i = 0; i < DataAccessLayer.Context.DALmasterList[0].Count; i++)
+			{
+				BLLmasterList[1].Add(DataAccessLayer.Context.DALmasterList[1].ElementAt(i));
+			}
+			for (int i = 0; i < DataAccessLayer.Context.DALmasterList[0].Count; i++)
+			{
+				BLLmasterList[2].Add(DataAccessLayer.Context.DALmasterList[2].ElementAt(i));
+			}
+			for (int i = 0; i < DataAccessLayer.Context.DALmasterList[0].Count; i++)
+			{
+				BLLmasterList[3].Add(DataAccessLayer.Context.DALmasterList[3].ElementAt(i));
+			}
+			for (int i = 0; i < DataAccessLayer.Context.DALmasterList[0].Count; i++)
+			{
+				BLLmasterList[4].Add(DataAccessLayer.Context.DALmasterList[4].ElementAt(i));
+			}
+			for (int i = 0; i < DataAccessLayer.Context.DALmasterList[0].Count; i++)
+			{
+				BLLmasterList[5].Add(DataAccessLayer.Context.DALmasterList[5].ElementAt(i));
+			}
+			for (int i = 0; i < DataAccessLayer.Context.DALmasterList[0].Count; i++)
+			{
+				BLLmasterList[6].Add(DataAccessLayer.Context.DALmasterList[6].ElementAt(i));
+			}
+			for (int i = 0; i < DataAccessLayer.Context.DALmasterList[0].Count; i++)
+			{
+				BLLmasterList[7].Add(DataAccessLayer.Context.DALmasterList[7].ElementAt(i));
+			}
 		}
 		#endregion
-		
+
+		#region upgrade
+		public static void updateCals (string URS,string asa,string bs,string cs,string ds,string es, string fs)
+		{
+			DataAccessLayer.Context.upgradeCALS(URS, asa, bs, cs, ds, es, fs);
+		}
+		#endregion
+
 		#endregion
 
 		#region logic

@@ -24,10 +24,9 @@ namespace DataAccessLayer
 		public static List<string>[] accountsList = { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>() };
 		public static string[] currentSesionInfo = new string[4];
 		public static List<List<string>> LoL = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), };
-		public static List<List<string>> masterList = new List<List<string>> { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>() };
+		public static List<List<string>> DALmasterList = new List<List<string>> { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>() };
 		public static List<List<string>> Col3tmpStringList = new List<List<string>> { new List<string>(), new List<string>() };
 
-	public static float[] cals = new float[4];
 		#endregion
 		#region Notes(calificaciones)
 
@@ -114,9 +113,9 @@ namespace DataAccessLayer
 			command = new MySqlCommand(query, connection);
 			command.ExecuteNonQuery();
 		}
-		public static void INSERTINTOmasterList (string UN,int ID)
+		public static void INSERTINTOmasterList(string UN, int ID)
 		{
-			string query = "INSERT INTO masterList values('" + UN + "','" + ID + "');";
+			string query = "INSERT INTO masterList values('" + UN + "','" + ID + "','1','1','1','1','1','1');";
 			command = new MySqlCommand(query, connection);
 			command.ExecuteNonQuery();
 		}
@@ -173,11 +172,11 @@ namespace DataAccessLayer
 		}
 		public static void loadCourseMasterList(string userName, int ID)
 		{
-			string query="SELECT userName FROM user WHERE username='" + userName + "';";
+			string query = "SELECT userName FROM user WHERE username='" + userName + "';";
 			command = new MySqlCommand(query, connection);
 			reader = command.ExecuteReader();
 
-			while (reader.Read()) 
+			while (reader.Read())
 			{
 
 			}
@@ -210,15 +209,16 @@ namespace DataAccessLayer
 		#region FROMcourse
 		public static int getCourseId(string name)
 		{
-			string x="";
+			int x = 0;
 			string query = "SELECT ID FROM course WHERE name='" + name + "';";
 			command = new MySqlCommand(query, connection);
 			reader = command.ExecuteReader();
-			if (reader.Read())
+			while (reader.Read())
 			{
-				x = (reader["ID"]+"");
+				x = (reader.GetInt32("ID"));
 			}
-			return int.Parse(x);
+			reader.Close();
+			return x;
 		}
 		public static void refreshLoL()
 		{
@@ -255,6 +255,48 @@ namespace DataAccessLayer
 			command.ExecuteNonQuery();
 		}
 
+		#endregion
+		#region FROMmasterList
+
+		public static void SELECTFROMmasterList(int Idi)
+		{
+			clearDALMasterList();
+			string query = "SELECT * FROM masterList WHERE ID_course='" + Idi + "';";
+			command = new MySqlCommand(query, connection);
+			reader = command.ExecuteReader();
+
+			while (reader.Read())
+			{
+				DALmasterList[0].Add(reader["userName"] + "");
+				DALmasterList[1].Add(reader.GetInt32("ID_course").ToString());
+				DALmasterList[2].Add(reader.GetFloat("un1").ToString());
+				DALmasterList[3].Add(reader.GetFloat("un2").ToString());
+				DALmasterList[4].Add(reader.GetFloat("un3").ToString());
+				DALmasterList[5].Add(reader.GetFloat("un4").ToString());
+				DALmasterList[6].Add(reader.GetFloat("un5").ToString());
+				DALmasterList[7].Add(reader.GetFloat("un6").ToString());
+			}
+			reader.Close();
+		}
+		public static void DROPFROMmasterList(string user, int IDO)
+		{
+			string query = "DELETE FROM masterList WHERE userName='" + user + "' AND ID_course='" + IDO + "';";
+			command = new MySqlCommand(query, connection);
+			command.ExecuteNonQuery();
+		}
+		public static void clearDALMasterList()
+		{
+			for (int i = 0; i < DALmasterList.Count; i++)
+			{
+				DALmasterList[i].Clear();
+			}
+		}
+		public static void upgradeCALS(string usr,string a, string b, string c, string d, string e, string f)
+		{
+			string query = "UPDATE masterList un1=" + a + ",un2=" + b + ",un3=" + c + ",un4=" + d + ",un5=" + e + ",un6=" + f + " WHERE userName='"+usr+"';";
+			command = new MySqlCommand(query, connection);
+			command.ExecuteNonQuery();
+		}
 		#endregion
 
 		#endregion
