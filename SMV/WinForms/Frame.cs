@@ -165,10 +165,9 @@ namespace WinForms
 
 		#region DGV
 
-
-		public void populateDGV()
+		public void populateListView()
 		{
-			dgv_courseList.DataSource = BusinessLogic.Functions.dgvSourceCourseView;
+			
 		}
 
 		#endregion
@@ -382,6 +381,7 @@ namespace WinForms
 		{
 			tabControl.SelectedTab = tab5_Docente_CrearCurso;
 			BusinessLogic.Functions.getCourses();
+			
 		}
 		private void btn_tab5_aceptar_Click(object sender, EventArgs e)
 		{
@@ -393,6 +393,33 @@ namespace WinForms
 		private void btn_tab6_regresar_Click(object sender, EventArgs e)
 		{
 			tabControl.SelectedTab = tab3_Docente_VistaGeneral;
+		}
+
+		private void btn_tab3_GrupolistaProf_Click(object sender, EventArgs e)
+		{
+			tabControl.SelectedTab = tab6_Docente_CursoLista;
+		}
+
+		private void tab6_Docente_CursoLista_Click(object sender, EventArgs e)
+		{
+
+		}
+		private void dgv_courseList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+
+		}
+
+		private void flatButton1_Click(object sender, EventArgs e)
+		{
+			ListViewItem item = new ListViewItem();
+			foreach (var row in BusinessLogic.Functions.courseList[0].Select(a => a))
+			{
+				item.Text = BusinessLogic.Functions.courseList[0].Select(a=>a).ToString();
+				item.SubItems.Add(BusinessLogic.Functions.courseList[1].Select(a => a==row).ToString());
+				item.SubItems.Add(BusinessLogic.Functions.courseList[2].Select(a => a == row).ToString());
+			}
+			lvw_tab6_GroupList.Items.Add(item);
+			
 		}
 	}
 }

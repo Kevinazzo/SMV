@@ -19,13 +19,12 @@ namespace DataAccessLayer
 		public static MySqlDataReader reader;
 		#endregion
 		#region AccountInfo
-		public static BusinessEntities.course courseList = new BusinessEntities.course();
 		public static BusinessEntities.masterList masterList = new BusinessEntities.masterList();
 
 		public static List<string> userList = new List<string>();
 		public static List<string>[] accountsList = { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>() };
 		public static string[] currentSesionInfo = new string[4];
-		public static List<string>[] table = new List<string>[5];
+		public static List<string>[] courseList = { new List<string>(), new List<string>(), new List<string>(), new List<string>(), new List<string>() };
 
 		public static float[] cals = new float[4];
 		#endregion
@@ -195,17 +194,17 @@ namespace DataAccessLayer
 
 		public static void getCourses()
 		{
-			string query = "SELECT * FROM course;";
+			string query = "SELECT name,grade,`group`,ID FROM course WHERE admin = '" + currentSesionInfo[0] + "';";
 			command = new MySqlCommand(query, connection);
 			reader = command.ExecuteReader();
 
 			while (reader.Read())
 			{
-				table[0].Add(reader["name"] + "");
-				table[1].Add(reader["admin"] + "");
-				table[2].Add(reader.GetChar("grade").ToString());
-				table[3].Add(reader.GetChar("group").ToString());
-				table[4].Add(reader["ID"].ToString() + "");
+
+				courseList[0].Add(reader["name"] + "");
+				courseList[2].Add(reader.GetChar("grade").ToString());
+				courseList[3].Add(reader.GetChar("group").ToString());
+				courseList[4].Add(reader["ID"].ToString() + "");
 			}
 			reader.Close();
 		}

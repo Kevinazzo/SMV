@@ -16,6 +16,7 @@ namespace BusinessLogic
 		public static bool logged;
 		public static bool loggedAsTeacher;
 		public static BusinessEntities.user currentSession;
+		public static List<string>[] courseList = { new List<string>(), new List<string>(), new List<string>() };
 		#endregion
 
 		#region toDataAccessLayer
@@ -132,13 +133,12 @@ namespace BusinessLogic
 		{
 			DataAccessLayer.Context.INSERTINTOcourse(Cname,Cgrade,Cgroup);
 		}
-		public static List<string>[] dgvSourceCourseView = new List<string>[3];
 
 		public static void importDGVnames()
 		{
-			dgvSourceCourseView[0] = DataAccessLayer.Context.courseList.nameAdmin[0].Select(a => a).ToList();
-			dgvSourceCourseView[1] = DataAccessLayer.Context.courseList.gradeGrup[0].Select(a => a.ToString()).ToList();
-			dgvSourceCourseView[2] = DataAccessLayer.Context.courseList.gradeGrup[1].Select(a => a.ToString()).ToList();
+			courseList[0] = DataAccessLayer.Context.courseList[0].Select(a => a).ToList();
+			courseList[1] = DataAccessLayer.Context.courseList[2].Select(a => a.ToString()).ToList();
+			courseList[2] = DataAccessLayer.Context.courseList[3].Select(a => a.ToString()).ToList();
 		}
 		#endregion
 
